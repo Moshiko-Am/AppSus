@@ -1,6 +1,6 @@
 @import url('basic/fonts.css');
 @import url('apps/keep/pages/keep-app.css');
-@import url('apps/mail/cmps/email-compose.css');
+@import url('apps/mail/pages/email-app.css');
 
 * {
 	box-sizing: border-box;
@@ -13,11 +13,13 @@
 	--yellow: #fbbc05;
 	--green: #34a853;
 	--dark-gray: #202124;
+	--white: #f5f5f5;
 }
 
 body {
 	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 
 h1,

@@ -1,0 +1,34 @@
+.email-preview-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 3px solid #ddd;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+.email-preview-container:hover {
+	background-color: #eeeeee;
+}
+
+.email-to-txt,
+.email-sent-at {
+	padding: 10px;
+}
+
+.email-subject-txt::after {
+	content: ' - ';
+}
+
+.unread {
+	font-weight: 700;
+}
+
+.read {
+	font-weight: 400;
+}
+
+.email-body-txt {
+	color: gray;
+}

@@ -1,7 +1,8 @@
-// import { emailService } from '../../services/async-storage-service.js';
 import emailHeader from '../cmps/email-header.js';
 import emailList from '../cmps/email-list.js';
 import emailCompose from '../cmps/email-compose.js';
+import { emailService } from '../services/email-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
 	components: {
@@ -12,12 +13,9 @@ export default {
 	template: `
     <section>
         <email-header />
-        <main class="email-app-body">
-            <div class="email-list-container">
-                <!-- <email-list v-if="!composeShow"/> -->
-            </div>
-            <email-compose v-if="composeShow"/>
-            <aside>
+        <main class="email-app-body" > 
+            <email-compose v-if="composeShow" @closeCompose="toggleCompose" @send="sendEmail"/>
+            <aside class="email-stats-container">
                 <div class="compose-btn-container">
                     <button class="btn btn-compose-new" @click=toggleCompose>+ Compose</button>
                 </div>
@@ -45,17 +43,36 @@ export default {
                     </div>
                 </div>
             </aside>
+            <div class="email-list-container">
+                <email-list v-if="!composeShow" :emails="emails" @remove="removeEmail"/>
+            </div>
         </main>
     </section>
     `,
 	data() {
 		return {
 			composeShow: false,
+			emails: [],
 		};
 	},
 	methods: {
 		toggleCompose() {
 			this.composeShow = !this.composeShow;
 		},
+		removeEmail() {
+			emailService.read().then((messages) => {
+				this.emails = messages;
+			});
+		},
+		sendEmail() {
+			emailService.read().then((messages) => {
+				this.emails = messages;
+			});
+		},
+	},
+	created() {
+		emailService.read().then((messages) => {
+			this.emails = messages;
+		});
 	},
 };

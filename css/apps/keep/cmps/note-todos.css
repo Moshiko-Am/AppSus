@@ -1,0 +1,14 @@
+.todos-list {
+    list-style: none;
+    padding: 0;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todos-list .list-item:not(:first-child){
+    border-top:1px solid lightgray
+}

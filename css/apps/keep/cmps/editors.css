@@ -1,5 +1,5 @@
-.txt-editor { 
-    height: 400px;
+.editor { 
+    min-height: 400px;
     width: 400px;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 5px 1px #333333; 
@@ -7,18 +7,27 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    background-color: white;
+    z-index: 1;
 }
 
-.txt-editor input,textarea{
+.editor input,textarea{
     border: none;
     padding: 10px;
-    /* font-size: 1.1rem; */
     font-family: roboto-regular;
     resize: none;
 }
 
-.txt-title {
-    font-size: 1.8rem;
+.editor input:focus,textarea:focus {
+    outline: none;
+}
+
+.img-title,.list-title,.txt-title {
+    font-size: 2rem;
 }
 
 .txt-content {

@@ -15,17 +15,19 @@ const starterKeeps = [
 		info: {
 			title:"Hello World",
 			txt: "Fullstack Me Baby!"
-		}
+		},
+		id:'Awf1H'
 	},
 	{
 		type: "NoteImg",
 		info: {
-			url: "http://some-img/me",
+			url: "img/gmail.png",
 			title: "Me playing Mi"
 		},
 		style: {
 			backgroundColor: "#00d"
-		}
+		},
+		id:'Aw23H'
 	},
 	{
 		type: "NoteTodos",
@@ -35,7 +37,8 @@ const starterKeeps = [
 				{ txt: "Do that", doneAt: null },
 				{ txt: "Do this", doneAt: 187111111 }
 			]
-		}
+		},
+		id:'Tdf1H'
 	}
 ]
 
@@ -56,6 +59,6 @@ function update() {
 
 }
 
-function remove() {
-	
+function remove(keepId) {
+	return storageService.remove(KEEP_KEY,keepId);
 }

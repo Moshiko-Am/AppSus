@@ -1,10 +1,10 @@
 export default {
     template: `
-        <section class="img-editor">
+        <section class="img-editor editor">
             <input type="text" class="url-input" v-model="videoUrl"  placeholder="Enter video Url">
             <button @click="findVideo">Get video</button>
             <div>
-                <video :src="note.info.url" type="video/ogg" controls></video>
+                <iframe :src="note.info.url"></iframe>
             </div>
             <input type="text" v-model="note.info.title" class="img-title">
             <div class="edit-btns">

@@ -7,7 +7,7 @@ import { keepService } from "../services/keep-service.js";
 export default {
     template: `
     <section class="note-create">
-        <div v-if="!type" class="note-types">
+        <div class="note-types">
         <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note">
         <button class="btn-note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/text.png" alt=""></button>
         <button class="btn-note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/img-icon.png" alt=""></button>
@@ -19,7 +19,7 @@ export default {
         <!-- <list-editor @addNote="addNote" /> -->
         <!-- <img-editor @addNote="addNote" /> -->
         <!-- <video-editor @addNote="addNote" /> -->
-        <component v-if="type" :is="editorType"></component>
+        <component v-if="type" @addNote="addNote" :is="editorType"></component>
     </section>
     `,
     data(){
@@ -36,6 +36,7 @@ export default {
             console.log('hi');
             keepService.create(note).then(()=>{
                 this.$emit('updateKeeps')
+                this.type = null;
             });
         }
     },

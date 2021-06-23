@@ -1,6 +1,6 @@
 export default {
     template: `
-        <section class="img-editor">
+        <section class="img-editor editor">
             <input type="text" class="url-input" v-model="imgUrl"  placeholder="Enter Image Url">
             <button @click="findImage">Get Image</button>
             <div>

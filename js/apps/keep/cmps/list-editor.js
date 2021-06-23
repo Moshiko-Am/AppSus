@@ -1,14 +1,14 @@
 export default {
     template: `
-        <section class="list-editor">
+        <section class="list-editor editor">
             <input type="text" class="list-title" v-model="note.info.label" placeholder="List Name">
             <div>
                 <button @click="addTodo">+</button>
-                <input type="text" v-model="currTodo.txt" class="list-item">
+                <input type="text" v-model="currTodo.txt">
             </div>
             <div v-if="note.info.todos.length" class="todos-list">
                 <ul>
-                    <li v-for="todo in note.info.todos">
+                    <li v-for="todo in note.info.todos" class="list-item">
                         <p>{{todo.txt}}</p>
                     </li>
                 </ul>

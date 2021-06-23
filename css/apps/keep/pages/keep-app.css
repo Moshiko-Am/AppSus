@@ -1,7 +1,7 @@
 @import url(../cmps/note-create.css);
-@import url(../cmps/txt-editor.css);
-@import url(../cmps/list-editor.css);
-@import url(../cmps/img-editor.css);
+@import url(../cmps/editors.css);
+@import url(../cmps/note-todos.css);
+@import url(../cmps/edit-keep-bar.css);
 
 *{
     font-family: roboto-regular;
@@ -10,16 +10,31 @@
 .keeps-container{
     column-count: 4;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
+    /* margin: 20px; */
 }
 
 .keep {
     padding: 10px;
-    background-color: #4286f42d;
-    border : 2px solid #4285F4;
+    padding-bottom: 0px;
     border-radius: 10px;
     margin: 15px;
-    margin-top: 0;
     height: fit-content;
     break-inside: avoid-column;
+    position: relative;
+    border:1px solid lightgray;
+    border-radius: 5px;    
+}
+
+.note {
+    margin: 10px;
+}
+
+.btn-keep-remove {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
 }

@@ -3,6 +3,7 @@ import aboutPage from './pages/about-page.js';
 import bookApp from './apps/book/pages/book-app.js';
 import mailApp from './apps/email/pages/email-app.js';
 import keepApp from './apps/keep/pages/keep-app.js';
+import emailDetails from './apps/email/pages/email-details.js';
 
 const routes = [
 	{
@@ -20,6 +21,10 @@ const routes = [
 	{
 		path: '/mail',
 		component: mailApp,
+	},
+	{
+		path: '/mail/:emailId',
+		component: emailDetails,
 	},
 	{
 		path: '/keep',

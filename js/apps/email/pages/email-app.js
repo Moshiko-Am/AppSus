@@ -1,6 +1,8 @@
 import emailHeader from '../cmps/email-header.js';
 import emailList from '../cmps/email-list.js';
 import emailCompose from '../cmps/email-compose.js';
+import emailDetails from '../pages/email-details.js';
+import emailStatus from '../cmps/email-status.js';
 import { emailService } from '../services/email-service.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 
@@ -9,6 +11,8 @@ export default {
 		emailHeader,
 		emailList,
 		emailCompose,
+		emailDetails,
+		emailStatus,
 	},
 	template: `
     <section>
@@ -19,32 +23,13 @@ export default {
                 <div class="compose-btn-container">
                     <button class="btn btn-compose-new" @click=toggleCompose>+ Compose</button>
                 </div>
-                <div class="email-status-container">
-                    <div class="email-status-inbox">
-                        <img src="" />
-                        <p>Inbox</p>
-                    </div>
-                    <div class="email-status-starred">
-                        <img src="" />
-                        <p>Starred</p>
-                    </div>
-                    <div class="email-status-sent-mail">
-                        <img src="" />
-                        <p>Sent Mail</p>
-                    </div>
-                    <div class="email-status-drafts">
-                        <img src="" />
-                        <p>Drafts</p>
-                    </div>
-                    <div class="email-status-bar">
-                        <label>
-                            <progress value="50" max="100">50%</progress>
-                        </label>
-                    </div>
-                </div>
+                <email-status :emails="emails"/>
             </aside>
-            <div class="email-list-container">
-                <email-list v-if="!composeShow" :emails="emails" @remove="removeEmail"/>
+            <div class="email-list-container" v-if="!composeShow && !detailsShow">
+                <email-list :emails="emails" @remove="removeEmail" @showDetails = "toggleDetails"/>
+            </div>
+            <div class="email-details container" v-if="detailsShow && !composeShow && !listShow">
+                <email-details />
             </div>
         </main>
     </section>
@@ -52,12 +37,21 @@ export default {
 	data() {
 		return {
 			composeShow: false,
+			detailsShow: false,
+			listShow: false,
 			emails: [],
 		};
 	},
 	methods: {
 		toggleCompose() {
 			this.composeShow = !this.composeShow;
+			this.detailsShow = false;
+			this.listShow = false;
+		},
+		toggleDetails() {
+			this.detailsShow = true;
+			this.composeShow = false;
+			this.listShow = false;
 		},
 		removeEmail() {
 			emailService.read().then((messages) => {

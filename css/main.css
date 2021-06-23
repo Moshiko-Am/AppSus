@@ -1,4 +1,5 @@
 @import url('basic/fonts.css');
+@import url('apps/mail/cmps/email-compose.css');
 
 * {
 	box-sizing: border-box;

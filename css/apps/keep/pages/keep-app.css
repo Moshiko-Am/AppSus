@@ -1,10 +1,16 @@
-.keeps-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,300px));
-    grid-auto-flow: dense;
-    justify-content: space-evenly;
+@import url(../cmps/note-create.css);
+@import url(../cmps/txt-editor.css);
+@import url(../cmps/list-editor.css);
+@import url(../cmps/img-editor.css);
 
-    text-align: center;
+*{
+    font-family: roboto-regular;
+}
+
+.keeps-container{
+    column-count: 4;
+    margin: auto;
+    padding: 20px;
 }
 
 .keep {
@@ -12,6 +18,8 @@
     background-color: #4286f42d;
     border : 2px solid #4285F4;
     border-radius: 10px;
-    margin: 20px;
+    margin: 15px;
+    margin-top: 0;
     height: fit-content;
+    break-inside: avoid-column;
 }

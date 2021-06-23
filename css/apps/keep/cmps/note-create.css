@@ -1,0 +1,33 @@
+.note-create {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-types {
+    font-family: roboto-regular;
+    display: flex;
+    -webkit-box-shadow: 0px 0px 5px 1px #333333; 
+    box-shadow: 0px 0px 5px 1px #33333360;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.note-types input {
+    border: none;
+    font-size: 1.1rem;
+
+}
+
+.btn-note {
+    margin:0 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.note-type-img {
+    width: 40px;
+    height: 40px;
+}

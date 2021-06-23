@@ -13,6 +13,7 @@ const starterKeeps = [
 		type: "NoteTxt",
 		isPinned: true,
 		info: {
+			title:"Hello World",
 			txt: "Fullstack Me Baby!"
 		}
 	},
@@ -39,18 +40,15 @@ const starterKeeps = [
 ]
 
 
-function create() {
-
+function create(note) {
+	return storageService.post(KEEP_KEY,note)
 }
 
 function read() {
-	return storageService.query(KEEP_KEY).then((keeps) =>{
-		let myKeeps = keeps
-		if(!myKeeps.length){
-			myKeeps = starterKeeps;
-		}
-		storageService.create(KEEP_KEY,myKeeps);
-		return myKeeps
+	return storageService.query(KEEP_KEY).then((keeps) => {
+		if (keeps.length) return keeps
+		storageService.postMany(KEEP_KEY, starterKeeps);
+		return starterKeeps;
 	});
 }
 
@@ -59,5 +57,5 @@ function update() {
 }
 
 function remove() {
-
+	
 }

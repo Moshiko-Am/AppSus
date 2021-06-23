@@ -37,6 +37,10 @@ button {
 	cursor: pointer;
 }
 
+img {
+	width: 100%;
+}
+
 .img {
 	width: 40px;
 }

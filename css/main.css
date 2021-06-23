@@ -1,10 +1,7 @@
 @import url('basic/fonts.css');
-<<<<<<< HEAD
 @import url('apps/keep/pages/keep-app.css');
-=======
 @import url('apps/mail/cmps/email-compose.css');
 
->>>>>>> 1c699cb57db3bd729d9c44efb4c2d09d26711b46
 * {
 	box-sizing: border-box;
 }

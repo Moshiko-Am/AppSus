@@ -3,6 +3,7 @@
 @import url('../cmps/email-preview.css');
 @import url('../cmps/email-preview-open.css');
 @import url('../cmps/email-list.css');
+@import url('../cmps/email-status.css');
 
 .email-header-container {
 	width: 100%;
@@ -16,10 +17,4 @@
 	width: 100%;
 	display: flex;
 	padding-top: 20px;
-}
-
-.email-stats-container {
-	display: flex;
-	flex-direction: column;
-	border: 1px solid black;
 }

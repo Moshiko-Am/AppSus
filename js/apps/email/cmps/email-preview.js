@@ -15,7 +15,7 @@ export default {
                 </div>
                 <span :class="isUnread" class="email-sent-at">{{showTime}}</span>
             </div>
-            <email-preview-open :email="email" v-if="openPreview" @remove="removeEmail"/>
+            <email-preview-open :email="email" v-if="openPreview" @remove="removeEmail" @showDetails = "showDetails"/>
         </section>
     `,
 	data() {
@@ -29,10 +29,14 @@ export default {
 			this.readEmail();
 		},
 		removeEmail() {
+			this.openPreview = false;
 			this.$emit('remove');
 		},
 		readEmail() {
 			this.email.isRead = true;
+		},
+		showDetails() {
+			this.$emit('showDetails');
 		},
 	},
 	computed: {

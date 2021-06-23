@@ -7,6 +7,7 @@ export const emailService = {
 	read,
 	update,
 	remove,
+	getEmailById,
 };
 
 function create(email) {
@@ -22,4 +23,8 @@ function update() {}
 
 function remove(emailId) {
 	return storageService.remove(EMAIL_KEY, emailId);
+}
+
+function getEmailById(emailId) {
+	return storageService.get(EMAIL_KEY, emailId);
 }

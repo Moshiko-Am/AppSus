@@ -1,10 +1,21 @@
+:root {
+	--blue: #4285f4;
+	--red: #bb001b;
+	--peach: #ea4335;
+	--yellow: #fbbc05;
+	--green: #34a853;
+	--dark-gray: #202124;
+}
+
 .compose-container {
 	width: 100%;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .compose-header-container {
 	width: 100%;
 	display: flex;
+	background-color: var(--dark-gray);
 }

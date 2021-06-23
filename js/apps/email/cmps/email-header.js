@@ -6,8 +6,9 @@ export default {
 	},
 	template: `
     <section class="email-header-container">
+        <header-controls />
         <div class="search-container">
-            <img src="img/search.png" class="img search-img">
+            <img src="img/search.icon.svg" class="img search-img">
             <input type="text" placeholder="Search mail">
             <select class="filter-emails">
                 <option value="ALL">All</option>

@@ -6,6 +6,15 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--blue: #4285f4;
+	--red: #bb001b;
+	--peach: #ea4335;
+	--yellow: #fbbc05;
+	--green: #34a853;
+	--dark-gray: #202124;
+}
+
 body {
 	margin: 0;
 	padding: 0;

@@ -12,7 +12,6 @@ const options = {
 	template: `
     <section>
         <user-msg />
-        <header-controls />
         <router-view />
     </section>
     

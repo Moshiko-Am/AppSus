@@ -5,12 +5,12 @@ export const storageService = {
 	put,
 	remove,
 	postMany,
+	create
 };
 
 function query(entityType) {
-	// var entities = JSON.parse(localStorage.getItem(entityType)) || [];
-	// return Promise.resolve(entities);
-	console.log('hey');
+	var entities = JSON.parse(localStorage.getItem(entityType)) || [];
+	return Promise.resolve(entities);
 }
 
 function get(entityType, entityId) {
@@ -34,6 +34,10 @@ function postMany(entityType, newEntities) {
 		_save(entityType, entities);
 		return entities;
 	});
+}
+
+function create(entityType, entity){
+    _save(entityType,entity);
 }
 
 function put(entityType, updatedEntity) {

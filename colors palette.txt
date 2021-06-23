@@ -1,0 +1,5 @@
+blue: #4285F4
+red: #BB001B
+peach: #EA4335
+yellow: #FBBC05
+green: #34A853

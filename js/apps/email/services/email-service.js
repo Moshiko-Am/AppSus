@@ -1,5 +1,7 @@
 import { storageService } from '../../../services/async-storage-service.js';
 
+const EMAIL_KEY = 'emailDB';
+
 export const emailService = {
 	create,
 	read,
@@ -7,10 +9,17 @@ export const emailService = {
 	remove,
 };
 
-function create() {}
+function create(email) {
+	email.sentAt = Date.now();
+	return storageService.post(EMAIL_KEY, email);
+}
 
-function read() {}
+function read() {
+	return storageService.query(EMAIL_KEY);
+}
 
 function update() {}
 
-function remove() {}
+function remove(emailId) {
+	return storageService.remove(EMAIL_KEY, emailId);
+}

@@ -26,7 +26,7 @@ export default {
                 <email-status :emails="emails"/>
             </aside>
             <div class="email-list-container" v-if="!composeShow && !detailsShow">
-                <email-list :emails="emails" @remove="removeEmail" @showDetails = "toggleDetails"/>
+                <email-list :emails="emails" @remove="removeEmail" @showDetails="toggleDetails" />
             </div>
             <div class="email-details container" v-if="detailsShow && !composeShow && !listShow">
                 <email-details />
@@ -54,19 +54,18 @@ export default {
 			this.listShow = false;
 		},
 		removeEmail() {
-			emailService.read().then((messages) => {
-				this.emails = messages;
-			});
+			this.reloadEmails();
 		},
 		sendEmail() {
+			this.reloadEmails();
+		},
+		reloadEmails() {
 			emailService.read().then((messages) => {
 				this.emails = messages;
 			});
 		},
 	},
 	created() {
-		emailService.read().then((messages) => {
-			this.emails = messages;
-		});
+		reloadEmails();
 	},
 };

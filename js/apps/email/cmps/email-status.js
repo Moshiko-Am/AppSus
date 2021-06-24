@@ -21,7 +21,7 @@ export default {
                     </div>
                     <div class="email-status-bar">
                         <label>
-                            <progress value="50" max="100" @click="logNum">50%</progress>
+                            <progress value="sumOfRead" max="sumOfMails"></progress>
                         </label>
                     </div>
                 </div>
@@ -31,13 +31,20 @@ export default {
 			statusMails: null,
 		};
 	},
-	methods: {
-		logNum() {
-			console.log(this.statusMails.length);
+	methods: {},
+	computed: {
+		sumOfMails() {
+			return this.statusMails.length;
+		},
+		sumOfRead() {
+			let sum = this.statusMails.map((mail) => {
+				if (mail.isRead) sum++;
+			});
+			return sum;
 		},
 	},
 	mounted() {
-		this.sumMails = this.emails.length;
+		this.statusMails = this.emails;
 	},
 	created() {
 		emailService.read().then((messages) => {

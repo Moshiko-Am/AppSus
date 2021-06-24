@@ -1,3 +1,4 @@
+import { emailService } from '../services/email-service.js';
 import emailPreviewOpen from './email-preview-open.js';
 
 export default {
@@ -24,7 +25,7 @@ export default {
 		};
 	},
 	methods: {
-		togglePreview() {
+		togglePreview(emailId) {
 			this.openPreview = !this.openPreview;
 			this.readEmail();
 		},

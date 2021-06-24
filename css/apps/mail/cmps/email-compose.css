@@ -47,6 +47,7 @@
 	border: none;
 	outline: none;
 	margin-left: 5px;
+	flex-grow: 1;
 }
 
 .compose-txt {

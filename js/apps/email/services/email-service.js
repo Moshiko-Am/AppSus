@@ -16,10 +16,16 @@ function create(email) {
 }
 
 function read() {
-	return storageService.query(EMAIL_KEY);
+	return storageService.query(EMAIL_KEY).then((res) => {
+		if (!res.length) {
+			// return createEmails()
+		}
+	});
 }
 
-function update() {}
+function update(emailId) {
+	return storageService.put(EMAIL_KEY, emailId);
+}
 
 function remove(emailId) {
 	return storageService.remove(EMAIL_KEY, emailId);

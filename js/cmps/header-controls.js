@@ -2,7 +2,9 @@ export default {
 	template: `
     <header class="app-header">
         <nav>
+        <router-link to='/'>
             <img class="img" src="img/user.png" alt="user-image">
+        </router-link>
             <button @click="toggleMenu">
                 <img class="img img-header-dots" src="img/menu.png" alt="menu-icon">
             </button>

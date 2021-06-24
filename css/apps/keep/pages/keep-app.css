@@ -4,8 +4,12 @@
 @import url(../cmps/edit-keep-bar.css);
 @import url(../cmps/keep-header.css);
 
+.keep-app {
+    height: 100vh;
+}
+
 .keeps-container{
-    columns:4 250px;
+    columns:5 250px;
     padding: 10px;
     margin: 20px;
 }
@@ -44,4 +48,5 @@
 
 iframe {
     width: 100%;
+    border:1px solid lightgray
 }

@@ -14,9 +14,9 @@ export default {
                 </ul>
             </div>
             <div class="edit-btns">
-            <button class="add-btn" @click="addNote">Add</button>
-            <button class="close-btn" @click="closeEditor">Close</button>
-        </div>
+                <button class="add-btn" @click="addNote"><img src="img/google plus.png" alt=""></button>
+                <button class="close-btn" @click="closeEditor"><img src="img/cross.png" alt=""></button>
+            </div>
         </section>
     `,
     data() {

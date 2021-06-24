@@ -8,8 +8,8 @@ export default {
                 <iframe :src="note.info.url"></iframe>
             <input type="text" v-model="note.info.title" placeholder="Video Title" class="img-title">
             <div class="edit-btns">
-            <button class="add-btn" @click="addNote">Add</button>
-            <button class="close-btn" @click="closeEditor">Close</button>
+            <button class="add-btn" @click="addNote"><img src="img/google plus.png" alt=""></button>
+            <button class="close-btn" @click="closeEditor"><img src="img/cross.png" alt=""></button>
         </div>
         </section>
     `,

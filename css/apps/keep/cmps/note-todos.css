@@ -28,5 +28,11 @@
 }
 
 .note-img img{
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.txt-content {
+    border:1px solid lightgray;
     border-radius: 5px;
 }

@@ -11,7 +11,7 @@ import editKeepBar from '../cmps/edit-keep-bar.js';
 
 export default {
     template: `
-    <section>
+    <section class="keep-app">
     <keep-header @filter="setFilter" />
     <note-create @updateKeeps="checkForChanges"/>
     <div class="keeps-container">

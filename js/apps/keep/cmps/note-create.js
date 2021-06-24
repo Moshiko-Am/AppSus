@@ -8,7 +8,8 @@ export default {
     template: `
     <section class="note-create">
         <div class="note-types">
-        <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note">
+        <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note" disabled>
+        <!-- <h3>Add Note</h3> -->
         <button class="btn-note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/text.png" alt=""></button>
         <button class="btn-note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/image.png" alt=""></button>
         <button class="btn-note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/list.png" alt=""></button>

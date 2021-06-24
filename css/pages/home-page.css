@@ -1,0 +1,63 @@
+.home-page {
+height: 100vh;
+background-image: url('../../img/bg/bg-img5.jpg');
+background-size: cover;
+/* height: 70vh; */
+background-repeat: no-repeat;
+background-position: center;
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+color: rgba(0, 0, 0, 0.74);
+}
+
+.main-title {
+    font-size: 4rem;
+    margin: 30px;
+}
+
+
+.home-page-header {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.main-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.apps-menu{
+    display: flex;
+}
+
+.app-card {
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    background-color:rgba(128, 128, 128, 0.267);
+    margin: 20px;
+    border-radius: 5px;
+    transition: box-shadow .3s;
+}
+
+.app-card:hover {
+    box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.425);
+}
+.app-title {
+    margin-bottom: 20px;
+}
+
+.keep-logo {
+    padding: 10px;
+}
+
+.mail-logo {
+    padding: 0 5px
+}

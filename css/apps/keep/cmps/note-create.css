@@ -13,11 +13,14 @@
     padding:0 15px;
     border-radius: 10px;
     align-items: center;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.774);
 }
 
 .note-types input {
     border: none;
     font-size: 1.1rem;
+    background: none;
 
 }
 

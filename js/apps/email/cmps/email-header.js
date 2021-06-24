@@ -13,7 +13,6 @@ export default {
 		<div class="header-logo-container">
                 <h2>Mail</h2>
                 <img class="img header-logo" src="img/gmail.png">
-                <img class="img email-header-menu-btn" src="img/menu (1).png">
             </div>
     </section>
     `,

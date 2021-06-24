@@ -29,6 +29,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
+	font-family: roboto-regular;
 }
 
 a {
@@ -45,4 +46,8 @@ img {
 
 .img {
 	width: 40px;
+}
+
+p {
+	font-family: roboto-regular;
 }

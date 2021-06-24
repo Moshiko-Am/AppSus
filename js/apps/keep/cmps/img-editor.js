@@ -16,6 +16,7 @@ export default {
         return {
             note:{
                 type: "NoteImg",
+                isPinned: false,
                 info: {
                     url: "",
                     title: ""
@@ -33,6 +34,7 @@ export default {
             this.noteToPost = this.note;
             this.note = {
                 type: "NoteImg",
+                isPinned: false,
                 info: {
                     url: "",
                     title: ""

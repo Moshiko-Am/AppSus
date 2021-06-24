@@ -12,3 +12,13 @@
 .todos-list .list-item:not(:first-child){
     border-top:1px solid lightgray
 }
+
+.remove-item-btn{
+    width: 30px;
+    background: none;
+    border: none;
+}
+
+.list-item p {
+    flex: 1;
+}

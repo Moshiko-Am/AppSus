@@ -16,6 +16,7 @@ export default {
         return {
             note: {
                 type: "NoteVid",
+                isPinned: false,
                 info: {
                     url: "",
                     title: ""
@@ -33,6 +34,7 @@ export default {
             this.noteToPost = this.note;
             this.note = {
                 type: "NoteVid",
+                isPinned: false,
                 info: {
                     url: "",
                     title: ""
@@ -45,8 +47,7 @@ export default {
             this.$emit('addNote', { ...this.noteToPost });
         },
         findVideo() {
-            console.log('Hi');
-            this.note.info.url = this.videoUrl;
+            this.note.info.url = 'https://www.youtube.com/embed/'+this.videoUrl.split('=')[1];
         }
     }
 }

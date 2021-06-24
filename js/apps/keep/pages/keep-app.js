@@ -2,6 +2,7 @@ import { keepService } from '../services/keep-service.js';
 import NoteImg from '../cmps/note-img.js';
 import NoteTxt from '../cmps/note-txt.js';
 import NoteTodos from '../cmps/note-todos.js';
+import NoteVid from '../cmps/note-video.js';
 import keepHeader from '../cmps/keep-header.js';
 import noteCreate from '../cmps/note-create.js';
 import editKeepBar from '../cmps/edit-keep-bar.js';
@@ -14,9 +15,13 @@ export default {
     <keep-header />
     <note-create @updateKeeps="checkForChanges"/>
     <div class="keeps-container">
+        <component v-for="keep in keeps" v-if="keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
+        </component>
+    </div>
+    <div class="keeps-container">
         <!-- <div v-for="keep in keeps" class="keep"> -->
             <!-- <button @click="remove(keep.id)">x</button> -->
-            <component v-for="keep in keeps" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
+            <component v-for="keep in keeps" v-if="!keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
             </component>
             <!-- <edit-keep-bar></edit-keep-bar> -->
         </div>
@@ -35,6 +40,7 @@ export default {
         NoteImg,
         NoteTodos,
         NoteTxt,
+        NoteVid,
         keepHeader,
         noteCreate,
         editKeepBar,

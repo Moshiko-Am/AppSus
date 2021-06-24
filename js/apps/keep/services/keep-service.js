@@ -23,6 +23,7 @@ const starterKeeps = [
 	},
 	{
 		type: "NoteImg",
+		isPinned : false,
 		info: {
 			url: "img/gmail.png",
 			title: "Me playing Mi"
@@ -34,6 +35,7 @@ const starterKeeps = [
 	},
 	{
 		type: "NoteTodos",
+		isPinned : false,
 		info: {
 			label: "How was it:",
 			todos: [

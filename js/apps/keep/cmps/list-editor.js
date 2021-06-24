@@ -22,6 +22,7 @@ export default {
         return {
             note: {
                 type: "NoteTodos",
+                isPinned: false,
                 info: {
                     label: "",
                     todos: [],
@@ -43,6 +44,7 @@ export default {
             this.noteToPost = this.note;
             this.note = {
                 type: "NoteTodos",
+                isPinned: false,
                 info: {
                     label: "",
                     todos: [],

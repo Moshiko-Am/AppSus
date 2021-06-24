@@ -14,7 +14,7 @@ export default {
         return {
             note: {
                 type: "NoteTxt",
-                isPinned: true,
+                isPinned: false,
                 info: {
                     title: null,
                     txt: null,
@@ -31,7 +31,7 @@ export default {
             this.noteToPost = this.note;
             this.note = {
                 type: "NoteTxt",
-                isPinned: true,
+                isPinned: false,
                 info: {
                     title: null,
                     txt: null,

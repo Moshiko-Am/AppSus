@@ -4,8 +4,11 @@ export default {
     props : ['keep'],
     template: `
         <section class="note-img" :style="bgColor">
-            <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
-            <h3>{{keep.info.title}}</h3>
+            <div class="top-btns">
+                <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
+                <button class="btn-keep-pin" @click="togglePin"><img :src="imgUrl" alt=""></button>
+            </div>
+            <h3 contenteditable="true" ref="imgTitle" @input="titleChanged">{{keep.info.title}}</h3>
             <img :src="keep.info.url" alt="">
             <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
         </section>
@@ -17,6 +20,14 @@ export default {
         changeBg(color){
             this.keep.style.backgroundColor = color;
             this.$emit('updateKeep',this.keep)
+        },
+        titleChanged(){
+            this.keep.info.title = this.$refs.imgTitle.innerText
+            this.$emit('updateKeep',this.keep)
+        },
+        togglePin(){
+            this.keep.isPinned = !this.keep.isPinned;
+            this.$emit('updateKeep',this.keep)
         }
     },
     components : {
@@ -25,6 +36,10 @@ export default {
     computed: {
         bgColor(){
             return {'background-color':this.keep.style.backgroundColor}
+        },
+        imgUrl(){
+            if(this.keep.isPinned) return 'img/full-pin.png'
+            return 'img/empty-pin.png'
         }
     }
 };

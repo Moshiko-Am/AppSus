@@ -65,6 +65,31 @@
 	font-size: 14px;
 }
 
+.txt-properties-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.img.img-underline,
+.img.img-bold,
+.img.img-italic,
+.txt-color-pick,
+.img.img-rtl,
+.img.img-rtl2 {
+	width: 20px;
+	height: 20px;
+	margin-inline: 10px;
+	cursor: pointer;
+	transition: scale 0.3s;
+}
+
+.img.img-rtl2 {
+	transform: rotate(180deg);
+}
+
 .compose-txt {
 	width: 100%;
 	border: none;

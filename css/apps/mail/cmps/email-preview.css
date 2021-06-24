@@ -11,7 +11,7 @@
 
 .email-preview-container:hover {
 	background-color: #f2f5f5cc;
-	box-shadow: inset 0px 0px 2px 2px #d4d4d4;
+	box-shadow: inset 0px 0px 1px 1px #d4d4d4;
 }
 
 .preview-body-subject {

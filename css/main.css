@@ -72,14 +72,3 @@ p {
 .img.img-header-dots {
 	width: 30px;
 }
-
-.compose-btn-container {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	margin-left: 2rem;
-	width: 100%;
-}
-.img.img-plus {
-	width: 20px;
-}

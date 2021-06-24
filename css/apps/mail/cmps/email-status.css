@@ -12,18 +12,38 @@
 }
 
 .btn-compose-new {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	font-size: 18px;
 	background: none;
-	border-radius: 20px;
+	border-radius: 50px;
+	height: 40px;
 	border: none;
 	margin-bottom: 10px;
 	padding: 5px 10px;
 	transition: all 0.4s;
 	border: 1px solid #f0f0f0;
+	position: relative;
 }
 
 .btn-compose-new:hover {
 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+	border-radius: 20px;
+	padding-right: 100px;
+}
+
+.btn-compose-new::after {
+	transition: all 0.5s;
+	content: 'Compose';
+	position: absolute;
+	left: 40px;
+	opacity: 0;
+}
+
+.btn-compose-new:hover::after {
+	content: 'Compose';
+	opacity: 1;
 }
 
 .email-status {
@@ -55,4 +75,15 @@
 	height: 15px;
 	opacity: 0.7;
 	margin-inline-end: 5px;
+}
+
+.compose-btn-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 2rem;
+	width: 100%;
+}
+.img.img-plus {
+	width: 20px;
 }

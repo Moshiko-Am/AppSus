@@ -26,6 +26,14 @@ export default {
                     <input type="text" v-model="email.emailSubject"/>
                 </div>
             </div>
+			<div class="txt-properties-container">
+				<img src="img/underline.png" class="img img-underline">
+				<img src="img/bold.png" class="img img-bold">
+				<img src="img/italic.png" class="img img-italic">
+				<input type="color" class="txt-color-pick">
+				<img src="img/rtl.png" class="img img-rtl">
+				<img src="img/rtl.png" class="img img-rtl2">
+			</div>
             <div class="compose-txt-area-container">
                 <textarea cols="30" rows="30" class="compose-txt" v-model="email.emailBody"></textarea>
             </div>

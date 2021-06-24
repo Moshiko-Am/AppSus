@@ -3,13 +3,13 @@ export default {
         <section class="list-editor editor">
             <input type="text" class="list-title" v-model="note.info.label" placeholder="List Name">
             <div class="add-item-container">
-                <input type="text" v-model="currTodo.txt">
+                <input type="text" placeholder="List Item" v-model="currTodo.txt">
                 <button @click="addTodo">Add Item</button>
             </div>
             <div class="todos-list">
                 <ul v-if="note.info.todos.length">
-                    <li v-for="todo in note.info.todos" class="list-item">
-                        <p>{{todo.txt}}</p>
+                    <li v-for="(todo,idx) in note.info.todos" class="list-item">
+                        <p>{{todo.txt}}</p><button @click="removeTodo(idx)" class="remove-item-btn"><img src="img/remove.png" alt=""></button>
                     </li>
                 </ul>
             </div>
@@ -59,6 +59,9 @@ export default {
         },
         closeEditor(){
             this.$emit('closeEditor')
+        },
+        removeTodo(idx){
+            this.note.info.todos.splice(idx,1);
         }
     }
 }

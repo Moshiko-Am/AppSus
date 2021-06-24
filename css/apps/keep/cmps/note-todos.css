@@ -22,3 +22,11 @@
 .list-item p {
     flex: 1;
 }
+
+.finished {
+    text-decoration:line-through ;
+}
+
+.note-img img{
+    border-radius: 5px;
+}

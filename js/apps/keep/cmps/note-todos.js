@@ -13,7 +13,8 @@ export default {
             <h3 contenteditable="true" class="todos-label">{{keep.info.label}}</h3>
             <ul class="todos-list">
                 <li  v-for="(todo,idx) in keep.info.todos" class="list-item">
-                    <p contenteditable="true" ref="listItem" @input="itemChanged(idx)">{{todo.txt}}</p>
+                    <p contenteditable="true" ref="listItem" :class="{finished:todo.isDone}" @input="itemChanged(idx)">{{todo.txt}}</p>
+                    <button class="remove-item-btn" @click="toggleTodo(idx)"><img :src="isChecked" alt=""></button>
                     <button class="remove-item-btn" @click="deleteTodo(idx)"><img src="img/remove.png" alt=""></button>
                 </li>
             </ul>
@@ -41,6 +42,10 @@ export default {
         togglePin(){
             this.keep.isPinned = !this.keep.isPinned;
             this.$emit('updateKeep',this.keep)
+        },
+        toggleTodo(idx){
+            this.keep.info.todos[idx].isDone = !this.keep.info.todos[idx].isDone
+            this.$emit('updateKeep',this.keep)
         }
     },
     components: {
@@ -53,6 +58,12 @@ export default {
         imgUrl(){
             if(this.keep.isPinned) return 'img/full-pin.png'
             return 'img/empty-pin.png'
+        },
+        isChecked(){
+            if(this.keep.info.todos.isDone) return 'img/circle-check.png';
+            return 'img/circle-uncheck.png';
+        },
+        finished(){
         }
     }
 };

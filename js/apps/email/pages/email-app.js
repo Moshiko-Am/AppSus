@@ -15,7 +15,7 @@ export default {
 		emailStatus,
 	},
 	template: `
-    <section>
+    <section class="email-app">
         <email-header @filtered="setFilter"/>
         <main class="email-app-body" > 
             <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail"/>

@@ -12,3 +12,13 @@
 	display: flex;
 	padding-top: 20px;
 }
+
+.email-app {
+	height: 100vh;
+	background-image: url('../../../../img/bg/bg-img2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-transition: background-image 1.5s ease;
+	transition: background-image 1.5s ease;
+}

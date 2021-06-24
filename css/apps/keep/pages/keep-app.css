@@ -5,7 +5,13 @@
 @import url(../cmps/keep-header.css);
 
 .keep-app {
-    height: 100vh;
+height: 100vh;
+background-image: url('../../../../img/bg/bg-img6.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+-webkit-transition: background-image 1.5s ease;
+transition: background-image 1.5s ease;
 }
 
 .keeps-container{

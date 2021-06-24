@@ -77,9 +77,9 @@ export default {
 		},
 		isStar() {
 			if (this.email.isStar) {
-				return '/img/starYellow.png';
+				return 'img/starYellow.png';
 			} else {
-				return '/img/starEmpty.png';
+				return 'img/starEmpty.png';
 			}
 		},
 	},

@@ -6,7 +6,7 @@ export default {
             <img class="img" src="img/user.png" alt="user-image">
         </router-link>
             <button @click="toggleMenu">
-                <img class="img img-header-dots" src="img/menu.png" alt="menu-icon">
+                <img class="img img-header-dots" src="img/google menu.png" alt="menu-icon">
             </button>
         </nav>
         <div class="main-menu" v-if="menuShow">

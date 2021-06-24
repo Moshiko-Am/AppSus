@@ -8,12 +8,25 @@
 	--white: #f5f5f5;
 }
 
+.email-header-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid gray;
+}
+
+.header-logo-container {
+	cursor: pointer;
+}
+
 .search-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: #f1f3f4;
-	padding: 10px;
 	border-radius: 10px;
 }
 
@@ -25,20 +38,28 @@
 }
 
 .search-input-container input {
+	padding: 10px 0;
 	border: none;
 	outline: none;
 	background: none;
-	padding: 0;
 	margin-inline-start: 10px;
+	font-size: 1.2em;
 }
 
 .filter-emails {
 	background: none;
 	border: none;
 	outline: none;
+	font-family: 'roboto-regular';
+	cursor: pointer;
 }
 
 .img.search-img {
-	width: 20px;
+	width: 40px;
 	cursor: pointer;
+}
+
+.email-header-menu-btn {
+	padding: 5px;
+	margin: 5px;
 }

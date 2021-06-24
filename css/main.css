@@ -12,7 +12,7 @@
 	--peach: #ea4335;
 	--yellow: #fbbc05;
 	--green: #34a853;
-	--dark-gray: #202124;
+	--dark-gray: #3f3f40;
 	--white: #f5f5f5;
 }
 
@@ -50,4 +50,36 @@ img {
 
 p {
 	font-family: roboto-regular;
+}
+
+.app-header button {
+	background: none;
+	outline: none;
+	border: none;
+	transition: all 0.3s;
+}
+
+.app-header button:hover {
+	transform: scale(1.05);
+}
+
+.app-header nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img.img-header-dots {
+	width: 30px;
+}
+
+.compose-btn-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 2rem;
+	width: 100%;
+}
+.img.img-plus {
+	width: 20px;
 }

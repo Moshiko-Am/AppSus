@@ -3,7 +3,6 @@ export default {
     <section class="email-filter-container">
         <div class="search-container">
             <div class="search-input-container">
-                <img src="img/search.icon.svg" class="img search-img">
                 <input v-model="filterBy.txt" @input="filter" type="text" placeholder="Search mail">
             </div>
             <div class="select-container">

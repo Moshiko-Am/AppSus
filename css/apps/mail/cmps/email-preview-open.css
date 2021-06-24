@@ -5,6 +5,12 @@
 	width: 100%;
 }
 
+.preview-open-body {
+	border-bottom: 1px solid #acacac;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+}
+
 .preview-open-header-container {
 	display: flex;
 	justify-content: space-between;

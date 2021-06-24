@@ -10,7 +10,7 @@ export default {
 	},
 	template: `
         <section>
-            <div class="email-preview-container" @click="togglePreview">
+            <div :class="isUnread" class="email-preview-container" @click="togglePreview">
                 <span :class="isUnread" class="email-to-txt">{{email.emailTo}}</span>
                 <div class="preview-body-subject">
                     <long-text :email="email"></long-text>
@@ -61,6 +61,7 @@ export default {
 		isUnread() {
 			return {
 				unread: !this.email.isRead,
+				read: this.email.isRead,
 			};
 		},
 	},

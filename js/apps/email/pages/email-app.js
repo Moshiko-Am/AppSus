@@ -21,7 +21,9 @@ export default {
             <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail"/>
             <aside class="email-stats-container">
                 <div class="compose-btn-container">
-                    <button class="btn btn-compose-new" @click=toggleCompose>+ Compose</button>
+                    <button class="btn btn-compose-new" @click=toggleCompose>
+						<img src="img/plus.png" class="img img-plus">	
+					</button>
                 </div>
                 <email-status :emails="emails" />
             </aside>

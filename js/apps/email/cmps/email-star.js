@@ -8,7 +8,7 @@ export default {
 	template: `
     <section class="email-list-container">
         <ul class="email-list">
-            <li class="email-item" v-for="email in emailList" :key="email.id" v-if="!email.emailFrom">
+            <li class="email-item" v-for="email in emailList" :key="email.id" v-if="email.isStar">
                 <email-preview :email="email" @remove="removeEmail" @read="readEmails" @star="setStar"/>
             </li>
         </ul>

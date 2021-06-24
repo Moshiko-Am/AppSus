@@ -17,20 +17,22 @@ export default {
             <div class="details-body-header-container">
                 <h3 class="details-body-header">{{this.email.emailTo}}</h3>
                 <div class="details-body-header-btns">
-                    <button class="btn">
-                        <img src="img/trash.png" class="img">
+					<button class="btn" @click="emailReply">
+						<img src="img/reply.png" class="img">
                     </button>
-                    <button class="btn" @click="emailReply">
-                        <img src="img/reply.png" class="img">
-                    </button>
+					<router-link to="/mail/inbox">
+						<button class="btn" @click="removeEmail(email.id)">
+							<img src="img/trash.png" class="img">
+						</button>
+					</router-link>
                 </div>
             </div>
             <div class="details-body-txt-container">
                 <p class="details-body-txt">{{this.email.emailBody}}</p>
             </div>
         </main>
-        <div class="email-compose-container" v-if="showCompose">
-            <email-compose />
+        <div class="email-compose-container" v-show="showCompose">
+            <email-compose :emailSubject="email.emailSubject" :emailAddress="email.emailTo" @closeCompose="close"/>
         </div>
     </section>
     `,
@@ -54,6 +56,13 @@ export default {
 	methods: {
 		emailReply() {
 			this.showCompose = !this.showCompose;
+		},
+		close() {
+			this.showCompose = false;
+		},
+		removeEmail(emailId) {
+			emailService.remove(emailId);
+			this.$emit('remove');
 		},
 	},
 };

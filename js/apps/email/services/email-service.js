@@ -5,17 +5,21 @@ const EMAIL_KEY = 'emailDB';
 const starterEmails = [
 	{
 		id: storageService.makeId(),
+		isStar: false,
+		emailFrom: true,
 		emailTo: 'moshiko@gmail.com',
 		emailCc: 'tom@gmail.com',
 		emailBcc: 'yaron@gmail.com',
 		emailSubject: 'showing you my newest email app',
 		emailBody:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi assumenda beatae quas, et vitae repellendus aperiam sit temporibus atque aut reprehenderit nostrum, impedit similique? Ipsam blanditiis alias eos molestias voluptatum voluptas a dolore praesentium saepe ad explicabo laboriosam, impedit commodi debitis iure, totam expedita et dolorem recusandae excepturi dignissimos quidem.',
-		isRead: false,
+		isRead: true,
 		sentAt: Date.now(),
 	},
 	{
 		id: storageService.makeId(),
+		isStar: false,
+		emailFrom: false,
 		emailTo: 'tom@gmail.com',
 		emailCc: 'moshiko@gmail.com',
 		emailBcc: 'hadas@gmail.com',
@@ -27,6 +31,8 @@ const starterEmails = [
 	},
 	{
 		id: storageService.makeId(),
+		isStar: true,
+		emailFrom: false,
 		emailTo: 'yaron@gmail.com',
 		emailCc: 'asaph@gmail.com',
 		emailBcc: 'moshiko@gmail.com',
@@ -38,6 +44,8 @@ const starterEmails = [
 	},
 	{
 		id: storageService.makeId(),
+		isStar: false,
+		emailFrom: false,
 		emailTo: 'hadas@gmail.com',
 		emailCc: 'moshiko@gmail.com',
 		emailBcc: 'tom@gmail.com',
@@ -49,6 +57,8 @@ const starterEmails = [
 	},
 	{
 		id: storageService.makeId(),
+		isStar: true,
+		emailFrom: false,
 		emailTo: 'shachar@gmail.com',
 		emailCc: 'yaron@gmail.com',
 		emailBcc: 'asaph@gmail.com',
@@ -60,13 +70,15 @@ const starterEmails = [
 	},
 	{
 		id: storageService.makeId(),
+		isStar: false,
+		emailFrom: true,
 		emailTo: 'stu@gmail.com',
 		emailCc: 'stav@gmail.com',
 		emailBcc: 'mySelf@gmail.com',
 		emailSubject: 'lets go to the new theater in town',
 		emailBody:
 			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ratione accusantium sapiente modi odio amet facere omnis fugit. Delectus minus enim sequi expedita ad temporibus illo voluptatibus maxime cum. Veniam, amet! Amet assumenda expedita aut cupiditate perferendis voluptas ab excepturi pariatur porro quo natus sunt molestiae commodi, a nisi beatae.',
-		isRead: false,
+		isRead: true,
 		sentAt: Date.now(),
 	},
 ];

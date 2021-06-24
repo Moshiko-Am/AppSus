@@ -5,7 +5,7 @@ export default {
     <div class="email-status-container">
                     <div class="email-status ">
                         <img src="img/inbox.png" class="img img-inbox" />
-                        <p>Inbox</p>
+                        <p>Inbox {{sumOfUnread}}</p>
                     </div>
                     <div class="email-status ">
                         <img src="img/star.png" class="img img-star"/>
@@ -30,6 +30,7 @@ export default {
 		return {
 			statusMails: [],
 			isRead: 0,
+			isUnread: 0,
 		};
 	},
 	methods: {
@@ -49,6 +50,13 @@ export default {
 				if (email.isRead) this.isRead++;
 			});
 			return this.isRead;
+		},
+		sumOfUnread() {
+			this.isUnread = 0;
+			this.emails.forEach((email) => {
+				if (!email.isRead) this.isUnread++;
+			});
+			return ` (${this.isUnread})`;
 		},
 	},
 	mounted() {

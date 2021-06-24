@@ -1,14 +1,11 @@
 import headerControls from '../../../cmps/header-controls.js';
-
+import keepFilter from './keep-filter.js';
 
 export default {
     template: `
         <section class="keep-header">
             <header-controls />
-            <div class="search-input-container">
-                <input type="search" placeholder="search">
-                <img src="img/search.icon.svg" alt="">
-            </div>
+            <keep-filter @filtered="filter"></keep-filter>
             <div class="header-logo-container">
                 <h2>Keep</h2>
                 <img class="header-logo" src="img/keep.png" alt="">
@@ -18,5 +15,11 @@ export default {
     `,
     components : {
         headerControls,
+        keepFilter,
     },
+    methods: {
+        filter(filter){
+            this.$emit('filter',filter);
+        }
+    }
 }

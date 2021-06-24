@@ -1,15 +1,16 @@
 export default {
     template: `
         <section class="img-editor editor">
-            <input type="text" class="url-input" v-model="imgUrl"  placeholder="Enter Image Url">
-            <button @click="findImage">Get Image</button>
-            <div>
-                <img :src="note.info.url" alt="">
+            <div class="img-url-container">
+                <input type="text" class="url-input" v-model="imgUrl"  placeholder="Enter Image Url">
+                <button class="img-btn" @click="findImage">Get Image</button>
             </div>
-            <input type="text" v-model="note.info.title" class="img-title">
+            <img :src="note.info.url" alt="">
+            <input type="text" v-model="note.info.title" placeholder="Your Title" class="img-title">
             <div class="edit-btns">
-            <button @click="addNote">Add</button>
-            </div>
+            <button class="add-btn" @click="addNote">Add</button>
+            <button class="close-btn" @click="closeEditor">Close</button>
+        </div>
         </section>
     `,
     data() {
@@ -48,6 +49,9 @@ export default {
         },
         findImage(){
             this.note.info.url = this.imgUrl;
+        },
+        closeEditor(){
+            this.$emit('closeEditor')
         }
     }
 }

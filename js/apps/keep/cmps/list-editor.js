@@ -2,20 +2,21 @@ export default {
     template: `
         <section class="list-editor editor">
             <input type="text" class="list-title" v-model="note.info.label" placeholder="List Name">
-            <div>
-                <button @click="addTodo">+</button>
+            <div class="add-item-container">
                 <input type="text" v-model="currTodo.txt">
+                <button @click="addTodo">Add Item</button>
             </div>
-            <div v-if="note.info.todos.length" class="todos-list">
-                <ul>
+            <div class="todos-list">
+                <ul v-if="note.info.todos.length">
                     <li v-for="todo in note.info.todos" class="list-item">
                         <p>{{todo.txt}}</p>
                     </li>
                 </ul>
             </div>
             <div class="edit-btns">
-            <button @click="addNote">Add</button>
-            </div>
+            <button class="add-btn" @click="addNote">Add</button>
+            <button class="close-btn" @click="closeEditor">Close</button>
+        </div>
         </section>
     `,
     data() {
@@ -56,5 +57,8 @@ export default {
                 console.log(this.noteToPost);
             this.$emit('addNote', { ...this.noteToPost });
         },
+        closeEditor(){
+            this.$emit('closeEditor')
+        }
     }
 }

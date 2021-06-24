@@ -12,18 +12,15 @@ import editKeepBar from '../cmps/edit-keep-bar.js';
 export default {
     template: `
     <section>
-    <keep-header />
+    <keep-header @filter="setFilter" />
     <note-create @updateKeeps="checkForChanges"/>
     <div class="keeps-container">
-        <component v-for="keep in keeps" v-if="keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
+        <component v-for="keep in keepsToShow" v-if="keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
         </component>
     </div>
     <div class="keeps-container">
-        <!-- <div v-for="keep in keeps" class="keep"> -->
-            <!-- <button @click="remove(keep.id)">x</button> -->
-            <component v-for="keep in keeps" v-if="!keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
+            <component v-for="keep in keepsToShow" v-if="!keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
             </component>
-            <!-- <edit-keep-bar></edit-keep-bar> -->
         </div>
     </div>
     </section>
@@ -31,6 +28,7 @@ export default {
     data() {
         return {
             keeps: null,
+            filter: null
         }
     },
     created() {
@@ -61,8 +59,44 @@ export default {
                 this.keeps = keeps
             })
         },
-        updateKeep(keep){
+        updateKeep(keep) {
             keepService.update(keep);
+        },
+        setFilter(filter) {
+            this.filter = filter;
+            console.log(this.filter);
         }
+    },
+    computed: {
+        keepsToShow() {
+            if (!this.filter) return this.keeps;
+            const searchStr = this.filter.txt.toLowerCase();
+            const type = this.filter.type;
+            const keepsToShow = this.keeps.filter((keep) => {
+                console.log(this.keeps);
+                console.log(keep);
+                if (type === 'ALL') {
+                    if (keep.type === 'NoteTodos') {
+                        return (keep.info.label.toLowerCase().includes(searchStr));
+                    }
+                    else {
+                        return (keep.info.title.toLowerCase().includes(searchStr))
+                    }
+                } else if (type === 'NoteTodos') {
+                    return (
+                        keep.type === 'NoteTodos' && keep.info.label.toLowerCase().includes(searchStr)
+                    );
+                } else if (type === 'NoteImg') {
+                    return (
+                        keep.type === 'NoteImg' && keep.info.title.toLowerCase().includes(searchStr)
+                    );
+                } else if (type === 'NoteTxt') {
+                    return (
+                        keep.type === 'NoteTxt' && keep.info.title.toLowerCase().includes(searchStr)
+                    );
+                }
+            });
+            return keepsToShow;
+        },
     }
 };

@@ -1,15 +1,16 @@
 export default {
     template: `
         <section class="img-editor editor">
-            <input type="text" class="url-input" v-model="videoUrl"  placeholder="Enter video Url">
-            <button @click="findVideo">Get video</button>
-            <div>
+            <div class="img-url-container">
+                <input type="text" class="url-input" v-model="videoUrl"  placeholder="Enter video Url">
+                <button class="img-btn" @click="findVideo">Get video</button>
+            </div>
                 <iframe :src="note.info.url"></iframe>
-            </div>
-            <input type="text" v-model="note.info.title" class="img-title">
+            <input type="text" v-model="note.info.title" placeholder="Video Title" class="img-title">
             <div class="edit-btns">
-            <button @click="addNote">Add</button>
-            </div>
+            <button class="add-btn" @click="addNote">Add</button>
+            <button class="close-btn" @click="closeEditor">Close</button>
+        </div>
         </section>
     `,
     data() {
@@ -48,6 +49,9 @@ export default {
         },
         findVideo() {
             this.note.info.url = 'https://www.youtube.com/embed/'+this.videoUrl.split('=')[1];
+        },
+        closeEditor(){
+            this.$emit('closeEditor')
         }
     }
 }

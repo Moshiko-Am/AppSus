@@ -4,9 +4,8 @@ export default {
         <input type="text" class="txt-title" v-model="note.info.title" placeholder="Title">
         <textarea class="txt-content" v-model="note.info.txt" placeholder="Your Note..." cols="30" rows="10"></textarea>
         <div class="edit-btns">
-            <input type="color">
-            <button @click="addNote">Add</button>
-            <button @click="togglePin">pin</button>
+            <button class="add-btn" @click="addNote">Add</button>
+            <button class="close-btn" @click="closeEditor">Close</button>
         </div>
     </section>
     `,
@@ -45,6 +44,9 @@ export default {
         },
         togglePin() {
             this.note.isPinned = !this.note.isPinned;
+        },
+        closeEditor(){
+            this.$emit('closeEditor')
         }
     },
 }

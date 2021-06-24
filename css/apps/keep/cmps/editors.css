@@ -39,3 +39,76 @@
     display: flex;
     justify-content: space-between;
 }
+
+.edit-btns button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border:none;
+    background: none;
+    transition: box-shadow .2s;
+}
+
+.edit-btns button:hover{
+    -webkit-box-shadow:inset 0px 0px 5px 2px #333333; 
+    box-shadow:inset 0px 0px 5px 2px #33333360;
+    background-color: lightgray;
+}
+
+.img-editor .img-btn {
+    background: none;
+    border:none;
+    border-left: 1px solid gray;
+    padding-left: 10px ;
+}
+
+.img-url-container{
+    background-color: lightgray;
+    display: flex;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.url-input {
+    background: none;
+    flex:1;
+}
+
+.img-editor img,iframe {
+    flex:1;
+    border:1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.list-editor {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-editor .todos-list {
+    flex:1
+}
+
+.todos-list ul {
+    padding:5px;
+}
+
+.add-item-container {
+    display: flex;
+    padding: 0 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.add-item-container input {
+    flex: 1;
+    background: none;
+}
+
+.add-item-container button {
+    background: none;
+    border:none;
+    border-left: 1px solid gray;
+    padding-left: 15px;
+}

@@ -19,7 +19,7 @@ export default {
         <!-- <list-editor @addNote="addNote" /> -->
         <!-- <img-editor @addNote="addNote" /> -->
         <!-- <video-editor @addNote="addNote" /> -->
-        <component v-if="type" @addNote="addNote" :is="editorType"></component>
+        <component v-if="type" @addNote="addNote" @closeEditor="closeEditor" :is="editorType"></component>
     </section>
     `,
     data(){
@@ -38,6 +38,9 @@ export default {
                 this.$emit('updateKeeps')
                 this.type = null;
             });
+        },
+        closeEditor(){
+            this.type = null
         }
     },
     components: {

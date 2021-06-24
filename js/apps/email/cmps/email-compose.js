@@ -1,6 +1,7 @@
 import { emailService } from '../services/email-service.js';
 
 export default {
+	props: ['emailSubject', 'emailAddress'],
 	template: `
     <section class="compose-wrapper">
         <header class="compose-header-container">
@@ -11,7 +12,8 @@ export default {
             <div class="compose-properties">
                 <div class="compose-container">
                     <span class="compose-to">To:</span>
-                    <input type="text" v-model="email.emailTo"/>
+					<input type="text" v-if="emailAddress" :value="emailAddress">
+                    <input type="text" v-else v-model="email.emailTo"/>
                 </div>
                 <div class="compose-container">
                     <span class="compose-cc">Cc:</span>
@@ -23,19 +25,19 @@ export default {
                 </div>
                 <div class="compose-container">
                     <span class="compose-subject">Subject</span>
-                    <input type="text" v-model="email.emailSubject"/>
+					<input type="text" v-if="emailSubject" :value="'RE: ' + emailSubject" >
+                    <input type="text" v-else v-model="email.emailSubject"/>
                 </div>
             </div>
 			<div class="txt-properties-container">
-				<img src="img/underline.png" class="img img-underline">
-				<img src="img/bold.png" class="img img-bold">
-				<img src="img/italic.png" class="img img-italic">
-				<input type="color" class="txt-color-pick">
-				<img src="img/rtl.png" class="img img-rtl">
-				<img src="img/rtl.png" class="img img-rtl2">
+				<img src="img/underline.png" class="img img-underline" @click="setUnderline">
+				<img src="img/bold.png" class="img img-bold" @click="setBold">
+				<img src="img/italic.png" class="img img-italic" @click="setItalic">
+				<input type="color" class="txt-color-pick" @input="setColor" ref="txtColor">
+				<img src="img/rtl.png" class="img img-rtl" @click="setRtl">
 			</div>
             <div class="compose-txt-area-container">
-                <textarea cols="30" rows="30" class="compose-txt" v-model="email.emailBody"></textarea>
+                <textarea cols="30" rows="30" class="compose-txt" v-model="email.emailBody" :class="setStyle" :style="{color: txtColor}"></textarea>
             </div>
         </main>
         <footer class="compose-footer-container">
@@ -50,6 +52,8 @@ export default {
 		return {
 			email: {
 				emailTo: '',
+				emailFrom: false,
+				isStar: false,
 				emailCc: '',
 				emailBcc: '',
 				emailSubject: '',
@@ -57,6 +61,12 @@ export default {
 				isRead: false,
 				sentAt: '',
 			},
+			isUnderline: false,
+			isBold: false,
+			isItalic: false,
+			isLtr: true,
+			isRtl: false,
+			txtColor: '000000',
 		};
 	},
 	methods: {
@@ -80,6 +90,31 @@ export default {
 				sentAt: '',
 			};
 			this.closeCompose();
+		},
+		setUnderline() {
+			this.isUnderline = !this.isUnderline;
+		},
+		setBold() {
+			this.isBold = !this.isBold;
+		},
+		setItalic() {
+			this.isItalic = !this.isItalic;
+		},
+		setRtl() {
+			this.isRtl = !this.isRtl;
+		},
+		setColor() {
+			this.txtColor = this.$refs.txtColor.value;
+		},
+	},
+	computed: {
+		setStyle() {
+			return {
+				'txt-underline': this.isUnderline,
+				'txt-bold': this.isBold,
+				'txt-italic': this.isItalic,
+				'txt-rtl': this.isRtl,
+			};
 		},
 	},
 };

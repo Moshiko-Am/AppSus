@@ -27,11 +27,9 @@ export default {
                 </div>
                 <email-status :emails="emails" />
             </aside>
-            <div class="email-list-container" v-show="!composeShow && !detailsShow">
-                <email-list :emails="emailsToShow" @remove="removeEmail" @showDetails="toggleDetails" @read="reloadEmails"/>
-            </div>
+            <router-view @star="reloadEmails" @read="reloadEmails" @remove="removeEmail" v-show="!composeShow"></router-view>
             <div class="email-details-container" v-if="detailsShow && !composeShow && !listShow">
-                <email-details />
+                <email-details @remove="removeEmail"/>
             </div>
         </main>
     </section>
@@ -60,7 +58,6 @@ export default {
 			this.reloadEmails();
 		},
 		sendEmail() {
-			console.log('hey');
 			this.reloadEmails();
 		},
 		reloadEmails() {

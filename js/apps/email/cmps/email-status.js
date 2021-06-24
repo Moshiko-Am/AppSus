@@ -3,22 +3,24 @@ export default {
 	props: ['emails'],
 	template: `
     <div class="email-status-container">
-                    <div class="email-status ">
-                        <img src="img/inbox.png" class="img img-inbox" />
-                        <p>Inbox {{sumOfUnread}}</p>
-                    </div>
-                    <div class="email-status ">
-                        <img src="img/star.png" class="img img-star"/>
-                        <p>Starred</p>
-                    </div>
-                    <div class="email-status">
-                        <img src="img/sent-mails.png" class="img img-sent"/>
-                        <p>Sent Mail</p>
-                    </div>
-                    <div class="email-status">
-                        <img src="img/draft-mails.png" class="img img-drafts"/>
-                        <p>Drafts</p>
-                    </div>
+                    <router-link to="/mail/inbox" class-active="active-link">
+						<div class="email-status">
+							<img src="img/inbox.png" class="img img-inbox" />
+							<p>Inbox {{sumOfUnread}}</p>
+						</div>
+					</router-link>
+                    <router-link to="/mail/star" active-class="active-link" exact>
+						<div class="email-status ">
+							<img src="img/star.png" class="img img-star"/>
+							<p>Starred {{sumOfStarred}}</p>
+						</div>
+					</router-link>
+                    <router-link to="/mail/sent" active-class="active-link" exact>
+						<div class="email-status" >
+							<img src="img/sent-mails.png" class="img img-sent"/>
+							<p>Sent Mail {{sumOfSent}}</p>
+						</div>
+					</router-link>
                     <div class="email-status-bar">
                         <label>
                             <progress :value="sumOfRead" :max="sumOfMails"></progress>
@@ -31,6 +33,8 @@ export default {
 			statusMails: [],
 			isRead: 0,
 			isUnread: 0,
+			isStar: 0,
+			isSent: 0,
 		};
 	},
 	methods: {
@@ -39,15 +43,22 @@ export default {
 				this.statusMails = messages;
 			});
 		},
+		setSent(isInbox) {
+			this.$emit('sent', isInbox);
+		},
 	},
 	computed: {
 		sumOfMails() {
-			return this.statusMails.length;
+			let count = 0;
+			this.statusMails.forEach((mail) => {
+				if (!mail.emailFrom) count++;
+			});
+			return count;
 		},
 		sumOfRead() {
 			this.isRead = 0;
 			this.emails.forEach((email) => {
-				if (email.isRead) this.isRead++;
+				if (email.isRead && !email.emailFrom) this.isRead++;
 			});
 			return this.isRead;
 		},
@@ -57,6 +68,20 @@ export default {
 				if (!email.isRead) this.isUnread++;
 			});
 			return ` (${this.isUnread})`;
+		},
+		sumOfStarred() {
+			this.isStar = 0;
+			this.emails.forEach((email) => {
+				if (email.isStar) this.isStar++;
+			});
+			return ` (${this.isStar})`;
+		},
+		sumOfSent() {
+			this.isSent = 0;
+			this.emails.forEach((email) => {
+				if (email.emailFrom) this.isSent++;
+			});
+			return ` (${this.isSent})`;
 		},
 	},
 	mounted() {

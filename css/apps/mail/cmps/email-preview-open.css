@@ -2,7 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
+	margin-bottom: 10px;
 	width: 100%;
+	border-bottom: 2px solid #c7c7c7;
 }
 
 .preview-open-body {
@@ -15,4 +17,24 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	margin-bottom: 20px;
+}
+
+.preview-sender-name {
+	margin-bottom: 20px;
+}
+
+.btn.btn-trash,
+.btn.btn-square {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.img.preview-open-img {
+	width: 25px;
+}
+
+.sender-name {
+	font-weight: 700;
 }

@@ -14,7 +14,7 @@ export default {
                     <p class="menu-item-title">Books</p>
                 </div>
             </router-link>
-            <router-link to="/mail">
+            <router-link to="/mail/inbox">
             <div class="menu-item">
                     <img src="img/gmail.png" class="img mail-img">
                     <p class="menu-item-title">Mails</p>

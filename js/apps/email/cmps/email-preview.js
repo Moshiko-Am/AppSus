@@ -1,19 +1,22 @@
 import { emailService } from '../services/email-service.js';
 import emailPreviewOpen from './email-preview-open.js';
-import longText from './long-text.js';
+import longTextBody from './long-text-body.js';
+import longTextSubject from './long-text-subject.js';
 
 export default {
 	props: ['email'],
 	components: {
 		emailPreviewOpen,
-		longText,
+		longTextBody,
+		longTextSubject,
 	},
 	template: `
         <section>
             <div :class="isUnread" class="email-preview-container" @click="togglePreview">
+				<img :src="isStar" class="img img-star" @click="setStar">
                 <span :class="isUnread" class="email-to-txt">{{email.emailTo}}</span>
                 <div class="preview-body-subject">
-                    <long-text :email="email"></long-text>
+                    <long-text-body :email="email"></long-text-body>
                 </div>
                 <span :class="isUnread" class="email-sent-at">{{showTime}}</span>
             </div>
@@ -30,9 +33,10 @@ export default {
 			this.openPreview = !this.openPreview;
 			this.readEmail();
 		},
-		removeEmail() {
+		removeEmail(emailId) {
+			console.log(emailId);
 			this.openPreview = false;
-			this.$emit('remove');
+			this.$emit('remove', emailId);
 		},
 		readEmail() {
 			this.email.isRead = true;
@@ -42,6 +46,13 @@ export default {
 		},
 		showDetails() {
 			this.$emit('showDetails');
+		},
+		setStar(ev) {
+			ev.stopPropagation();
+			this.email.isStar = !this.email.isStar;
+			emailService.update(this.email).then(() => {
+				this.$emit('star');
+			});
 		},
 	},
 	computed: {
@@ -63,6 +74,13 @@ export default {
 				unread: !this.email.isRead,
 				read: this.email.isRead,
 			};
+		},
+		isStar() {
+			if (this.email.isStar) {
+				return '/img/starYellow.png';
+			} else {
+				return '/img/starEmpty.png';
+			}
 		},
 	},
 };

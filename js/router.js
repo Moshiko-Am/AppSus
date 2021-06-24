@@ -4,6 +4,9 @@ import bookApp from './apps/book/pages/book-app.js';
 import mailApp from './apps/email/pages/email-app.js';
 import keepApp from './apps/keep/pages/keep-app.js';
 import emailDetails from './apps/email/pages/email-details.js';
+import emailList from './apps/email/cmps/email-list.js';
+import emailSent from './apps/email/cmps/email-sent.js';
+import emailStar from './apps/email/cmps/email-star.js';
 
 const routes = [
 	{
@@ -21,6 +24,20 @@ const routes = [
 	{
 		path: '/mail',
 		component: mailApp,
+		children: [
+			{
+				path: 'inbox',
+				component: emailList,
+			},
+			{
+				path: 'sent',
+				component: emailSent,
+			},
+			{
+				path: 'star',
+				component: emailStar,
+			},
+		],
 	},
 	{
 		path: '/mail/:emailId',

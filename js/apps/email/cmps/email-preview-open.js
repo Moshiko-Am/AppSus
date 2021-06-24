@@ -1,18 +1,24 @@
 import { emailService } from '../services/email-service.js';
+import longTextBody from './long-text-body.js';
+import longTextSubject from './long-text-subject.js';
 
 export default {
 	props: ['email'],
+	components: {
+		longTextBody,
+		longTextSubject,
+	},
 	template: `
     <section class="preview-open-container" >
         <header class="preview-open-header-container">
-            <h2 class="preview-open-header">{{email.emailSubject}}</h2>
+            <long-text-subject :email="email"></long-text-subject>
             <div class="preview-open-btns">
-                <button class="btn" @click="removeEmail">
+                <button class="btn btn-trash" @click.stop="removeEmail($event, email.id)">
                     <img src="img/trash.png" class="img preview-open-img">
                 </button>
                 <router-link :to="'/mail/' + email.id">
-                    <button class="btn" @click="showDetails">
-                        <img src="img/square.png" class="img">
+                    <button class="btn btn-square" @click="showDetails">
+                        <img src="img/square.png" class="img preview-open-img">
                     </button>
                 </router-link>
             </div>
@@ -22,7 +28,7 @@ export default {
             <span class="sender-email">{{showEmail}}</span>
         </div>
         <div class="preview-open-body-container">
-            <p class="preview-open-body">{{email.emailBody}}</p>
+            <long-text-body :email="email"></long-text-body>
         </div>
     </section>
     `,
@@ -39,9 +45,11 @@ export default {
 		},
 	},
 	methods: {
-		removeEmail(emailId) {
+		removeEmail(ev, emailId) {
+			ev.stopPropagation();
 			emailService.remove(emailId).then(() => {
-				this.$emit('remove');
+				console.log(emailId);
+				this.$emit('remove', emailId);
 			});
 		},
 		showDetails() {

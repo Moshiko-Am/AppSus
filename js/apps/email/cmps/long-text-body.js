@@ -1,14 +1,13 @@
 export default {
 	props: ['email'],
 	template: `
-    <article class="long-txt-container">
+    <article class="long-txt-body-container">
         <span :class="isUnread" class="email-subject-txt">{{email.emailSubject}}</span>
         <span :class="isUnread" class="email-body-txt">{{showBody}}</span>
     </article>
     `,
 	data() {
 		return {
-			// longSubject: false,
 			longBody: false,
 		};
 	},

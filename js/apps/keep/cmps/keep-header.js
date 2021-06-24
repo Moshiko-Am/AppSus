@@ -9,7 +9,7 @@ export default {
             <div class="header-logo-container">
                 <h2>Keep</h2>
                 <img class="header-logo" src="img/keep.png" alt="">
-                <img class="keep-header-menu-btn" src="img/menu (1).png" alt="">
+                <!-- <img class="keep-header-menu-btn" src="img/menu (1).png" alt=""> -->
             </div>
         </section>
     `,

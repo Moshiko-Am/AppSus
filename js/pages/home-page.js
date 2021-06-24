@@ -2,7 +2,7 @@ import homePageHeader from '../cmps/home-page-header.js';
 
 export default {
     template: `
-    <section class="home-page">
+    <section class="home-page" :style="{backgroundImage:changeBg}">
     <home-page-header />
     <div class="main-container">
         <h1 class="main-title">
@@ -35,5 +35,27 @@ export default {
     `,
     components: {
         homePageHeader
+    },
+    data(){
+        return {
+            interval : null,
+            imgUrl : 1
+        }
+    },
+    computed: {
+        changeBg(){
+            if(this.imgUrl === 1) return 'url("img/bg/bg-img1.jpg")';
+            return 'url("img/bg/bg-img5.jpg")';
+        }
+    },
+    created(){
+        this.interval = setInterval(()=>{
+            // this.changeBg();
+            this.imgUrl++ ;
+            if(this.imgUrl > 2) this.imgUrl = 1;
+        },10000)
+    },
+    destroyed(){
+        clearInterval(this.interval);
     }
 };

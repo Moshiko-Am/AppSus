@@ -1,11 +1,11 @@
 .home-page {
 height: 100vh;
-background-image: url('../../img/bg/bg-img5.jpg');
+/* background-image: url('../../img/bg/bg-img5.jpg'); */
 background-size: cover;
-/* height: 70vh; */
 background-repeat: no-repeat;
 background-position: center;
-
+-webkit-transition: background-image 1.5s ease;
+transition: background-image 1.5s ease;
 display: flex;
 flex-direction: column;
 justify-content: space-between;

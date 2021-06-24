@@ -3,13 +3,15 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 3px solid #ddd;
-	transition: all 0.3s;
+	padding: 0 8px;
+	border-bottom: 2px solid #d6d6d6cc;
+	transition: all 0.4s;
 	cursor: pointer;
 }
 
 .email-preview-container:hover {
-	background-color: #eeeeee;
+	background-color: #f2f5f5cc;
+	box-shadow: inset 0px 0px 2px 2px #d4d4d4;
 }
 
 .preview-body-subject {
@@ -18,11 +20,6 @@
 
 .email-to-txt {
 	width: 200px;
-}
-
-.email-to-txt,
-.email-sent-at {
-	padding: 10px;
 }
 
 .email-subject-txt::after {
@@ -35,6 +32,7 @@
 
 .read {
 	font-weight: 400;
+	background-color: #f2f5f5cc;
 }
 
 .email-body-txt {

@@ -32,7 +32,7 @@ export default {
         </main>
         <footer class="compose-footer-container">
             <button class="btn compose-btn-send" @click="sendEmail">Send</button>
-            <button class="btn compose-btn-erase">
+            <button class="btn compose-btn-erase" @click="eraseCompose">
                 <img src="img/trash.png" class="img compose-erase-img">
             </button>
         </footer>
@@ -57,9 +57,20 @@ export default {
 		},
 		sendEmail() {
 			emailService.create(this.email).then(() => {
-				console.log('bye');
 				this.$emit('send');
 			});
+			this.closeCompose();
+		},
+		eraseCompose() {
+			this.email = {
+				emailTo: '',
+				emailCc: '',
+				emailBcc: '',
+				emailSubject: '',
+				emailBody: '',
+				isRead: false,
+				sentAt: '',
+			};
 			this.closeCompose();
 		},
 	},

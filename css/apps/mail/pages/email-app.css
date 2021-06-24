@@ -4,14 +4,7 @@
 @import url('../cmps/email-preview-open.css');
 @import url('../cmps/email-list.css');
 @import url('../cmps/email-status.css');
-
-.email-header-container {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	margin-bottom: 10px;
-}
+@import url('../cmps/long-txt.css');
 
 .email-app-body {
 	width: 100%;

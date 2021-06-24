@@ -4,7 +4,7 @@ export default {
         <nav>
             <img class="img" src="img/user.png" alt="user-image">
             <button @click="toggleMenu">
-                <img class="img" src="img/menu.png" alt="menu-icon">
+                <img class="img img-header-dots" src="img/menu.png" alt="menu-icon">
             </button>
         </nav>
         <div class="main-menu" v-if="menuShow">

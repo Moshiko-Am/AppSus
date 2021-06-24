@@ -5,8 +5,9 @@
 @import url(../cmps/keep-header.css);
 
 .keep-app {
-height: 100vh;
-background-image: url('../../../../img/bg/bg-img6.jpg');
+min-height: 100vh;
+height: 100%;
+background-image: url('../../../../img/bg/bg-img6.webp');
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;

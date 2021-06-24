@@ -27,7 +27,7 @@ export default {
                 </div>
                 <email-status :emails="emails" />
             </aside>
-            <router-view @star="reloadEmails" @read="reloadEmails" @remove="removeEmail" v-show="!composeShow"></router-view>
+            <router-view :emails="emails" @star="reloadEmails" @read="reloadEmails" @remove="removeEmail" v-show="!composeShow"></router-view>
             <div class="email-details-container" v-if="detailsShow && !composeShow && !listShow">
                 <email-details @remove="removeEmail"/>
             </div>

@@ -7,10 +7,11 @@
 	border-bottom: 2px solid #d6d6d6cc;
 	transition: all 0.4s;
 	cursor: pointer;
+	background-color: #f2f5f5a9;
 }
 
 .email-preview-container:hover {
-	background-color: #f2f5f5cc;
+	background-color: #cdcfcfcc;
 	box-shadow: inset 0px 0px 1px 1px #d4d4d4;
 }
 
@@ -20,6 +21,7 @@
 
 .email-to-txt {
 	width: 200px;
+	background: transparent;
 }
 
 .email-subject-txt::after {
@@ -32,7 +34,6 @@
 
 .read {
 	font-weight: 400;
-	background-color: #f2f5f5cc;
 }
 
 .email-body-txt {

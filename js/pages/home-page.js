@@ -44,8 +44,8 @@ export default {
     },
     computed: {
         changeBg(){
-            if(this.imgUrl === 1) return 'url("img/bg/bg-img1.jpg")';
-            return 'url("img/bg/bg-img5.jpg")';
+            if(this.imgUrl === 1) return 'url("img/bg/bg-img1.webp")';
+            return 'url("img/bg/bg-img5.webp")';
         }
     },
     created(){

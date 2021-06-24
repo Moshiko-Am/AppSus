@@ -12,8 +12,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #20212415;
+	background-color: #f1f3f4;
 	padding: 10px;
+	border-radius: 10px;
 }
 
 .search-input-container {

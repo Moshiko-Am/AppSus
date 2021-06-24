@@ -1,14 +1,13 @@
 export default {
 	template: `
     <section class="email-filter-container">
-        <header-controls />
         <div class="search-container">
             <div class="search-input-container">
                 <img src="img/search.icon.svg" class="img search-img">
                 <input v-model="filterBy.txt" @input="filter" type="text" placeholder="Search mail">
             </div>
             <div class="select-container">
-                <select class="filter-emails" v-model="filterBy.filter">
+                <select class="filter-emails" v-model="filterBy.filter" @change="filter">
                     <option value="ALL">All</option>
                     <option value="READ">Read</option>
                     <option value="UNREAD">Unread</option>
@@ -20,8 +19,8 @@ export default {
 	data() {
 		return {
 			filterBy: {
-				txt: null,
-				filter: null,
+				txt: '',
+				filter: 'ALL',
 			},
 		};
 	},

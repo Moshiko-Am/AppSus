@@ -21,34 +21,40 @@ export default {
                     </div>
                     <div class="email-status-bar">
                         <label>
-                            <progress value="sumOfRead" max="sumOfMails"></progress>
+                            <progress :value="sumOfRead" :max="sumOfMails"></progress>
                         </label>
                     </div>
                 </div>
     `,
 	data() {
 		return {
-			statusMails: null,
+			statusMails: [],
+			isRead: 0,
 		};
 	},
-	methods: {},
+	methods: {
+		getReadEmails() {
+			emailService.read().then((messages) => {
+				this.statusMails = messages;
+			});
+		},
+	},
 	computed: {
 		sumOfMails() {
 			return this.statusMails.length;
 		},
 		sumOfRead() {
-			let sum = this.statusMails.map((mail) => {
-				if (mail.isRead) sum++;
+			this.isRead = 0;
+			this.emails.forEach((email) => {
+				if (email.isRead) this.isRead++;
 			});
-			return sum;
+			return this.isRead;
 		},
 	},
 	mounted() {
 		this.statusMails = this.emails;
 	},
 	created() {
-		emailService.read().then((messages) => {
-			this.statusMails = messages;
-		});
+		this.getReadEmails();
 	},
 };

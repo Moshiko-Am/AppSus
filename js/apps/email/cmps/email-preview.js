@@ -1,18 +1,19 @@
 import { emailService } from '../services/email-service.js';
 import emailPreviewOpen from './email-preview-open.js';
+import longText from './long-text.js';
 
 export default {
 	props: ['email'],
 	components: {
 		emailPreviewOpen,
+		longText,
 	},
 	template: `
         <section>
             <div class="email-preview-container" @click="togglePreview">
                 <span :class="isUnread" class="email-to-txt">{{email.emailTo}}</span>
                 <div class="preview-body-subject">
-                    <span :class="isUnread" class="email-subject-txt">{{email.emailSubject}}</span>
-                    <span :class="isUnread" class="email-body-txt">{{email.emailBody}}</span>
+                    <long-text :email="email"></long-text>
                 </div>
                 <span :class="isUnread" class="email-sent-at">{{showTime}}</span>
             </div>
@@ -25,7 +26,7 @@ export default {
 		};
 	},
 	methods: {
-		togglePreview(emailId) {
+		togglePreview() {
 			this.openPreview = !this.openPreview;
 			this.readEmail();
 		},
@@ -35,6 +36,9 @@ export default {
 		},
 		readEmail() {
 			this.email.isRead = true;
+			emailService.update(this.email).then(() => {
+				this.$emit('read');
+			});
 		},
 		showDetails() {
 			this.$emit('showDetails');

@@ -59,6 +59,7 @@ export default {
 			emailService.create(this.email).then(() => {
 				this.$emit('send');
 			});
+			this.closeCompose();
 		},
 	},
 };

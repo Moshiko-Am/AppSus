@@ -16,19 +16,19 @@ export default {
 	},
 	template: `
     <section>
-        <email-header />
+        <email-header @filtered="setFilter"/>
         <main class="email-app-body" > 
-            <email-compose v-if="composeShow" @closeCompose="toggleCompose" @send="sendEmail"/>
+            <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail"/>
             <aside class="email-stats-container">
                 <div class="compose-btn-container">
                     <button class="btn btn-compose-new" @click=toggleCompose>+ Compose</button>
                 </div>
-                <email-status :emails="emails"/>
+                <email-status :emails="emails" />
             </aside>
-            <div class="email-list-container" v-if="!composeShow && !detailsShow">
-                <email-list :emails="emails" @remove="removeEmail" @showDetails="toggleDetails" />
+            <div class="email-list-container" v-show="!composeShow && !detailsShow">
+                <email-list :emails="emailsToShow" @remove="removeEmail" @showDetails="toggleDetails" @read="reloadEmails"/>
             </div>
-            <div class="email-details container" v-if="detailsShow && !composeShow && !listShow">
+            <div class="email-details-container" v-if="detailsShow && !composeShow && !listShow">
                 <email-details />
             </div>
         </main>
@@ -40,6 +40,7 @@ export default {
 			detailsShow: false,
 			listShow: false,
 			emails: [],
+			filterBy: null,
 		};
 	},
 	methods: {
@@ -57,6 +58,7 @@ export default {
 			this.reloadEmails();
 		},
 		sendEmail() {
+			console.log('hey');
 			this.reloadEmails();
 		},
 		reloadEmails() {
@@ -64,8 +66,52 @@ export default {
 				this.emails = messages;
 			});
 		},
+		setFilter(filterBy) {
+			this.filterBy = filterBy;
+		},
+	},
+	computed: {
+		emailsToShow() {
+			if (!this.filterBy) return this.emails;
+			const searchStr = this.filterBy.txt.toLowerCase();
+			const filter = this.filterBy.filter;
+			const emailsToShow = this.emails.filter((email) => {
+				if (filter === 'ALL') {
+					return (
+						email.emailBcc.toLowerCase().includes(searchStr) ||
+						email.emailBody.toLowerCase().includes(searchStr) ||
+						email.emailCc.toLowerCase().includes(searchStr) ||
+						email.emailSubject.toLowerCase().includes(searchStr) ||
+						email.emailTo.toLowerCase().includes(searchStr)
+					);
+				} else if (filter === 'READ') {
+					return (
+						(email.emailBcc.toLowerCase().includes(searchStr) ||
+							email.emailBody.toLowerCase().includes(searchStr) ||
+							email.emailCc.toLowerCase().includes(searchStr) ||
+							email.emailSubject
+								.toLowerCase()
+								.includes(searchStr) ||
+							email.emailTo.toLowerCase().includes(searchStr)) &&
+						email.isRead
+					);
+				} else if (filter === 'UNREAD') {
+					return (
+						(email.emailBcc.toLowerCase().includes(searchStr) ||
+							email.emailBody.toLowerCase().includes(searchStr) ||
+							email.emailCc.toLowerCase().includes(searchStr) ||
+							email.emailSubject
+								.toLowerCase()
+								.includes(searchStr) ||
+							email.emailTo.toLowerCase().includes(searchStr)) &&
+						!email.isRead
+					);
+				}
+			});
+			return emailsToShow;
+		},
 	},
 	created() {
-		reloadEmails();
+		this.reloadEmails();
 	},
 };

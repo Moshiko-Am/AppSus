@@ -12,6 +12,14 @@
 	background-color: #eeeeee;
 }
 
+.preview-body-subject {
+	flex: 1;
+}
+
+.email-to-txt {
+	width: 200px;
+}
+
 .email-to-txt,
 .email-sent-at {
 	padding: 10px;

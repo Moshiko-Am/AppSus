@@ -57,6 +57,7 @@ export default {
 		},
 		sendEmail() {
 			emailService.create(this.email).then(() => {
+				console.log('bye');
 				this.$emit('send');
 			});
 			this.closeCompose();

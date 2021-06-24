@@ -14,19 +14,22 @@ export default {
     `,
     data() {
         return {
-            note:{
+            note: {
                 type: "NoteVid",
                 info: {
                     url: "",
                     title: ""
                 },
+                style: {
+                    backgroundColor: "white"
+                },
             },
-            videoUrl:null,
-            noteToPost:null,
+            videoUrl: null,
+            noteToPost: null,
         }
     },
     methods: {
-        addNote(){
+        addNote() {
             this.noteToPost = this.note;
             this.note = {
                 type: "NoteVid",
@@ -34,11 +37,14 @@ export default {
                     url: "",
                     title: ""
                 },
+                style: {
+                    backgroundColor: "white"
+                },
             },
-            console.log(this.noteToPost);
+                console.log(this.noteToPost);
             this.$emit('addNote', { ...this.noteToPost });
         },
-        findVideo(){
+        findVideo() {
             console.log('Hi');
             this.note.info.url = this.videoUrl;
         }

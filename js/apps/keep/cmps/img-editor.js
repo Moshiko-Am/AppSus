@@ -20,6 +20,9 @@ export default {
                     url: "",
                     title: ""
                 },
+                style: {
+                    backgroundColor: "white"
+                },
             },
             imgUrl:null,
             noteToPost:null,
@@ -33,6 +36,9 @@ export default {
                 info: {
                     url: "",
                     title: ""
+                },
+                style: {
+                    backgroundColor: "white"
                 },
             },
             console.log(this.noteToPost);

@@ -18,9 +18,8 @@
     display: flex;
     flex-wrap: wrap;
     width: 50%;
-    /* position: absolute; */
     border:1px solid lightgray;
-    /* transform: translateY(-100%); */
+    border-radius: 1em;
 }
 
 .color-option {

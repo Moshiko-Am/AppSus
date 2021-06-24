@@ -3,40 +3,40 @@ import editKeepBar from "./edit-keep-bar.js";
 
 
 export default {
-    props: ['info', 'id'],
+    props: ['keep'],
     template: `
-        <section class="note-todos" :class="colorClass">
-        <button class="btn-keep-remove" @click="remove(id)"><img src="img/trash.png" alt=""></button>
-            <h3 class="todos-label">{{info.label}}</h3>
+        <section class="note-todos" :style="bgColor">
+        <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
+            <h3 class="todos-label">{{keep.info.label}}</h3>
             <ul class="todos-list">
-                <li v-for="(todo,idx) in info.todos" class="list-item">
+                <li v-for="(todo,idx) in keep.info.todos" class="list-item">
                     <p>{{todo.txt}}</p>
-                    <button>Delete</button>
+                    <button @click="deleteTodo(idx)">Delete</button>
                 </li>
             </ul>
             <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
 
         </section>
     `,
-    data() {
-        return {
-            color: '',
-        }
-    },
     methods: {
         remove(id) {
             this.$emit('removeKeep', id);
         },
-        changeBg(color) {
-            this.color = color;
+        changeBg(color){
+            this.keep.style.backgroundColor = color;
+            this.$emit('updateKeep',this.keep);        
+        },
+        deleteTodo(idx){
+            this.keep.info.todos.splice(idx,1);
+            this.$emit('updateKeep',this.keep)
         }
     },
     components: {
         editKeepBar
     },
     computed: {
-        colorClass(){
-            return this.color;
+        bgColor(){
+            return {'background-color':this.keep.style.backgroundColor}
         }
     }
 };

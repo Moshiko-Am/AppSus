@@ -8,7 +8,6 @@ export default {
             <button @click="addNote">Add</button>
             <button @click="togglePin">pin</button>
         </div>
-        <edit-keep-bar></edit-keep-bar>
     </section>
     `,
     data() {
@@ -19,27 +18,33 @@ export default {
                 info: {
                     title: null,
                     txt: null,
-                }
+                },
+                style: {
+                    backgroundColor: "white"
+                },
             },
             noteToPost: null,
         }
-},
-methods: {
-    addNote(){
-        this.noteToPost = this.note;
-        this.note = {
-            type: "NoteTxt",
+    },
+    methods: {
+        addNote() {
+            this.noteToPost = this.note;
+            this.note = {
+                type: "NoteTxt",
                 isPinned: true,
                 info: {
                     title: null,
                     txt: null,
-                }
+                },
+                style: {
+                    backgroundColor: "white"
+                },
+            }
+            console.log(this.noteToPost);
+            this.$emit('addNote', { ...this.noteToPost });
+        },
+        togglePin() {
+            this.note.isPinned = !this.note.isPinned;
         }
-        console.log(this.noteToPost);
-        this.$emit('addNote', { ...this.noteToPost });
     },
-    togglePin(){
-        this.note.isPinned = !this.note.isPinned;
-    }
-}
 }

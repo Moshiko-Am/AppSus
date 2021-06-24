@@ -16,6 +16,9 @@ const starterKeeps = [
 			title:"Hello World",
 			txt: "Fullstack Me Baby!"
 		},
+		style: {
+			backgroundColor: "white"
+		},
 		id:'Awf1H'
 	},
 	{
@@ -25,7 +28,7 @@ const starterKeeps = [
 			title: "Me playing Mi"
 		},
 		style: {
-			backgroundColor: "#00d"
+			backgroundColor: "white"
 		},
 		id:'Aw23H'
 	},
@@ -37,6 +40,9 @@ const starterKeeps = [
 				{ txt: "Do that", doneAt: null },
 				{ txt: "Do this", doneAt: 187111111 }
 			]
+		},
+		style: {
+			backgroundColor: "white"
 		},
 		id:'Tdf1H'
 	}
@@ -55,8 +61,8 @@ function read() {
 	});
 }
 
-function update() {
-
+function update(keep) {
+	storageService.put(KEEP_KEY,keep)
 }
 
 function remove(keepId) {

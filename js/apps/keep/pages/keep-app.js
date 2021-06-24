@@ -9,25 +9,26 @@ import editKeepBar from '../cmps/edit-keep-bar.js';
 
 
 export default {
-	template: `
+    template: `
     <section>
     <keep-header />
     <note-create @updateKeeps="checkForChanges"/>
     <div class="keeps-container">
         <!-- <div v-for="keep in keeps" class="keep"> -->
             <!-- <button @click="remove(keep.id)">x</button> -->
-            <component v-for="keep in keeps" :is="keep.type" @removeKeep="remove" :id="keep.id" :info="keep.info" class="keep"></component>
+            <component v-for="keep in keeps" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
+            </component>
             <!-- <edit-keep-bar></edit-keep-bar> -->
         </div>
     </div>
     </section>
     `,
-    data(){
+    data() {
         return {
-            keeps : null,
+            keeps: null,
         }
     },
-    created(){
+    created() {
         this.loadKeeps();
     },
     components: {
@@ -39,20 +40,23 @@ export default {
         editKeepBar,
     },
     methods: {
-        checkForChanges(){
+        checkForChanges() {
             this.loadKeeps()
             console.log('hi');
         },
-        remove(keepId){
+        remove(keepId) {
             console.log(keepId);
-            keepService.remove(keepId).then(()=>{
+            keepService.remove(keepId).then(() => {
                 this.loadKeeps()
             })
         },
-        loadKeeps(){
-            keepService.read().then((keeps)=>{
-                this.keeps=keeps
+        loadKeeps() {
+            keepService.read().then((keeps) => {
+                this.keeps = keeps
             })
         },
+        updateKeep(keep){
+            keepService.update(keep);
+        }
     }
 };

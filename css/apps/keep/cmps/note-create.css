@@ -10,8 +10,8 @@
     display: flex;
     -webkit-box-shadow: 0px 0px 5px 1px #333333; 
     box-shadow: 0px 0px 5px 1px #33333360;
-    padding: 10px;
-    border-radius: 5px;
+    padding:0 15px;
+    border-radius: 10px;
     align-items: center;
 }
 
@@ -25,9 +25,23 @@
     margin:0 5px;
     background-color: transparent;
     border: none;
+    width: 55px;
+    height: 55px;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color .3s;
+}
+
+.btn-note:hover {
+    background-color: lightgray;
+}
+
+.btn-note:hover img{
+    opacity: 1;
 }
 
 .note-type-img {
-    width: 40px;
-    height: 40px;
+    width:100%;
+    opacity:0.6;
+    transition: opacity .3s;
 }

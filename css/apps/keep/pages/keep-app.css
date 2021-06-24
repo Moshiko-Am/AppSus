@@ -2,32 +2,30 @@
 @import url(../cmps/editors.css);
 @import url(../cmps/note-todos.css);
 @import url(../cmps/edit-keep-bar.css);
-
-*{
-    font-family: roboto-regular;
-}
+@import url(../cmps/keep-header.css);
 
 .keeps-container{
-    column-count: 4;
-    margin: auto;
+    columns:4 250px;
     padding: 10px;
-    /* margin: 20px; */
+    margin: 20px;
 }
 
 .keep {
     padding: 10px;
-    padding-bottom: 0px;
     border-radius: 10px;
-    margin: 15px;
+    margin-bottom: 10px;
+    margin-top: 0;
     height: fit-content;
     break-inside: avoid-column;
     position: relative;
     border:1px solid lightgray;
-    border-radius: 5px;    
+    border-radius: 10px;    
+    transition: box-shadow .2s;
 }
 
-.note {
-    margin: 10px;
+.keep:hover {
+    -webkit-box-shadow: 0px 0px 5px 1px #333333; 
+    box-shadow: 0px 0px 5px 1px #33333360;
 }
 
 .btn-keep-remove {

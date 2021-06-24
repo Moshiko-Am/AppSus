@@ -25,27 +25,33 @@ export default {
                 info: {
                     label: "",
                     todos: [],
-                }
+                },
+                style: {
+                    backgroundColor: "white"
+                },
             },
-            noteToPost:null,
-            currTodo : {txt:'' , isDone:false},
+            noteToPost: null,
+            currTodo: { txt: '', isDone: false },
         }
     },
     methods: {
         addTodo() {
             this.note.info.todos.push(this.currTodo);
-            this.currTodo = {txt:'' , isDone:false};
+            this.currTodo = { txt: '', isDone: false };
         },
-        addNote(){
+        addNote() {
             this.noteToPost = this.note;
             this.note = {
                 type: "NoteTodos",
                 info: {
                     label: "",
                     todos: [],
-                }
+                },
+                style: {
+                    backgroundColor: "white"
+                },
             },
-            console.log(this.noteToPost);
+                console.log(this.noteToPost);
             this.$emit('addNote', { ...this.noteToPost });
         },
     }

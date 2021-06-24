@@ -10,10 +10,10 @@ export default {
         <div class="note-types">
         <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note">
         <button class="btn-note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/text.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/img-icon.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/checkbox.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('video')"><img class="note-type-img" src="img/video.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('audio')"><img class="note-type-img" src="img/audio.png" alt=""></button>
+        <button class="btn-note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/image.png" alt=""></button>
+        <button class="btn-note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/list.png" alt=""></button>
+        <button class="btn-note" @click="chooseNoteType('video')"><img class="note-type-img" src="img/video-player.png" alt=""></button>
+        <button class="btn-note" @click="chooseNoteType('audio')"><img class="note-type-img" src="img/microphone.png" alt=""></button>
         </div>
         <!-- <txt-editor @addNote="addNote" /> -->
         <!-- <list-editor @addNote="addNote" /> -->

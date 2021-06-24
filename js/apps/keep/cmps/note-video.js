@@ -2,34 +2,30 @@ import editKeepBar from "./edit-keep-bar.js";
 
 
 export default {
-    props: ['info', 'id'],
+    props: ['keep'],
     template: `
-        <section class="note-img" :class="colorClass">
-        <button class="btn-keep-remove" @click="remove(id)"><img src="img/trash.png" alt=""></button>
-            <h3>{{info.title}}</h3>
-            <video :src="info.url" alt="">
+        <section class="note-img" :style="bgColor">
+        <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
+            <h3>{{keep.info.title}}</h3>
+            <video :src="keep.info.url" alt="">
             <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
         </section>
     `,
-    data() {
-        return {
-            color: '',
-        }
-    },
     methods: {
         remove(id) {
             this.$emit('removeKeep', id);
         },
-        changeBg(color) {
-            this.color = color;
+        changeBg(color){
+            this.keep.style.backgroundColor = color;
+            this.$emit('updateKeep',this.keep)
         }
     },
     components: {
         editKeepBar
     },
     computed: {
-        colorClass(){
-            return this.color;
+        bgColor(){
+            return {'background-color':this.keep.style.backgroundColor}
         }
     }
 };

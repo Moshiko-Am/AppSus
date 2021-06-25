@@ -10,10 +10,12 @@ export default {
     <section class="email-header-container">
         <header-controls />
         <email-filter @filtered="filtered"/>
-		<div class="header-logo-container">
-                <h2>Mail</h2>
-                <img class="img header-logo" src="img/gmail.png">
-            </div>
+		<router-link to="/mail/inbox">
+			<div class="header-logo-container">
+						<h2>Mail</h2>
+						<img class="img header-logo" src="img/gmail.png">
+					</div>
+		</router-link>
     </section>
     `,
 	methods: {

@@ -3,6 +3,7 @@
 @import url('./pages/home-page.css');
 @import url('apps/keep/pages/keep-app.css');
 @import url('apps/mail/pages/email-app.css');
+@import url('apps/book/pages/book-app.css');
 @import url('../lib/animate.css');
 
 * {
@@ -91,14 +92,14 @@ p {
 .main-menu {
 	position: fixed;
 	text-align: center;
-	top:65px;
+	top: 65px;
 	left: 60px;
 	font-family: 'roboto-bold';
 	font-size: 1.2rem;
-	background-color:rgba(128, 128, 128, 0.815);
+	background-color: rgba(128, 128, 128, 0.815);
 	z-index: 1;
 	transform: translateY(-200%);
-	transition: transform .4s;
+	transition: transform 0.4s;
 }
 
 .main-menu.open {
@@ -108,13 +109,12 @@ p {
 
 .menu-item {
 	padding: 15px 10px;
-	transition: box-shadow .3s;
-
+	transition: box-shadow 0.3s;
 }
 
 .menu-item-title {
-	margin-top:10px;
-	margin-bottom:0;
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 
 .menu-item:hover {

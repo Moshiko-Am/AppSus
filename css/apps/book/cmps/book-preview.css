@@ -1,0 +1,25 @@
+.book-preview-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	break-inside: avoid-column;
+	margin: 0 10px 20px;
+	background-color: #80808033;
+	border-radius: 5px;
+}
+
+.book-preview {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+}
+
+.preview-name,
+.preview-price {
+	font-weight: 700;
+}

@@ -12,16 +12,19 @@ export default {
         <email-header />
         <header class="email-details-header-container">
             <h1 class="email-details-subject">{{this.email.emailSubject}}</h1>
+			<router-link to="/mail/inbox" title="Go Back">
+				<img src="img/previous.png" class="img">
+		</router-link>
         </header>
         <main class="email-details-body-container">
             <div class="details-body-header-container">
-                <h3 class="details-body-header">{{this.email.emailTo}}</h3>
+                <h3 class="details-body-header">From: {{this.email.emailTo}}</h3>
                 <div class="details-body-header-btns">
-					<button class="btn" @click="emailReply">
+					<button class="btn" @click="emailReply" title="Reply">
 						<img src="img/reply.png" class="img">
                     </button>
 					<router-link to="/mail/inbox">
-						<button class="btn" @click="removeEmail(email.id)">
+						<button class="btn" @click="removeEmail(email.id)" title="Remove Email">
 							<img src="img/trash.png" class="img">
 						</button>
 					</router-link>

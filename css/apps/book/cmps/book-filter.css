@@ -1,0 +1,47 @@
+.book-filter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.inputs-wrapper {
+	display: flex;
+	margin-inline: 10px;
+}
+
+.inputs-wrapper input,
+.btn-add-book {
+	margin-inline: 10px;
+}
+
+.inputs-wrapper input {
+	/* background: none; */
+	border-radius: 10px;
+	padding: 10px;
+	border: none;
+}
+
+.txt-input,
+.from-input,
+.to-input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn-search,
+.btn-add-book {
+	font-size: 14px;
+	padding: 10px 20px;
+	background-color: #c8c8c8;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	transition: all 0.3s;
+}
+
+.btn-search:hover,
+.btn-add-book:hover {
+	transform: scale(1.05);
+	background-color: #afafaf;
+}

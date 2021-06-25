@@ -1,0 +1,15 @@
+@import url('../cmps/book-header.css');
+@import url('../cmps/book-filter.css');
+@import url('../cmps/book-preview.css');
+@import url('../cmps/book-list.css');
+@import url('../cmps/review-add.css');
+
+.book-img {
+	width: 100px;
+	height: 150px;
+}
+
+.book-app-container {
+	display: flex;
+	flex-direction: column;
+}

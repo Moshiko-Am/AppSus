@@ -50,7 +50,7 @@ export default {
 	computed: {
 		sumOfMails() {
 			let count = 0;
-			this.statusMails.forEach((mail) => {
+			this.emails.forEach((mail) => {
 				if (!mail.emailFrom) count++;
 			});
 			return count;

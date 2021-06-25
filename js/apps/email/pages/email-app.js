@@ -114,7 +114,6 @@ export default {
 	},
 	created() {
 		this.reloadEmails();
-		//check if there are query params, if true, this.composeShow = true;
 		const subject = this.$route.query.subject;
 		const body = this.$route.query.body;
 		if (subject || body) {

@@ -95,7 +95,6 @@ export default {
 				isRead: false,
 				sentAt: '',
 			};
-			this.closeCompose();
 		},
 		setUnderline() {
 			this.isUnderline = !this.isUnderline;

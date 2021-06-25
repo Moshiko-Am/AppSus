@@ -6,7 +6,7 @@ export default {
         <section class="keep-header">
             <header-controls />
             <keep-filter @filtered="filter"></keep-filter>
-            <div class="header-logo-container">
+            <div class="header-logo-container keep-logo-container">
                 <h2>Keep</h2>
                 <img class="header-logo" src="img/keep.png" alt="">
                 <!-- <img class="keep-header-menu-btn" src="img/menu (1).png" alt=""> -->

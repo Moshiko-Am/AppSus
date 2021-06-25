@@ -46,6 +46,7 @@ export default {
         toggleTodo(idx){
             this.keep.info.todos[idx].isDone = !this.keep.info.todos[idx].isDone
             this.$emit('updateKeep',this.keep)
+            console.log('hi');
         }
     },
     components: {

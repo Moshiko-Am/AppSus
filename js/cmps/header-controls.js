@@ -9,7 +9,7 @@ export default {
                 <img class="img img-header-dots" src="img/google menu.png" alt="menu-icon">
             </button>
         </nav>
-        <div class="main-menu" v-if="menuShow">
+        <div class="main-menu" :class="toShow">
             <router-link to="/book">
                 <div class="menu-item">
                     <img src="img/book.png" class="img books-img">
@@ -42,4 +42,9 @@ export default {
 			this.menuShow = !this.menuShow;
 		},
 	},
+    computed: {
+        toShow(){
+            return {open : this.menuShow}
+        }
+    }
 };

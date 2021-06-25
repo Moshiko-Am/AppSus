@@ -13,7 +13,7 @@ export default {
     template: `
     <section class="keep-app">
     <keep-header @filter="setFilter" />
-    <note-create @updateKeeps="checkForChanges"/>
+    <note-create @updateKeeps="loadKeeps"/>
     <div class="keeps-container">
         <component v-for="keep in keepsToShow" v-if="keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
         </component>
@@ -44,10 +44,6 @@ export default {
         editKeepBar,
     },
     methods: {
-        checkForChanges() {
-            this.loadKeeps()
-            console.log('hi');
-        },
         remove(keepId) {
             console.log(keepId);
             keepService.remove(keepId).then(() => {
@@ -60,7 +56,9 @@ export default {
             })
         },
         updateKeep(keep) {
-            keepService.update(keep);
+            keepService.update(keep).then(()=>{
+                this.loadKeeps();
+            })
         },
         setFilter(filter) {
             this.filter = filter;
@@ -77,9 +75,11 @@ export default {
                 console.log(keep);
                 if (type === 'ALL') {
                     if (keep.type === 'NoteTodos') {
+                        if(!keep.info.label) return keep;
                         return (keep.info.label.toLowerCase().includes(searchStr));
                     }
                     else {
+                        if(!keep.info.title) return keep;
                         return (keep.info.title.toLowerCase().includes(searchStr))
                     }
                 } else if (type === 'NoteTodos') {

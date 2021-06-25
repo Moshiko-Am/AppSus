@@ -19,6 +19,7 @@ transition: background-image 1.5s ease;
     columns:5 250px;
     padding: 10px;
     margin: 20px;
+    margin-bottom: 0;
 }
 
 .keep {
@@ -29,7 +30,6 @@ transition: background-image 1.5s ease;
     height: fit-content;
     break-inside: avoid-column;
     position: relative;
-    border:1px solid lightgray;
     border-radius: 10px;    
     transition: box-shadow .2s;
 }

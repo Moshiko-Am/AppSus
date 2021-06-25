@@ -1,4 +1,5 @@
 @import url('basic/fonts.css');
+@import url('./pages/about-page.css');
 @import url('./pages/home-page.css');
 @import url('apps/keep/pages/keep-app.css');
 @import url('apps/mail/pages/email-app.css');
@@ -84,16 +85,22 @@ p {
 .main-menu {
 	position: fixed;
 	text-align: center;
-	top:70px;
-	left: 57px;
+	top:65px;
+	left: 60px;
 	font-family: 'roboto-bold';
 	font-size: 1.2rem;
 	background-color:rgba(128, 128, 128, 0.815);
 	z-index: 1;
+	transform: translateY(-200%);
+	transition: transform .4s;
+}
+
+.main-menu.open {
+	transform: translateY(0);
 }
 
 .menu-item {
-	padding:15px;
+	padding: 15px 10px;
 	transition: box-shadow .3s;
 
 }

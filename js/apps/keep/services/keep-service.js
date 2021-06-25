@@ -17,7 +17,7 @@ const starterKeeps = [
 			txt: "Fullstack Me Baby!"
 		},
 		style: {
-			backgroundColor: "white"
+			backgroundColor: "rgb(215, 175, 251)"
 		},
 		id:'Awf1H'
 	},
@@ -29,7 +29,7 @@ const starterKeeps = [
 			title: "Me playing Mi"
 		},
 		style: {
-			backgroundColor: "white"
+			backgroundColor: "rgb(255, 244, 117)"
 		},
 		id:'Aw23H'
 	},
@@ -64,7 +64,7 @@ function read() {
 }
 
 function update(keep) {
-	storageService.put(KEEP_KEY,keep)
+	return storageService.put(KEEP_KEY,keep)
 }
 
 function remove(keepId) {

@@ -11,7 +11,7 @@ export default {
 					</router-link>
                     <router-link to="/mail/star" active-class="active-link" exact>
 						<div class="email-status ">
-							<img src="img/star.png" class="img img-star"/>
+							<img src="img/starYellow.png" class="img img-star"/>
 							<p>Starred {{sumOfStarred}}</p>
 						</div>
 					</router-link>

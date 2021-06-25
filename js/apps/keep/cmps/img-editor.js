@@ -8,7 +8,7 @@ export default {
             <img :src="note.info.url" alt="">
             <input type="text" v-model="note.info.title" placeholder="Your Title" class="img-title">
             <div class="edit-btns">
-                <button class="add-btn" @click="addNote"><img src="img/google plus.png" alt=""></button>
+                <button class="add-btn" @click="addNote"><img src="img/plus.png" alt=""></button>
                 <button class="close-btn" @click="closeEditor"><img src="img/cross.png" alt=""></button>
             </div>
         </section>

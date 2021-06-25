@@ -1,0 +1,43 @@
+.about-page{
+    height: 100%;
+    min-height: 100vh;
+    background-image: url(../../img/bg/bg-img1.webp);
+    background-size: cover;
+    background-position:center;
+}
+
+.about-page-title {
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 40px;
+}
+
+.developer-card {
+    margin: 50px 0;
+    padding:20px;
+    background-color: rgba(211, 211, 211, 0.596);
+    display:flex;
+}
+
+.developer-title-container{
+    display: flex;
+}
+
+.developer-logo {
+    width: 40px;
+    margin-left: 20px;
+}
+
+.developer-logo-keep {
+    height: 45px;
+}
+
+.developer-img {
+    width: 200px;
+    object-fit:cover;
+    border-radius: 5px;
+}
+
+.developer-info {
+    padding-left: 30px;
+}

@@ -18,6 +18,8 @@ export default {
                 <div class="preview-body-subject">
                     <long-text-body :email="email"></long-text-body>
                 </div>
+				<img src="img/trash.png" class="img img-preview-remove" @click.stop="removeFromPreview(email.id)">
+				<img :src="setImgUrl" class="img img-preview-read" @click.stop=toggleRead>
                 <span :class="isUnread" class="email-sent-at">{{showTime}}</span>
             </div>
             <email-preview-open :email="email" v-if="openPreview" @remove="removeEmail" @showDetails = "showDetails"/>
@@ -34,13 +36,25 @@ export default {
 			this.readEmail();
 		},
 		removeEmail(emailId) {
-			console.log(emailId);
 			this.openPreview = false;
 			this.$emit('remove', emailId);
+		},
+		removeFromPreview(emailId) {
+			emailService.remove(emailId).then(() => {
+				this.openPreview = false;
+				this.$emit('remove', emailId);
+			});
 		},
 		readEmail() {
 			this.email.isRead = true;
 			emailService.update(this.email).then(() => {
+				this.$emit('read');
+			});
+		},
+		toggleRead() {
+			this.email.isRead = !this.email.isRead;
+			emailService.update(this.email).then(() => {
+				console.log('hey');
 				this.$emit('read');
 			});
 		},
@@ -81,6 +95,12 @@ export default {
 			} else {
 				return 'img/starEmpty.png';
 			}
+		},
+		setImgUrl() {
+			if (this.email.isRead) {
+				return 'img/read-mail.png';
+			}
+			return 'img/unread.png';
 		},
 	},
 };

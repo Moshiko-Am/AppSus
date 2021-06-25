@@ -18,7 +18,7 @@ export default {
     <section class="email-app">
         <email-header @filtered="setFilter"/>
         <main class="email-app-body" > 
-            <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail"/>
+            <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail" :subject="urlSubject" :body="urlBody"/>
             <aside class="email-stats-container">
                 <div class="compose-btn-container">
                     <button class="btn btn-compose-new" @click=toggleCompose>
@@ -41,6 +41,8 @@ export default {
 			listShow: false,
 			emails: [],
 			filterBy: null,
+			urlSubject: null,
+			urlBody: null,
 		};
 	},
 	methods: {
@@ -112,5 +114,13 @@ export default {
 	},
 	created() {
 		this.reloadEmails();
+		//check if there are query params, if true, this.composeShow = true;
+		const subject = this.$route.query.subject;
+		const body = this.$route.query.body;
+		if (subject || body) {
+			this.composeShow = true;
+			this.urlSubject = subject;
+			this.urlBody = body;
+		}
 	},
 };

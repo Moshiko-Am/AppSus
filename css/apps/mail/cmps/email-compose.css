@@ -103,10 +103,13 @@
 
 .compose-footer-container {
 	width: 100%;
+	position: relative;
+	bottom: 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
+	background-color: #fff;
 }
 
 .compose-btn-send {

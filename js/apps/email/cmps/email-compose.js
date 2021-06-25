@@ -6,7 +6,7 @@ export default {
     <section class="compose-wrapper">
         <header class="compose-header-container">
             <h3 class="compose-header">New Message</h3>
-            <button class="btn btn-close-compose" @click="closeCompose">X</button>
+            <button class="btn btn-close-compose" @click="closeCompose" title="Close">X</button>
         </header>
         <main class="compose-body-container">
             <div class="compose-properties">
@@ -30,11 +30,11 @@ export default {
                 </div>
             </div>
 			<div class="txt-properties-container">
-				<img src="img/underline.png" class="img img-underline" @click="setUnderline">
-				<img src="img/bold.png" class="img img-bold" @click="setBold">
-				<img src="img/italic.png" class="img img-italic" @click="setItalic">
-				<input type="color" class="txt-color-pick" @input="setColor" ref="txtColor">
-				<img src="img/rtl.png" class="img img-rtl" @click="setRtl">
+				<img src="img/underline.png" class="img img-underline" @click="setUnderline" title="Underline">
+				<img src="img/bold.png" class="img img-bold" @click="setBold" title="Bold">
+				<img src="img/italic.png" class="img img-italic" @click="setItalic" title="Italic">
+				<input type="color" class="txt-color-pick" @input="setColor" ref="txtColor" title="Text Color">
+				<img src="img/rtl.png" class="img img-rtl" @click="setRtl" title="Change Text Direction">
 			</div>
             <div class="compose-txt-area-container">
 				<textarea v-if="body" cols="30" rows="30" class="compose-txt" v-model="email.emailBody" :class="setStyle" :style="{color: txtColor}"></textarea>
@@ -73,7 +73,9 @@ export default {
 	methods: {
 		closeCompose() {
 			this.$emit('closeCompose');
-			this.clearUrl();
+			if (this.body || this.subject) {
+				this.clearUrl();
+			}
 			this.eraseCompose();
 		},
 		sendEmail() {

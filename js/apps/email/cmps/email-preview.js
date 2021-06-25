@@ -18,8 +18,8 @@ export default {
                 <div class="preview-body-subject">
                     <long-text-body :email="email"></long-text-body>
                 </div>
-				<img src="img/trash.png" class="img img-preview-remove" @click.stop="removeFromPreview(email.id)">
-				<img :src="setImgUrl" class="img img-preview-read" @click.stop=toggleRead>
+				<img src="img/trash.png" class="img img-preview-remove" @click.stop="removeFromPreview(email.id)" title="Remove Email">
+				<img :src="setImgUrl" class="img img-preview-read" @click.stop=toggleRead title="Read/Unread">
                 <span :class="isUnread" class="email-sent-at">{{showTime}}</span>
             </div>
             <email-preview-open :email="email" v-if="openPreview" @remove="removeEmail" @showDetails = "showDetails"/>

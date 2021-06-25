@@ -14,11 +14,11 @@ export default {
             <long-text-subject :email="email"></long-text-subject>
             <div class="preview-open-btns">
                 <button class="btn btn-trash" @click.stop="removeEmail($event, email.id)">
-                    <img src="img/trash.png" class="img preview-open-img">
+                    <img src="img/trash.png" class="img preview-open-img" title="Remove Email">
                 </button>
                 <router-link :to="'/mail/' + email.id">
                     <button class="btn btn-square" @click="showDetails">
-                        <img src="img/square.png" class="img preview-open-img">
+                        <img src="img/square.png" class="img preview-open-img" title="Open Email">
                     </button>
                 </router-link>
             </div>
@@ -32,9 +32,6 @@ export default {
         </div>
     </section>
     `,
-	data() {
-		return {};
-	},
 	computed: {
 		showEmail() {
 			return '<' + this.email.emailTo + '@gmail.com>';

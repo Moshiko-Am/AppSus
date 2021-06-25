@@ -1,4 +1,4 @@
-import editKeepBar from "./edit-keep-bar.js";
+import editKeepBar from "../edit-keep-bar.js";
 
 
 
@@ -44,8 +44,8 @@ export default {
             return { 'background-color': this.keep.style.backgroundColor }
         },
         imgUrl(){
-            if(this.keep.isPinned) return 'img/full-pin.png'
-            return 'img/empty-pin.png'
+            if(this.keep.isPinned) return 'img/keep-icons/full-pin.png'
+            return 'img/keep-icons/empty-pin.png'
         }
     }
 };

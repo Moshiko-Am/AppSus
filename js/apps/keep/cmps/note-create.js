@@ -1,7 +1,7 @@
-import txtEditor from "./txt-editor.js";
-import listEditor from "./list-editor.js";
-import imgEditor from "./img-editor.js";
-import videoEditor from "./video-editor.js";
+import txtEditor from "./editors/txt-editor.js";
+import listEditor from "./editors/list-editor.js";
+import imgEditor from "./editors/img-editor.js";
+import videoEditor from "./editors/video-editor.js";
 import { keepService } from "../services/keep-service.js";
 
 export default {
@@ -10,11 +10,11 @@ export default {
         <div class="note-types">
         <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note" disabled>
         <!-- <h3>Add Note</h3> -->
-        <button class="btn-note" title="Add Text Note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/text.png" alt=""></button>
-        <button class="btn-note" title="Add Image Note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/image.png" alt=""></button>
-        <button class="btn-note" title="Add List Note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/list.png" alt=""></button>
-        <button class="btn-note" title="Add Video Note" @click="chooseNoteType('video')"><img class="note-type-img" src="img/video-player.png" alt=""></button>
-        <button class="btn-note" title="Add Audio Note" @click="chooseNoteType('audio')"><img class="note-type-img" src="img/microphone.png" alt=""></button>
+        <button class="btn-note" title="Add Text Note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/keep-icons/text.png" alt=""></button>
+        <button class="btn-note" title="Add Image Note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/keep-icons/image.png" alt=""></button>
+        <button class="btn-note" title="Add List Note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/keep-icons/list.png" alt=""></button>
+        <button class="btn-note" title="Add Video Note" @click="chooseNoteType('video')"><img class="note-type-img" src="img/keep-icons/video-player.png" alt=""></button>
+        <button class="btn-note" title="Add Audio Note" @click="chooseNoteType('audio')"><img class="note-type-img" src="img/keep-icons/microphone.png" alt=""></button>
         </div>
         <!-- <txt-editor @addNote="addNote" /> -->
         <!-- <list-editor @addNote="addNote" /> -->

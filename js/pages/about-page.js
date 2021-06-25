@@ -18,11 +18,11 @@ export default {
                         </div>
                         <img class="developer-logo" src="img/gmail.png" alt="">
                     </div>
-                    <p class="developer-about">Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit fugit debitis recusandae ullam corrupti ipsam ipsum quia quis quod. Quo, omnis dolore amet repudiandae, corrupti in maiores eveniet maxime aliquid autem magni et perspiciatis earum beatae! Deserunt animi in numquam saepe dolore excepturi, delectus maiores ab repellendus veniam. Ab nobis illum quidem aperiam odio, enim quia velit natus laudantium. Ex sunt maiores tenetur, quibusdam veniam beatae! Obcaecati iusto, molestias amet quidem commodi totam impedit, ipsam doloremque rem ratione ipsa ab blanditiis minima voluptatum repellendus similique vitae modi corporis facere earum laboriosam? Qui, eum. Nihil molestias laborum rerum reiciendis consequatur!</p>
+                    <p class="developer-about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus doloremque magni non nostrum aliquam. Earum corrupti, fugiat dolor vel, tenetur beatae dolorum et odio nisi nihil veniam ratione delectus. Dolorum culpa, tempore, consectetur ipsam harum voluptatem cumque sapiente adipisci esse molestias odit eligendi earum perferendis impedit aut, beatae iste. Aliquam.</p>
                 </div>
             </div>
             <div class="developer-card">
-                <img class="developer-img" src="img/tom.jpg">
+                <img class="developer-img tom" src="img/tom.jpg">
                 <div class="developer-info">
                     <div class="developer-title-container">
                         <div class="developer-title">
@@ -31,7 +31,7 @@ export default {
                         </div>
                         <img class="developer-logo developer-logo-keep" src="img/keep.png" alt="">
                     </div>
-                    <p class="developer-about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure illo architecto possimus! Sapiente vero explicabo non aliquid quo facere nobis. Molestias nam, et eius distinctio doloribus voluptatum id! Officia nemo molestiae veniam earum soluta suscipit quod nesciunt voluptates assumenda accusantium vel incidunt, perferendis nobis cum ipsam itaque ratione pariatur eligendi a reiciendis! Architecto eos voluptatem corporis. Velit magnam provident atque. Sapiente repudiandae beatae libero tempore quae harum voluptatum vero doloribus. Pariatur vitae ipsum fugiat harum magnam possimus officia delectus vel iste nobis. Eligendi laborum libero amet eos reiciendis at nostrum magni hic nisi, aut non impedit nesciunt corporis? Magnam, nesciunt!</p>
+                    <p class="developer-about">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem error molestiae tempore unde. Deserunt modi optio quae, cumque facere quod sint, ut explicabo voluptatum voluptas dignissimos quaerat maxime! Id deleniti magni unde laboriosam, ex numquam! Fugit quibusdam doloremque enim nobis aperiam quisquam libero perferendis eum? Possimus accusantium eveniet eum. Fugiat.</p>
                 </div>
             </div>
         </div>

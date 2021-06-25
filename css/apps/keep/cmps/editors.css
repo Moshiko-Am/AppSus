@@ -72,6 +72,11 @@
     padding-left: 10px ;
 }
 
+.img-editor>img {
+    border: 1px solid lightgray;
+    margin-top: 5px;
+}
+
 .img-url-container{
     background-color: lightgray;
     display: flex;
@@ -96,11 +101,15 @@
 }
 
 .list-editor .todos-list {
-    flex:1
+    flex:1;
+    border:1px solid lightgray;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 
 .todos-list ul {
     padding:5px;
+    margin:0;
 }
 
 .add-item-container {
@@ -120,4 +129,18 @@
     border:none;
     border-left: 1px solid gray;
     padding-left: 15px;
+}
+
+@media (max-width:700px) {
+    .editor {
+        width: 350px;
+        height: 350px;
+        min-height: 0px;
+    }
+}
+@media (max-width:500px) {
+    .editor {
+        width: 90%;
+        max-width: 350px;
+    }
 }

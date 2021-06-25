@@ -5,7 +5,7 @@ export default {
         <textarea class="txt-content" v-model="note.info.txt" placeholder="Your Note..." cols="30" rows="10"></textarea>
         <div class="edit-btns">
             <button class="add-btn" title="Add This Note" @click="addNote"><img src="img/plus.png" alt=""></button>
-            <button class="close-btn" title="Cancel" @click="closeEditor"><img src="img/cross.png" alt=""></button>
+            <button class="close-btn" title="Cancel" @click="closeEditor"><img src="img/keep-icons/cross.png" alt=""></button>
         </div>
     </section>
     `,

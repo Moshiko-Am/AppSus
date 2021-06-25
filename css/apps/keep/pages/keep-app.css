@@ -3,7 +3,9 @@
 @import url(../cmps/note-todos.css);
 @import url(../cmps/edit-keep-bar.css);
 @import url(../cmps/keep-header.css);
-
+*{
+    word-wrap: break-word;
+}
 .keep-app {
 min-height: 100vh;
 height: 100%;
@@ -18,7 +20,7 @@ transition: background-image 1.5s ease;
 .keeps-container{
     columns:5 250px;
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     margin-bottom: 0;
 }
 
@@ -60,11 +62,12 @@ iframe {
 
 @media (max-width:700px) {
     .keeps-container {
-        columns: 2 150px;
+        columns: 2 200px;
     }
 }
 @media (max-width:500px) {
     .keeps-container {
-        margin: 0px;
+        margin: 0;
+        padding: 5px;
     }
 }

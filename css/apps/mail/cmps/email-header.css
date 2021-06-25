@@ -31,7 +31,7 @@
 	border-radius: 10px;
 }
 
-.search-input-container {
+/* .search-input-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -45,7 +45,7 @@
 	background: none;
 	margin-inline-start: 10px;
 	font-size: 1.2em;
-}
+} */
 
 .filter-emails {
 	background: none;
@@ -53,7 +53,7 @@
 	outline: none;
 	font-family: 'roboto-regular';
 	cursor: pointer;
-	margin-inline: 10px;
+	/* margin-inline: 10px; */
 }
 
 .img.search-img {

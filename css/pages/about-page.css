@@ -16,11 +16,10 @@
 .about-page-title {
     text-align: center;
     font-size: 2rem;
-    padding-top: 40px;
 }
 
 .developer-card {
-    margin: 50px 0;
+    margin: 30px 0;
     padding:20px;
     background-color: rgba(211, 211, 211, 0.596);
     display:flex;
@@ -41,10 +40,54 @@
 
 .developer-img {
     width: 200px;
+    height: 200px;
     object-fit:cover;
     border-radius: 5px;
 }
 
+.developer-img.tom{
+}
+
 .developer-info {
     padding-left: 30px;
+}
+
+@media (max-width:600px) {
+    .about-page-title{
+        font-size: 1.5rem;
+    }
+
+    .developer-card {
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    .developer-info{
+        padding: 0;
+        text-align: center;
+    }
+
+    .developer-img{
+        height: 150px;
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .developer-about {
+        display: none;
+    }
+
+    .developer-name {
+        font-size: 1.3rem;
+    }
+    .developer-role {
+        font-size: 1rem;
+    }
+    .developer-logo {
+        display: none;
+    }
 }

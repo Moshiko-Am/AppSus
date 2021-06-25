@@ -1,4 +1,4 @@
-import editKeepBar from "./edit-keep-bar.js";
+import editKeepBar from "../edit-keep-bar.js";
 
 
 
@@ -15,7 +15,7 @@ export default {
                 <li  v-for="(todo,idx) in keep.info.todos" class="list-item">
                     <p contenteditable="true" ref="listItem" :class="{finished:todo.isDone}" @input="itemChanged(idx)">{{todo.txt}}</p>
                     <button class="remove-item-btn" title="Mark as done" @click="toggleTodo(idx)"><img :src="isChecked(idx)" alt=""></button>
-                    <button class="remove-item-btn" title="Remove line" @click="deleteTodo(idx)"><img src="img/remove.png" alt=""></button>
+                    <button class="remove-item-btn" title="Remove line" @click="deleteTodo(idx)"><img src="img/keep-icons/remove.png" alt=""></button>
                 </li>
             </ul>
             <edit-keep-bar @changeColor="changeBg" :title="keep.info.label" :txt="todosListTxt"></edit-keep-bar>
@@ -47,8 +47,8 @@ export default {
             this.$emit('updateKeep',this.keep)
             console.log('hi');
         },isChecked(idx){
-            if(this.keep.info.todos[idx].isDone) return 'img/circle-check.png';
-            return 'img/circle-uncheck.png';
+            if(this.keep.info.todos[idx].isDone) return 'img/keep-icons/circle-check.png';
+            return 'img/keep-icons/circle-uncheck.png';
         }
     },
     components: {
@@ -59,8 +59,8 @@ export default {
             return {'background-color':this.keep.style.backgroundColor}
         },
         imgUrl(){
-            if(this.keep.isPinned) return 'img/full-pin.png'
-            return 'img/empty-pin.png'
+            if(this.keep.isPinned) return 'img/keep-icons/full-pin.png'
+            return 'img/keep-icons/empty-pin.png'
         },
         todosListTxt(){
             let txt = '';

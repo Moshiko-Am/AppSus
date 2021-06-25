@@ -9,7 +9,7 @@ export default {
             <input type="text" v-model="note.info.title" placeholder="Video Title" class="img-title">
             <div class="edit-btns">
             <button class="add-btn" title="Add This Note" @click="addNote"><img src="img/plus.png" alt=""></button>
-            <button class="close-btn" title="Cancel" @click="closeEditor"><img src="img/cross.png" alt=""></button>
+            <button class="close-btn" title="Cancel" @click="closeEditor"><img src="img/keep-icons/cross.png" alt=""></button>
         </div>
         </section>
     `,

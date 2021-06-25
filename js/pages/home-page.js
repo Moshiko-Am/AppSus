@@ -48,15 +48,16 @@ export default {
     computed: {
         changeBg(){
             if(this.imgUrl === 1) return 'url("img/bg/bg-img1.webp")';
-            return 'url("img/bg/bg-img5.webp")';
+            if(this.imgUrl === 2) return 'url("img/bg/bg-img5.webp")';
+            if(this.imgUrl === 3) return 'url("img/bg/bg-img10.webp")';
         }
     },
     created(){
         this.interval = setInterval(()=>{
             // this.changeBg();
             this.imgUrl++ ;
-            if(this.imgUrl > 2) this.imgUrl = 1;
-        },10000)
+            if(this.imgUrl > 3) this.imgUrl = 1;
+        },6000)
     },
     destroyed(){
         clearInterval(this.interval);

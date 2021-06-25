@@ -7,15 +7,15 @@ export default {
     template: `
         <section class="note-todos" :style="bgColor">
             <div class="top-btns">
-                <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
-                <button class="btn-keep-pin" @click="togglePin"><img :src="imgUrl" alt=""></button>
+                <button class="btn-keep-remove" title="Delete Note" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
+                <button class="btn-keep-pin" title="Pin Note" @click="togglePin"><img :src="imgUrl" alt=""></button>
             </div>
             <h3 contenteditable="true" class="todos-label">{{keep.info.label}}</h3>
             <ul class="todos-list">
                 <li  v-for="(todo,idx) in keep.info.todos" class="list-item">
                     <p contenteditable="true" ref="listItem" :class="{finished:todo.isDone}" @input="itemChanged(idx)">{{todo.txt}}</p>
-                    <button class="remove-item-btn" @click="toggleTodo(idx)"><img :src="isChecked" alt=""></button>
-                    <button class="remove-item-btn" @click="deleteTodo(idx)"><img src="img/remove.png" alt=""></button>
+                    <button class="remove-item-btn" title="Mark as done" @click="toggleTodo(idx)"><img :src="isChecked(idx)" alt=""></button>
+                    <button class="remove-item-btn" title="Remove line" @click="deleteTodo(idx)"><img src="img/remove.png" alt=""></button>
                 </li>
             </ul>
             <edit-keep-bar @changeColor="changeBg" :title="keep.info.label" :txt="todosListTxt"></edit-keep-bar>
@@ -46,6 +46,9 @@ export default {
             this.keep.info.todos[idx].isDone = !this.keep.info.todos[idx].isDone
             this.$emit('updateKeep',this.keep)
             console.log('hi');
+        },isChecked(idx){
+            if(this.keep.info.todos[idx].isDone) return 'img/circle-check.png';
+            return 'img/circle-uncheck.png';
         }
     },
     components: {
@@ -58,10 +61,6 @@ export default {
         imgUrl(){
             if(this.keep.isPinned) return 'img/full-pin.png'
             return 'img/empty-pin.png'
-        },
-        isChecked(){
-            if(this.keep.info.todos.isDone) return 'img/circle-check.png';
-            return 'img/circle-uncheck.png';
         },
         todosListTxt(){
             let txt = '';

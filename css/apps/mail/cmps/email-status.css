@@ -99,8 +99,7 @@
 	width: 20px;
 }
 
-.router-link-exact-active,
-.router-link-active {
+.router-link-exact-active:not(.menu-item-link),.router-link-active:not(.menu-item-link){
 	color: var(--peach);
 	font-weight: 700;
 }

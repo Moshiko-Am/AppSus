@@ -10,17 +10,19 @@ export default {
         <div class="note-types">
         <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note" disabled>
         <!-- <h3>Add Note</h3> -->
-        <button class="btn-note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/text.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/image.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/list.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('video')"><img class="note-type-img" src="img/video-player.png" alt=""></button>
-        <button class="btn-note" @click="chooseNoteType('audio')"><img class="note-type-img" src="img/microphone.png" alt=""></button>
+        <button class="btn-note" title="Add Text Note" @click="chooseNoteType('txt')"><img class="note-type-img" src="img/text.png" alt=""></button>
+        <button class="btn-note" title="Add Image Note" @click="chooseNoteType('img')"><img class="note-type-img" src="img/image.png" alt=""></button>
+        <button class="btn-note" title="Add List Note" @click="chooseNoteType('list')"><img class="note-type-img" src="img/list.png" alt=""></button>
+        <button class="btn-note" title="Add Video Note" @click="chooseNoteType('video')"><img class="note-type-img" src="img/video-player.png" alt=""></button>
+        <button class="btn-note" title="Add Audio Note" @click="chooseNoteType('audio')"><img class="note-type-img" src="img/microphone.png" alt=""></button>
         </div>
         <!-- <txt-editor @addNote="addNote" /> -->
         <!-- <list-editor @addNote="addNote" /> -->
         <!-- <img-editor @addNote="addNote" /> -->
         <!-- <video-editor @addNote="addNote" /> -->
-        <component v-if="type" @addNote="addNote" @closeEditor="closeEditor" :is="editorType"></component>
+        <div v-if="type" @click="closeEditor" class="note-create-bg">
+            <component v-if="type" @addNote="addNote" @closeEditor="closeEditor" @click.native.stop :is="editorType"></component>
+        </div>
     </section>
     `,
     data(){

@@ -7,6 +7,7 @@ export default {
                     <option value="ALL">All</option>
                     <option value="NoteTodos">Lists</option>
                     <option value="NoteImg">Images</option>
+                    <option value="NoteVid">Videos</option>
                     <option value="NoteTxt">Text</option>
                 </select>
             </div>

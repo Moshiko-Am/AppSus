@@ -57,3 +57,14 @@ iframe {
     width: 100%;
     border:1px solid lightgray
 }
+
+@media (max-width:700px) {
+    .keeps-container {
+        columns: 2 150px;
+    }
+}
+@media (max-width:500px) {
+    .keeps-container {
+        margin: 0px;
+    }
+}

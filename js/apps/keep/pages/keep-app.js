@@ -90,6 +90,10 @@ export default {
                     return (
                         keep.type === 'NoteImg' && keep.info.title.toLowerCase().includes(searchStr)
                     );
+                } else if (type === 'NoteVid') {
+                    return (
+                        keep.type === 'NoteVid' && keep.info.title.toLowerCase().includes(searchStr)
+                    );
                 } else if (type === 'NoteTxt') {
                     return (
                         keep.type === 'NoteTxt' && keep.info.title.toLowerCase().includes(searchStr)

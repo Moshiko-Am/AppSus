@@ -38,6 +38,7 @@
 .edit-btns {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
 }
 
 .edit-btns button {
@@ -52,6 +53,10 @@
 .edit-btns .close-btn {
     padding:0 10px;
     padding-top: 5px;
+}
+
+.edit-btns .add-btn {
+    padding-top: 7px;
 }
 
 .edit-btns button:hover{
@@ -82,7 +87,7 @@
 .img-editor img,iframe {
     flex:1;
     border-radius: 5px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
 
 .list-editor {

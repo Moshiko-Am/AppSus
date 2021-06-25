@@ -30,7 +30,10 @@ export default {
             </router-link>
         </div>
     </div>
-    <footer>CoffeeRights</footer>
+    <footer class="footer">
+        <router-link class="about-link" to="/about">About Us</router-link>
+        <h5>&copy CoffeeRights</h5>
+    </footer>
     </section>
     `,
     components: {

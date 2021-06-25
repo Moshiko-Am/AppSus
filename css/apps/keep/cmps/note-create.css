@@ -1,3 +1,13 @@
+.note-create-bg {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.664);
+    z-index: 1
+}
+
 .note-create {
     display: flex;
     flex-direction: column;
@@ -47,4 +57,22 @@
     width:100%;
     opacity:0.6;
     transition: opacity .3s;
+}
+
+@media (max-width:700px) {
+    .note-types input{
+        display: none;
+    }
+}
+@media (max-width:500px) {
+    .note-types {
+        padding: 0 5px;
+        margin: 0;
+    }
+    .btn-note {
+        height: 45px;
+        width: 45px;
+        padding:5px;
+        margin: 0 3px;
+    }
 }

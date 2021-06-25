@@ -4,6 +4,13 @@
     background-image: url(../../img/bg/bg-img1.webp);
     background-size: cover;
     background-position:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-header-container {
+    padding: 10px;
 }
 
 .about-page-title {

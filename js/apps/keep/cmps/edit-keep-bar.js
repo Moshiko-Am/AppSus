@@ -3,8 +3,8 @@ export default {
     template: `
     <section>
         <div v-if="!colorMenu" class="edit-keep-bar">
-            <button v-if="!colorMenu" @click="toggleColorMenu"><img src="img/color.png" alt=""></button>
-            <button @click="sendMail"><img src="img/email.png"></button>
+            <button v-if="!colorMenu" title="Change Color" @click="toggleColorMenu"><img src="img/color.png" alt=""></button>
+            <button @click="sendMail" title="Mail this note"><img src="img/email.png"></button>
         </div>
         <div v-else class="colors-menu" >
             <div @click="toggleColorMenu() ,changeColor('#fff475')" class="color-option yellow-bg"></div>

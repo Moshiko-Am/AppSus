@@ -6,8 +6,8 @@ export default {
     template: `
         <section class="note-img" :style="bgColor">
             <div class="top-btns">
-                <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
-                <button class="btn-keep-pin" @click="togglePin"><img :src="imgUrl" alt=""></button>
+                <button class="btn-keep-remove" title="Delete Note" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
+                <button class="btn-keep-pin" title="Pin Note" @click="togglePin"><img :src="imgUrl" alt=""></button>
             </div>
             <h3>{{keep.info.title}}</h3>
             <iframe :src="keep.info.url" alt=""></iframe>

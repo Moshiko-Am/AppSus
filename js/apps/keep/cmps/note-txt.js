@@ -7,8 +7,8 @@ export default {
     template: `
         <section class="note-txt" :style="bgColor">
             <div class="top-btns">
-                <button class="btn-keep-remove" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
-                <button class="btn-keep-pin" @click="togglePin"><img :src="imgUrl" alt=""></button>
+                <button class="btn-keep-remove" title="Delete Note" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
+                <button class="btn-keep-pin" title="Pin Note" @click="togglePin"><img :src="imgUrl" alt=""></button>
             </div>
             <h3 contenteditable="true" ref="title" @input="titleChanged">{{keep.info.title}}</h3>
             <p contenteditable="true" ref="txt" @input="textChanged" class="note-content">{{keep.info.txt}}</p>

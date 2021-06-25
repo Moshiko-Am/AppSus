@@ -1,7 +1,7 @@
 import { emailService } from '../services/email-service.js';
 
 export default {
-	props: ['emailSubject', 'emailAddress'],
+	props: ['emailSubject', 'emailAddress', 'body', 'subject'],
 	template: `
     <section class="compose-wrapper">
         <header class="compose-header-container">
@@ -37,7 +37,8 @@ export default {
 				<img src="img/rtl.png" class="img img-rtl" @click="setRtl">
 			</div>
             <div class="compose-txt-area-container">
-                <textarea cols="30" rows="30" class="compose-txt" v-model="email.emailBody" :class="setStyle" :style="{color: txtColor}"></textarea>
+				<textarea v-if="body" cols="30" rows="30" class="compose-txt" v-model="email.emailBody" :class="setStyle" :style="{color: txtColor}"></textarea>
+                <textarea v-else cols="30" rows="30" class="compose-txt" v-model="email.emailBody" :class="setStyle" :style="{color: txtColor}"></textarea>
             </div>
         </main>
         <footer class="compose-footer-container">
@@ -72,12 +73,17 @@ export default {
 	methods: {
 		closeCompose() {
 			this.$emit('closeCompose');
+			this.clearUrl();
+			this.eraseCompose();
 		},
 		sendEmail() {
 			emailService.create(this.email).then(() => {
 				this.$emit('send');
 			});
 			this.closeCompose();
+		},
+		clearUrl() {
+			this.$router.push({ path: 'inbox', query: {} });
 		},
 		eraseCompose() {
 			this.email = {
@@ -116,5 +122,9 @@ export default {
 				'txt-rtl': this.isRtl,
 			};
 		},
+	},
+	created() {
+		if (this.body) this.email.emailBody = this.body;
+		if (this.subject) this.email.emailSubject = this.subject;
 	},
 };

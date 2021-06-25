@@ -10,7 +10,7 @@ export default {
             </div>
             <h3 contenteditable="true" ref="imgTitle" @input="titleChanged">{{keep.info.title}}</h3>
             <img :src="keep.info.url" alt="">
-            <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
+            <edit-keep-bar @changeColor="changeBg" :title="keep.info.title" :txt="'Check out my new image: '+keep.info.url"></edit-keep-bar>
         </section>
     `,
     methods: {

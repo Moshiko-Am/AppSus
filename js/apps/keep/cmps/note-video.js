@@ -11,7 +11,7 @@ export default {
             </div>
             <h3>{{keep.info.title}}</h3>
             <iframe :src="keep.info.url" alt=""></iframe>
-            <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
+            <edit-keep-bar @changeColor="changeBg" :title="keep.info.title" :txt="'Check out my new video: '+keep.info.url"></edit-keep-bar>
         </section>
     `,
     methods: {

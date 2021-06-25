@@ -1,9 +1,10 @@
 export default {
+    props: ['title', 'txt'],
     template: `
     <section>
         <div v-if="!colorMenu" class="edit-keep-bar">
             <button v-if="!colorMenu" @click="toggleColorMenu"><img src="img/color.png" alt=""></button>
-            <button><img src="img/email.png" alt=""></button>
+            <button @click="sendMail"><img src="img/email.png"></button>
         </div>
         <div v-else class="colors-menu" >
             <div @click="toggleColorMenu() ,changeColor('#fff475')" class="color-option yellow-bg"></div>
@@ -18,17 +19,22 @@ export default {
         </div>
     </section>
     `,
-    data(){
+    data() {
         return {
-            colorMenu : false,
+            colorMenu: false,
         }
     },
     methods: {
-        toggleColorMenu(){
+        toggleColorMenu() {
             this.colorMenu = !this.colorMenu;
         },
-        changeColor(colorClass){
+        changeColor(colorClass) {
             this.$emit('changeColor', colorClass)
+        },
+        sendMail() {
+            console.log(this.title);
+            console.log(this.txt);
+            this.$router.push({ path: 'mail/inbox', query: { subject:this.title,body:this.txt}})
         }
     }
 }

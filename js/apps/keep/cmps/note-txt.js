@@ -12,7 +12,7 @@ export default {
             </div>
             <h3 contenteditable="true" ref="title" @input="titleChanged">{{keep.info.title}}</h3>
             <p contenteditable="true" ref="txt" @input="textChanged" class="note-content">{{keep.info.txt}}</p>
-            <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
+            <edit-keep-bar @changeColor="changeBg" :title="keep.info.title" :txt="keep.info.txt"></edit-keep-bar>
         </section>
     `,
     methods: {
@@ -34,7 +34,7 @@ export default {
         togglePin(){
             this.keep.isPinned = !this.keep.isPinned;
             this.$emit('updateKeep',this.keep)
-        }
+        },
     },
     components: {
         editKeepBar

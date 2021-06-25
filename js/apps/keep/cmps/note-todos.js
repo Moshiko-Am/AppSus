@@ -18,8 +18,7 @@ export default {
                     <button class="remove-item-btn" @click="deleteTodo(idx)"><img src="img/remove.png" alt=""></button>
                 </li>
             </ul>
-            <edit-keep-bar @changeColor="changeBg"></edit-keep-bar>
-
+            <edit-keep-bar @changeColor="changeBg" :title="keep.info.label" :txt="todosListTxt"></edit-keep-bar>
         </section>
     `,
     methods: {
@@ -64,7 +63,12 @@ export default {
             if(this.keep.info.todos.isDone) return 'img/circle-check.png';
             return 'img/circle-uncheck.png';
         },
-        finished(){
+        todosListTxt(){
+            let txt = '';
+            this.keep.info.todos.forEach((todo)=> {
+                txt += todo.txt + '\n' 
+            })
+            return txt;
         }
     }
 };

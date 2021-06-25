@@ -112,5 +112,6 @@ export default {
 	},
 	created() {
 		this.reloadEmails();
+		//check if query params , if true , this.composeShow: true,
 	},
 };

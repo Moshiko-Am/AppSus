@@ -13,14 +13,14 @@ export default {
         <p>Book Id: {{this.book.id}}.</p>
         <p>Title: {{this.book.title}}.</p>
         <p>Subtitle: {{this.book.subtitle}}.</p>
-        <p>Authors: {{this.book.authors}}.</p>
+        <p>Authors: {{showAuthors}}.</p>
         <p>Published Date:{{this.book.publishedDate}}. {{bookAge}}</p>
         <long-text :txt="this.book.description"></long-text>
         <p>Page Count: {{this.book.pageCount}}. {{bookReadTime}}</p>
-        <p>Categories: {{this.book.categories}}.</p>
+        <p>Categories: {{showCategories}}.</p>
         <p>Thumbnail: {{this.book.thumbnail}}.</p>
         <p>Language: {{this.book.language}}.</p>
-        <p>List Price: <span :class="priceColor">{{showCurrency}}.</span> <span :class=isSale>{{isOnSale}}</span></p>
+        <p>Price: <span :class="priceColor">{{showCurrency}}.</span> <span :class=isSale>{{isOnSale}}</span></p>
 		<button v-if="!showReview" @click="toggleReview">Write a review</button>
 		<review-add v-if="showReview" @hideReview="toggleReview"/>
 		<div class="next-prev-btns-container">
@@ -96,6 +96,12 @@ export default {
 		},
 		isSale() {
 			return { sale: this.book.listPrice.isOnSale };
+		},
+		showCategories() {
+			return this.book.categories.join(', ');
+		},
+		showAuthors() {
+			return this.book.authors.join(', ');
 		},
 	},
 };

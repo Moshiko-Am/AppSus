@@ -8,6 +8,7 @@
 	transition: all 0.4s;
 	cursor: pointer;
 	background-color: #f2f5f5a9;
+	position: relative;
 }
 
 .email-preview-container:hover {
@@ -26,6 +27,12 @@
 
 .email-subject-txt::after {
 	content: ' - ';
+}
+
+.email-preview-stats-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .unread {
@@ -49,4 +56,76 @@
 .img.img-preview-read {
 	width: 20px;
 	margin-inline: 10px;
+}
+
+.img.img-preview-remove {
+	margin-inline-start: 50px;
+}
+
+@media screen and (max-width: 760px) {
+	.email-preview-stats-container {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.email-preview-btns-container {
+		margin-block: 7px;
+	}
+
+	.img.img-preview-remove {
+		margin-inline: 10px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.email-preview-container {
+		flex-direction: column;
+		padding-block: 5px;
+	}
+	.long-txt-body-container {
+		padding-block: 5px;
+	}
+
+	.email-body-txt {
+		color: #353535;
+	}
+
+	.email-preview-stats-container {
+		margin-inline-start: 10px;
+		text-align: center;
+		flex-direction: row;
+	}
+
+	.img.img-preview-remove {
+		margin-inline: 0;
+	}
+
+	.email-app-body {
+		margin-bottom: 10px;
+	}
+
+	.img.img-preview-remove {
+		margin-inline-end: 5px;
+	}
+
+	.img.img-star {
+		align-self: flex-end;
+		position: absolute;
+	}
+
+	.email-preview-stats-container,
+	.email-preview-stats-container * {
+		margin-inline: 0;
+	}
+
+	.preview-open-btns {
+		margin-inline-end: 5px;
+	}
+
+	.btn.btn-square,
+	.btn.btn-trash {
+		width: 15px;
+		margin-inline: 5px;
+	}
 }

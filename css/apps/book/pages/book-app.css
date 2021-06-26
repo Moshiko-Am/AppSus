@@ -3,6 +3,7 @@
 @import url('../cmps/book-preview.css');
 @import url('../cmps/book-list.css');
 @import url('../cmps/review-add.css');
+@import url('./book-details.css');
 
 .book-img {
 	width: 100px;

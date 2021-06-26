@@ -15,24 +15,30 @@ export default {
         </ul>
     </section>
     `,
+
+	data() {
+		return {
+			emailsCopy: this.emails,
+		};
+	},
 	methods: {
 		removeEmail(emailId) {
-			this.reloadEmails()
+			this.reloadEmails();
 			this.$emit('remove', emailId);
 		},
 		readEmails() {
-			this.reloadEmails()
+			this.reloadEmails();
 			this.$emit('read');
 		},
 		setStar() {
-			this.reloadEmails()
+			this.reloadEmails();
 			this.$emit('star');
 		},
-		reloadEmails(){
+		reloadEmails() {
 			emailService.read().then((messages) => {
-				this.emails = messages;
+				this.emailsCopy = messages;
 			});
-		}
+		},
 	},
 	created() {
 		this.reloadEmails();

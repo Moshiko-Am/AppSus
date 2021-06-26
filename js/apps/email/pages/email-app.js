@@ -16,20 +16,20 @@ export default {
 	},
 	template: `
     <section class="email-app">
-        <email-header @filtered="setFilter"/>
+        <email-header @filtered="setFilter" @mobile="setMobile"/>
         <main class="email-app-body" > 
-            <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail" :subject="urlSubject" :body="urlBody"/>
-            <aside class="email-stats-container">
-                <div class="compose-btn-container">
-                    <button class="btn btn-compose-new" @click=toggleCompose>
-						<img src="img/plus.png" class="img img-plus">	
+			<aside class="email-stats-container">
+				<div class="compose-btn-container">
+					<button class="btn btn-compose-new" @click=toggleCompose>
+						<img src="img/plus.png" class="img img-plus" title="New Message">	
 					</button>
-                </div>
-                <email-status :emails="emails" />
-            </aside>
-            <router-view :emails="emails" @star="reloadEmails" @read="reloadEmails" @remove="removeEmail" v-show="!composeShow"></router-view>
+				</div>
+				<email-status :emails="emails" :mobile="isMobile"/>
+			</aside>
+            <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail" :subject="urlSubject" :body="urlBody"/>
+            <router-view :emails="emailsToShow" @star="reloadEmails" @read="reloadEmails" @remove="removeEmail" v-show="!composeShow"></router-view>
             <div class="email-details-container" v-if="detailsShow && !composeShow && !listShow">
-                <email-details @remove="removeEmail"/>
+				<email-details @remove="removeEmail"/>
             </div>
         </main>
     </section>
@@ -43,9 +43,13 @@ export default {
 			filterBy: null,
 			urlSubject: null,
 			urlBody: null,
+			isMobile: false,
 		};
 	},
 	methods: {
+		setMobile() {
+			this.isMobile = !this.isMobile;
+		},
 		toggleCompose() {
 			this.composeShow = !this.composeShow;
 			this.detailsShow = false;

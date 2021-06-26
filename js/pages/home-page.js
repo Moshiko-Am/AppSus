@@ -1,12 +1,12 @@
 import homePageHeader from '../cmps/home-page-header.js';
 
 export default {
-    template: `
-    <section class="home-page" :style="{backgroundImage:changeBg}">
+	template: `
+    <section class="home-page" :style="{backgroundImage:changeBg}" >
     <home-page-header />
-    <div class="main-container">
+    <div class="main-container" >
         <h1 class="main-title">
-        AppSuss
+        AppSus
         </h1>
         <h2>Your World Inside a Screen</h2>
         <div class="apps-menu">
@@ -36,30 +36,30 @@ export default {
     </footer>
     </section>
     `,
-    components: {
-        homePageHeader
-    },
-    data(){
-        return {
-            interval : null,
-            imgUrl : 1
-        }
-    },
-    computed: {
-        changeBg(){
-            if(this.imgUrl === 1) return 'url("img/bg/bg-img1.webp")';
-            if(this.imgUrl === 2) return 'url("img/bg/bg-img5.webp")';
-            if(this.imgUrl === 3) return 'url("img/bg/bg-img10.webp")';
-        }
-    },
-    created(){
-        this.interval = setInterval(()=>{
-            // this.changeBg();
-            this.imgUrl++ ;
-            if(this.imgUrl > 3) this.imgUrl = 1;
-        },6000)
-    },
-    destroyed(){
-        clearInterval(this.interval);
-    }
+	components: {
+		homePageHeader,
+	},
+	data() {
+		return {
+			interval: null,
+			imgUrl: 1,
+		};
+	},
+	computed: {
+		changeBg() {
+			if (this.imgUrl === 1) return 'url("img/bg/bg-img1.webp")';
+			if (this.imgUrl === 2) return 'url("img/bg/bg-img5.webp")';
+			if (this.imgUrl === 3) return 'url("img/bg/bg-img10.webp")';
+		},
+	},
+
+	created() {
+		this.interval = setInterval(() => {
+			this.imgUrl++;
+			if (this.imgUrl > 3) this.imgUrl = 1;
+		}, 6000);
+	},
+	destroyed() {
+		clearInterval(this.interval);
+	},
 };

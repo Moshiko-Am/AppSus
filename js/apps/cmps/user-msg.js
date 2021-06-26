@@ -17,7 +17,6 @@ export default {
 	},
 	methods: {
 		showMsg(msg) {
-			console.log('got it');
 			this.msg = msg;
 			setTimeout(() => {
 				this.msg = null;

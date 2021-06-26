@@ -1,4 +1,5 @@
 import { emailService } from '../services/email-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
 	props: ['emailSubject', 'emailAddress', 'body', 'subject'],
@@ -82,10 +83,26 @@ export default {
 		},
 		sendEmail() {
 			console.log(this.email);
-			emailService.create(this.email).then(() => {
-				this.$emit('send');
-				this.closeCompose();
-			});
+			emailService
+				.create(this.email)
+				.then(() => {
+					this.$emit('send');
+					this.closeCompose();
+				})
+				.then(() => {
+					const msg = {
+						txt: 'Sent successfuly',
+						type: 'success',
+					};
+					eventBus.$emit('show-msg', msg);
+				})
+				.catch((err) => {
+					const msg = {
+						txt: 'Error, please try again',
+						type: 'error',
+					};
+					eventBus.$emit('show-msg', msg);
+				});
 		},
 		clearUrl() {
 			this.$router.push({ path: 'inbox', query: {} });

@@ -1,6 +1,8 @@
 .book-details-container {
 	padding: 10px;
 	background-color: #c2c2c26c;
+	min-height: 100vh;
+	height: 100%;
 }
 
 .book-details,
@@ -28,7 +30,8 @@
 .btn-return,
 .btn-submit,
 .btn-delete,
-.btn-hide {
+.btn-hide,
+.btn-search-book {
 	margin-bottom: 8px;
 	border-radius: 10px;
 	outline: none;
@@ -46,7 +49,8 @@
 .btn-return:hover,
 .btn-delete:hover,
 .btn-submit:hover,
-.btn-hide:hover {
+.btn-hide:hover,
+.btn-search-book:hover {
 	background-color: rgb(185, 185, 185);
 }
 

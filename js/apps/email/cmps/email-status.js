@@ -3,20 +3,20 @@ export default {
 	props: ['emails', 'mobile'],
 	template: `
     <div class="email-status-container" :class="doMobile">
-                    <router-link to="/mail/inbox" class-active="active-link">
-						<div class="email-status">
+                    <router-link to="/mail/inbox" class-active="active-link" >
+						<div class="email-status" @click="closeStatus">
 							<img src="img/inbox.png" class="img img-inbox" />
 							<p>Inbox {{sumOfUnread}}</p>
 						</div>
 					</router-link>
                     <router-link to="/mail/star" active-class="active-link" exact>
-						<div class="email-status ">
+						<div class="email-status" @click="closeStatus">
 							<img src="img/starYellow.png" class="img img-star"/>
 							<p>Starred {{sumOfStarred}}</p>
 						</div>
 					</router-link>
                     <router-link to="/mail/sent" active-class="active-link" exact>
-						<div class="email-status" >
+						<div class="email-status" @click="closeStatus">
 							<img src="img/sent-mails.png" class="img img-sent"/>
 							<p>Sent Mail {{sumOfSent}}</p>
 						</div>
@@ -38,6 +38,9 @@ export default {
 		};
 	},
 	methods: {
+		closeStatus() {
+			this.$emit('closeStatus');
+		},
 		getReadEmails() {
 			emailService.read().then((messages) => {
 				this.statusMails = messages;

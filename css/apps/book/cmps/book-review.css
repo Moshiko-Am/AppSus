@@ -1,0 +1,8 @@
+.reviews-list {
+	list-style: none;
+	padding-inline: 0;
+}
+
+.reviews-container h3 {
+	margin-block: 10px;
+}

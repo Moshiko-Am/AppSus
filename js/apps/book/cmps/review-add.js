@@ -23,11 +23,11 @@ export default {
                 </label>
             </div>
             <div class="text-area-container">
-            <textarea name="" cols="30" rows="10" placeholder="Comments..." v-model="review.txt"></textarea>
+            <textarea  cols="30" rows="10" placeholder="Comments..." v-model="review.txt"></textarea>
             </div>
-            <button >Submit Review</button>
+            <button class="btn-submit">Submit Review</button>
         </form>
-        <button @click="hideReview">Hide Form</button>
+        <button @click="hideReview" class="btn-hide">Hide Form</button>
         <div class="reviews-container">
             <h3>Book Reviews</h3>
             <ul class="reviews-list" v-if="reviews">
@@ -37,7 +37,7 @@ export default {
                     <p>Rate: {{review.rate}}</p>
                     <p>Read At: {{review.date}}</p>
                     <p>Review: {{review.txt}}</p>
-                    <button @click="removeReview(review.id)">Delete Review</button>
+                    <button @click="removeReview(review.id)" class="btn-delete">Delete Review</button>
                 </li>
             </ul>
         </div>

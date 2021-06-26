@@ -1,4 +1,72 @@
-.book-details {
+.book-details-container {
 	padding: 10px;
 	background-color: #c2c2c26c;
+}
+
+.book-details,
+.details-img,
+.book-description {
+	margin: 0 10px;
+	padding: 5px;
+}
+
+.detail,
+.book-description-detail {
+	font-weight: 700;
+}
+
+.sale {
+	background-color: rgb(40, 246, 40);
+	padding: 5px;
+	font-weight: 700;
+}
+
+.btn-review,
+.btn-more,
+.btn-next,
+.btn-prev,
+.btn-return,
+.btn-submit,
+.btn-delete,
+.btn-hide {
+	margin-bottom: 8px;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	padding: 5px 10px;
+	background-color: lightgrey;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.btn-review:hover,
+.btn-more:hover,
+.btn-next:hover,
+.btn-prev:hover,
+.btn-return:hover,
+.btn-delete:hover,
+.btn-submit:hover,
+.btn-hide:hover {
+	background-color: rgb(185, 185, 185);
+}
+
+.review-container,
+.next-prev-btns-container,
+.btn-return,
+.btn-review {
+	margin: 0 10px;
+	padding: 5px;
+}
+
+.review-header {
+	margin-top: 10px;
+}
+
+.read-at,
+.rate {
+	font-weight: 700;
+}
+
+.review-container * {
+	margin-top: 5px;
 }

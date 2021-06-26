@@ -3,9 +3,9 @@ export default {
 	template: `
         <article>
             <span class="book-description">
-                Description: {{showTxt}}
+                <span class="book-description-detail">Description: </span> {{showTxt}}
             </span>
-            <button v-if="showBtns" @click="toggleTxt">
+            <button v-if="showBtns" @click="toggleTxt" class="btn-more">
                 {{btnMsg}}
             </button>
             

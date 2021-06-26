@@ -8,6 +8,7 @@ export default {
         </div>
         <div>
             <h1 class="about-page-title">Our FrontEnd Developers</h1>
+            <div class="developer-card-container">
             <div class="developer-card">
                 <img class="developer-img" src="img/moshiko.jpg">
                 <div class="developer-info">
@@ -18,9 +19,16 @@ export default {
                         </div>
                         <img class="developer-logo" src="img/gmail.png" alt="">
                     </div>
-                    <p class="developer-about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus doloremque magni non nostrum aliquam. Earum corrupti, fugiat dolor vel, tenetur beatae dolorum et odio nisi nihil veniam ratione delectus. Dolorum culpa, tempore, consectetur ipsam harum voluptatem cumque sapiente adipisci esse molestias odit eligendi earum perferendis impedit aut, beatae iste. Aliquam.</p>
+                    <p class="developer-about">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Deleniti animi corporis vero. 
+                    Quidem fuga modi, illo hic inventore unde quos distinctio quaerat est, fugit rem sit earum eaque provident magni. 
+                    <h4>Check out his <a class="linkedin" href="https://www.linkedin.com/in/tom-bechar-8710851a6">LinkedIn profile.</a></h4>
+                    </p>
                 </div>
             </div>
+            </div>
+            <div class="developer-card-container">
             <div class="developer-card">
                 <img class="developer-img tom" src="img/tom.jpg">
                 <div class="developer-info">
@@ -31,8 +39,15 @@ export default {
                         </div>
                         <img class="developer-logo developer-logo-keep" src="img/keep.png" alt="">
                     </div>
-                    <p class="developer-about">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem error molestiae tempore unde. Deserunt modi optio quae, cumque facere quod sint, ut explicabo voluptatum voluptas dignissimos quaerat maxime! Id deleniti magni unde laboriosam, ex numquam! Fugit quibusdam doloremque enim nobis aperiam quisquam libero perferendis eum? Possimus accusantium eveniet eum. Fugiat.</p>
+                    <p class="developer-about">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Deleniti animi corporis vero. 
+                    Quidem fuga modi, illo hic inventore unde quos distinctio quaerat est, fugit rem sit earum eaque provident magni.
+                    Check out his 
+                    <h4>Check out his <a class="linkedin" href="https://www.linkedin.com/in/tom-bechar-8710851a6">LinkedIn profile.</a></h4>
+                    </p>
                 </div>
+            </div>
             </div>
         </div>
             <footer class="footer">

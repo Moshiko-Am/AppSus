@@ -14,6 +14,9 @@ export default {
     <section class="keep-app">
     <keep-header @filter="setFilter" />
     <note-create @updateKeeps="loadKeeps"/>
+    <div v-if="!keeps">
+        <h2 class="no-keeps">No keeps yet , let's get started</h2>
+    </div>
     <div class="keeps-container">
         <component v-for="keep in keepsToShow" v-if="keep.isPinned" :is="keep.type" @removeKeep="remove" @updateKeep="updateKeep" :keep="keep" class="keep">
         </component>
@@ -47,6 +50,10 @@ export default {
         remove(keepId) {
             console.log(keepId);
             keepService.remove(keepId).then(() => {
+                if(this.keeps.length === 1) {
+                    this.keeps = null;
+                    return;
+                }
                 this.loadKeeps()
             })
         },

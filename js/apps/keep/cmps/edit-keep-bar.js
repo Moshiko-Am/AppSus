@@ -2,11 +2,11 @@ export default {
     props: ['title', 'txt'],
     template: `
     <section>
-        <div v-if="!colorMenu" class="edit-keep-bar">
-            <button v-if="!colorMenu" title="Change Color" @click="toggleColorMenu"><img src="img/keep-icons/color.png" alt=""></button>
+        <div  class="edit-keep-bar">
+            <button  title="Change Color" @click="toggleColorMenu"><img src="img/keep-icons/color.png" alt=""></button>
             <button @click="sendMail" title="Mail this note"><img src="img/keep-icons/email.png"></button>
         </div>
-        <div v-else class="colors-menu" >
+        <div v-if="colorMenu" class="colors-menu" >
             <div @click="toggleColorMenu() ,changeColor('#fff475')" class="color-option yellow-bg"></div>
             <div @click="toggleColorMenu() ,changeColor('#f28b82')" class="color-option red-bg"></div>
             <div @click="toggleColorMenu() ,changeColor('#fbbc2f')" class="color-option orange-bg"></div>

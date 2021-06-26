@@ -27,7 +27,7 @@
     text-decoration:line-through ;
 }
 
-.note-img img{
+.note-img img,iframe{
     margin-top: 5px;
     border-radius: 5px;
 }
@@ -35,4 +35,8 @@
 .txt-content {
     border:1px solid lightgray;
     border-radius: 5px;
+}
+
+.vid-editor.editor {
+    height: fit-content;
 }

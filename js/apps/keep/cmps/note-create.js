@@ -2,6 +2,7 @@ import txtEditor from "./editors/txt-editor.js";
 import listEditor from "./editors/list-editor.js";
 import imgEditor from "./editors/img-editor.js";
 import videoEditor from "./editors/video-editor.js";
+import audioEditor from "./editors/audio-editor.js";
 import { keepService } from "../services/keep-service.js";
 
 export default {
@@ -50,7 +51,8 @@ export default {
         txtEditor,
         listEditor,
         imgEditor,
-        videoEditor
+        videoEditor,
+        audioEditor
     },
     computed: {
         editorType(){
@@ -58,6 +60,7 @@ export default {
            if(this.type === 'list') return listEditor
            if(this.type === 'img') return imgEditor
            if(this.type === 'video') return videoEditor
+           if(this.type === 'audio') return audioEditor
         }
     }
 

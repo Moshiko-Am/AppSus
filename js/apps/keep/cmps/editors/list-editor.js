@@ -9,7 +9,7 @@ export default {
             <div class="todos-list">
                 <ul v-if="note.info.todos.length">
                     <li v-for="(todo,idx) in note.info.todos" class="list-item">
-                        <p>{{todo.txt}}</p><button @click="removeTodo(idx)" class="remove-item-btn"><img src="img/remove.png" alt=""></button>
+                        <p>{{todo.txt}}</p><button @click="removeTodo(idx)" class="remove-item-btn"><img src="img/keep-icons/remove.png" alt=""></button>
                     </li>
                 </ul>
             </div>

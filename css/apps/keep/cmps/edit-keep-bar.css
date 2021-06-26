@@ -1,8 +1,5 @@
 .edit-keep-bar {
     display: flex;
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* left: 0; */
 }
 
 .edit-keep-bar button {
@@ -16,10 +13,13 @@
 
 .colors-menu {
     display: flex;
+    position: absolute;
+    transform: translateY(-90%);
     flex-wrap: wrap;
-    width: 50%;
-    border:1px solid lightgray;
+    width:fit-content;
     border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.904);
+    padding: 3px;
 }
 
 .color-option {
@@ -27,12 +27,8 @@
     width: 25px;
     border-radius: 50%;
     margin: 1px;
+    border:0.1px solid rgb(36, 36, 36);
 }
-
-
-
-
-
 
 .blue-bg {
     background-color: #aecbfa;
@@ -60,4 +56,10 @@
 }
 .brown-bg {
     background-color:#e6c9a8;
+}
+
+@media (max-width:700px) {
+    .colors-menu {
+        width: 142px
+    }
 }

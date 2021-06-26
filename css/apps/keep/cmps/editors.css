@@ -15,6 +15,23 @@
     z-index: 1;
 }
 
+.vid-editor.editor {
+    align-items: center;
+    justify-content: center;
+    min-height: fit-content;
+}
+
+.vid-editor img {
+    width: 40px;
+}
+
+.vid-editor div {
+    width: fit-content;
+    margin: auto;
+    margin-top:10px;
+}
+
+
 .editor input,textarea{
     border: none;
     padding: 10px;

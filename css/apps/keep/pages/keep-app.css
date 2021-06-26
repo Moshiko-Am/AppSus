@@ -18,7 +18,7 @@ transition: background-image 1.5s ease;
 }
 
 .keeps-container{
-    columns:5 250px;
+    columns:5 260px;
     padding: 10px;
     margin: 10px;
     margin-bottom: 0;
@@ -62,11 +62,12 @@ iframe {
 
 @media (max-width:700px) {
     .keeps-container {
-        columns: 2 200px;
+        columns: 2 240px;
     }
 }
 @media (max-width:500px) {
     .keeps-container {
+        columns: 2 200px;
         margin: 0;
         padding: 5px;
     }

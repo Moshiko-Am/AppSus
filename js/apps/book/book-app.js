@@ -13,7 +13,7 @@ export default {
 	},
 	template: `
     <section class="book-app-container">
-		<book-header></book-header>
+		<book-header @filtered="setFilter"></book-header>
         <book-details :book="selectedBook" v-if="selectedBook" @unShow="unShow"/>
         <div v-else>
             <book-list :books="booksToShow" @selected="selectBook" />

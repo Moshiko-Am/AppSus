@@ -8,6 +8,7 @@ import emailList from './apps/email/cmps/email-list.js';
 import emailSent from './apps/email/cmps/email-sent.js';
 import emailStar from './apps/email/cmps/email-star.js';
 import bookDetails from './apps/book/pages/book-details.js';
+import bookAdd from './apps/book/cmps/book-add.js'
 
 const routes = [
 	{
@@ -26,6 +27,11 @@ const routes = [
 		path: '/book/:bookId',
 		component: bookDetails,
 	},
+	{
+		path: '/bookAdd',
+		component: bookAdd,
+	},
+
 	{
 		path: '/mail',
 		component: mailApp,

@@ -9,7 +9,7 @@ export default {
 	template: `
     <header class="book-header">
         <header-controls></header-controls>
-        <book-filter></book-filter>
+        <book-filter @filtered="filtered"></book-filter>
         <router-link to="/book">
 			<div class="header-logo-container">
 						<h2>Books</h2>
@@ -19,4 +19,10 @@ export default {
         
     </header>
     `,
+	methods : {
+		filtered(filter){
+			console.log(filter);
+			this.$emit('filtered', filter)
+		}
+	}
 };

@@ -6,7 +6,7 @@
 
 .inputs-wrapper {
 	display: flex;
-	margin-inline: 10px;
+	/* margin-inline: 10px; */
 }
 
 .inputs-wrapper input,
@@ -29,7 +29,6 @@
 	align-items: center;
 }
 
-.btn-search,
 .btn-add-book {
 	font-size: 14px;
 	padding: 10px 20px;
@@ -40,8 +39,91 @@
 	transition: all 0.3s;
 }
 
+.btn-search {
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	background-color: #c8c8c8;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	transition: all 0.3s;
+	margin-left: 5px;
+}
+.btn-search img {
+	width: 100%;
+}
+
+.btn.btn-add-book.small{
+	display: none;
+}
+
 .btn-search:hover,
 .btn-add-book:hover {
 	transform: scale(1.05);
 	background-color: #afafaf;
 }
+
+@media (max-width:1200px) {
+	.book-header .header-logo-container h2 {
+		display: none;
+	}
+
+	.book-header .img.header-logo {
+		margin-inline: 5px;
+	}
+
+	.inputs-wrapper input {
+		width: 150px;
+		margin:0 5px
+	}
+	.btn.btn-add-book {
+		padding: 10px;
+	}
+}
+@media (max-width:900px) {
+	
+	.inputs-wrapper input {
+		width: 100px;
+		margin:3px;
+		padding:10px 5px;
+	}	
+}
+@media (max-width:700px) {
+	/* .inputs-wrapper input[type=number]{
+		width: 50px;
+	} */
+	.btn.btn-add-book {
+		display: none;
+	}
+
+	.btn.btn-add-book.small{
+		display: block;
+		position: fixed;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 1);
+		border: 1px solid lightgray;
+		bottom: 20px;
+		left: 20px;
+		padding: 5px;
+	}
+}
+
+@media (max-width:600px) {
+	.inputs-wrapper input{
+	width: 50px;
+	}
+}
+
+
+
+
+
+
+
+
+
+

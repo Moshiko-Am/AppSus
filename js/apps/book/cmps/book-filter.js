@@ -9,30 +9,32 @@ export default {
 			</div>
 			<div class="from-input">
 				<label>
-					<input v-model.number="filterBy.fromPrice" type="number" placeholder="From Price">
+					<input v-model.number="filterBy.fromPrice" type="number" placeholder="Min">
 				</label>
 			</div>
 			<div class="to-input">
 				<label>
-					<input v-model.number="filterBy.toPrice" type="number" placeholder="To Price">
+					<input v-model.number="filterBy.toPrice" type="number" placeholder="Max">
 				</label>
 			</div>
 		</div>
-		<button @click="filter" class="btn-search">Search</button>
-		<router-link to="bookAdd" class="btn btn-add-book">Add New Book</router-link>
+		<button @click="filter" class="btn-search"><img src="img/search.icon.svg" alt=""></button>
+		<router-link to="bookAdd" class="btn btn-add-book">Add Book</router-link>
+		<router-link to="bookAdd" class="btn btn-add-book small"><img src="img/plus.png" alt=""></router-link>
     </section>
     `,
 	data() {
 		return {
 			filterBy: {
 				title: '',
-				fromPrice: 0,
+				fromPrice: -Infinity,
 				toPrice: Infinity,
 			},
 		};
 	},
 	methods: {
 		filter() {
+			console.log(this.filterBy);
 			this.$emit('filtered', { ...this.filterBy });
 		},
 	},

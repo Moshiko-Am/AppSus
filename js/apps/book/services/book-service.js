@@ -466,6 +466,7 @@ function getBook(searchParam) {
 }
 
 function addBookToStorage(book) {
+	book.listPrice.amount = getRandomInt();
 	storageService.post(BOOKS_KEY, book);
 }
 
@@ -482,3 +483,8 @@ function getPrevBookId(bookId) {
 		return idx === 0 ? books[books.length - 1].id : books[idx - 1].id;
 	});
 }
+
+function getRandomInt() {
+	return Math.floor(Math.random() * (200 - 10 + 1) + 10);
+  }
+  

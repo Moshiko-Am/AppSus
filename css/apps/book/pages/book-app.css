@@ -4,6 +4,7 @@
 @import url('../cmps/book-list.css');
 @import url('../cmps/review-add.css');
 @import url('./book-details.css');
+@import url('../cmps/book-review.css');
 
 .book-img {
 	width: 100px;

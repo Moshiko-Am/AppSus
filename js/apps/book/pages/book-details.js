@@ -8,20 +8,20 @@ export default {
 		reviewAdd,
 	},
 	template: `
-    <section v-if="book" class="book-details" >
-	<img class="book-img" :src="this.book.thumbnail" >
-        <p>Book Id: {{this.book.id}}.</p>
-        <p>Title: {{this.book.title}}.</p>
-        <p>Subtitle: {{this.book.subtitle}}.</p>
-        <p>Authors: {{showAuthors}}.</p>
-        <p>Published Date:{{this.book.publishedDate}}. {{bookAge}}</p>
+    <section v-if="book" class="book-details-container" >
+	<img class="book-img details-img" :src="this.book.thumbnail" >
+        <p class="book-details details-id"><span class="detail">Book Id:</span> {{this.book.id}}.</p>
+        <p class="book-details details-title"><span class="detail">Title:</span> {{this.book.title}}.</p>
+        <p class="book-details details-subtitle"><span class="detail">Subtitle:</span> {{this.book.subtitle}}.</p>
+        <p class="book-details details-authors"><span class="detail">Authors:</span> {{showAuthors}}.</p>
+        <p class="book-details details-published"><span class="detail">Published Date:</span> {{this.book.publishedDate}}. {{bookAge}}</p>
         <long-text :txt="this.book.description"></long-text>
-        <p>Page Count: {{this.book.pageCount}}. {{bookReadTime}}</p>
-        <p>Categories: {{showCategories}}.</p>
-        <p>Thumbnail: {{this.book.thumbnail}}.</p>
-        <p>Language: {{this.book.language}}.</p>
-        <p>Price: <span :class="priceColor">{{showCurrency}}.</span> <span :class=isSale>{{isOnSale}}</span></p>
-		<button v-if="!showReview" @click="toggleReview">Write a review</button>
+        <p class="book-details details-count"><span class="detail">Page Count:</span> {{this.book.pageCount}}. {{bookReadTime}}</p>
+        <p class="book-details details-categories"><span class="detail">Categories:</span> {{showCategories}}.</p>
+        <p class="book-details details-thumbnail"><span class="detail">Thumbnail:</span> {{this.book.thumbnail}}.</p>
+        <p class="book-details details-lng"><span class="detail">Language:</span> {{this.book.language}}.</p>
+        <p class="book-details details-price"><span class="detail">Price:</span> <span :class="priceColor">{{showCurrency}}.</span> <span :class=isSale>{{isOnSale}}</span></p>
+		<button v-if="!showReview" @click="toggleReview" class="btn-review">Write a review</button>
 		<review-add v-if="showReview" @hideReview="toggleReview"/>
 		<div class="next-prev-btns-container">
 			<button class="btn btn-next">
@@ -31,7 +31,7 @@ export default {
 				<router-link :to="'/book/' + prevBookId">Previous Book</router-link>
 			</button>
 		</div>
-		<button>
+		<button class="btn-return">
 			<router-link class="btn" to="/book">Return</router-link>
 		</button>
     </section>
@@ -68,15 +68,15 @@ export default {
 	},
 	computed: {
 		bookReadTime() {
-			if (this.book.pageCount > 500) return 'Long reading.';
-			if (this.book.pageCount > 200) return 'Decent reading.';
-			if (this.book.pageCount < 100) return 'Light reading.';
+			if (this.book.pageCount > 500) return '(Long reading)';
+			if (this.book.pageCount > 200) return '(Decent reading)';
+			if (this.book.pageCount < 100) return '(Light reading)';
 		},
 		bookAge() {
 			if (new Date().getFullYear() - this.book.publishedDate > 10)
-				return 'Veteran Book.';
+				return '(Veteran Book)';
 			if (new Date().getFullYear() - this.book.publishedDate < 1)
-				return 'New!';
+				return '(New!)';
 		},
 		showCurrency() {
 			return this.book.listPrice.amount.toLocaleString('en', {

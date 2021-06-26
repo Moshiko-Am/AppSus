@@ -58,7 +58,13 @@ export default {
 	methods: {
 		save() {
 			bookService.addReview(this.book.id, this.review);
-			this.reviews.push(this.review);
+			this.reviews.push({...this.review});
+            this.review = {
+				name: '',
+				rate: null,
+				date: null,
+				txt: '',
+			}
 		},
 		hideReview() {
 			this.$emit('hideReview');
@@ -70,6 +76,14 @@ export default {
 			);
 			this.reviews.splice(reviewIdx, 1);
 		},
+        formatDate() {
+            var date = new Date();
+            var years = date.getFullYear();
+            var months = date.getMonth() + 1;
+            var days = date.getDate();
+            var timeFormat = years + '-' + (months + '').padStart(2, '0') + '-' + (days + '').padStart(2, '0');
+            return timeFormat;
+        },
 	},
 
 	created() {
@@ -78,5 +92,6 @@ export default {
 			this.book = book;
 			this.reviews = this.book.reviews || [];
 		});
+        this.review.date = this.formatDate();
 	},
 };

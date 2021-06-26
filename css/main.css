@@ -91,20 +91,21 @@ p {
 }
 
 .main-menu {
-	position: fixed;
+	position: absolute;
 	text-align: center;
 	top: 65px;
-	left: 60px;
+	left: 0;
 	font-family: 'roboto-bold';
 	font-size: 1.2rem;
 	background-color: rgba(128, 128, 128, 0.815);
 	z-index: 1;
-	transform: translateY(-200%);
+	transform: translateX(-100%);
 	transition: transform 0.4s;
+	display: flex;
 }
 
 .main-menu.open {
-	transform: translateY(0);
+	transform: translateX(0);
 }
 
 
@@ -139,8 +140,5 @@ p {
 	.img.img-header-dots {
 		width: 30px;
 		height: 30px;
-	}
-	.main-menu {
-		left: 30px;
 	}
 }

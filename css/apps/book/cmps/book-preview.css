@@ -8,6 +8,11 @@
 	margin: 0 10px 20px;
 	background-color: #808080a6;
 	border-radius: 5px;
+	transition: box-shadow .3s;
+}
+
+.book-preview-container:hover {
+	box-shadow: 0px 0px 10px 2px rgb(212, 212, 212);
 }
 
 .book-preview {

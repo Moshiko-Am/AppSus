@@ -78,6 +78,11 @@
 	border-bottom-right-radius: 20px;
 }
 
+.email-status .img.img-star {
+	position: relative;
+	align-self: center;
+}
+
 .email-status p {
 	margin: 7px;
 	color: #3f3f40;

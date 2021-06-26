@@ -1,20 +1,25 @@
 .user-msg {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    height: 200px;
-    width: 400px;
-    /* background-color: rgb(128,128,128,0.9); */
-    transform: translate(-50% ,-50%);
-    z-index: 2;
-    border-radius: 10px;
-    /* border:3px solid gray; */
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	top: 50px;
+	right: 0;
+	height: 50px;
+	width: 200px;
+	/* background-color: rgb(128,128,128,0.9); */
+	/* transform: translate(-50%, -50%); */
+	z-index: 2;
+	border-radius: 10px;
+	/* border:3px solid gray; */
 }
 
 .success {
-    background-color: rgba(91, 209, 91, 0.9);
+	background-color: rgba(91, 209, 91, 0.9);
+	font-weight: 700;
 }
 
 .error {
-    background-color: rgba(230, 57, 27, 0.9);
+	background-color: rgba(230, 57, 27, 0.9);
+	font-weight: 700;
 }

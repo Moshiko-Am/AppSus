@@ -19,10 +19,9 @@ export default {
         
     </header>
     `,
-	methods : {
-		filtered(filter){
-			console.log(filter);
-			this.$emit('filtered', filter)
-		}
-	}
+	methods: {
+		filtered(filter) {
+			this.$emit('filtered', filter);
+		},
+	},
 };

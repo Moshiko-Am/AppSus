@@ -8,7 +8,9 @@ export default {
 	},
 	template: `
     <section class="email-list-container">
+		
         <ul class="email-list">
+			<h1 v-if="!emailsCopy">No emails to show</h1>
             <li class="email-item" v-for="email in emails" :key="email.id" v-if="!email.emailFrom">
                 <email-preview :email="email" @remove="removeEmail" @read="readEmails" @star="setStar"/>
             </li>
@@ -42,9 +44,4 @@ export default {
 				.catch((err) => {});
 		},
 	},
-	// created() {
-	// 	emailService.read().then((messages) => {
-	// 		this.emailList = messages;
-	// 	});
-	// },
 };

@@ -1,5 +1,5 @@
 export default {
-    template: `
+	template: `
         <section class="keep-filter">
             <div class="search-input-container">
                 <input v-model="filter.txt" type="text" @input="setFilter" placeholder="Search Keeps">
@@ -13,19 +13,17 @@ export default {
             </div>
         </section>
     `,
-    data() {
-        return {
-            filter: {
-                txt: '',
-                type: 'ALL',
-            }
-        }
-    },
-    methods: {
-        setFilter() {
-            // console.log(this.filter);
-            this.$emit('filtered', { ...this.filter });
-        },
-    }
-
-}
+	data() {
+		return {
+			filter: {
+				txt: '',
+				type: 'ALL',
+			},
+		};
+	},
+	methods: {
+		setFilter() {
+			this.$emit('filtered', { ...this.filter });
+		},
+	},
+};

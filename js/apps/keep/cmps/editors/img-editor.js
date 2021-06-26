@@ -1,5 +1,5 @@
 export default {
-    template: `
+	template: `
         <section class="img-editor editor">
             <div class="img-url-container">
                 <input type="text" class="url-input" v-model="imgUrl"  placeholder="Enter Image Url">
@@ -13,45 +13,44 @@ export default {
             </div>
         </section>
     `,
-    data() {
-        return {
-            note:{
-                type: "NoteImg",
-                isPinned: false,
-                info: {
-                    url: "",
-                    title: ""
-                },
-                style: {
-                    backgroundColor: "white"
-                },
-            },
-            imgUrl:null,
-            noteToPost:null,
-        }
-    },
-    methods: {
-        addNote(){
-            this.noteToPost = this.note;
-            this.note = {
-                type: "NoteImg",
-                isPinned: false,
-                info: {
-                    url: "",
-                    title: ""
-                },
-                style: {
-                    backgroundColor: "white"
-                },
-            },
-            console.log(this.noteToPost);
-            this.$emit('addNote', { ...this.noteToPost });
-        },
-        findImage(){
-            this.note.info.url = this.imgUrl;
-        },
-        closeEditor(){
-            this.$emit('closeEditor')
-        }
-    }
-}
+	data() {
+		return {
+			note: {
+				type: 'NoteImg',
+				isPinned: false,
+				info: {
+					url: '',
+					title: '',
+				},
+				style: {
+					backgroundColor: 'white',
+				},
+			},
+			imgUrl: null,
+			noteToPost: null,
+		};
+	},
+	methods: {
+		addNote() {
+			this.noteToPost = this.note;
+			(this.note = {
+				type: 'NoteImg',
+				isPinned: false,
+				info: {
+					url: '',
+					title: '',
+				},
+				style: {
+					backgroundColor: 'white',
+				},
+			}),
+				this.$emit('addNote', { ...this.noteToPost });
+		},
+		findImage() {
+			this.note.info.url = this.imgUrl;
+		},
+		closeEditor() {
+			this.$emit('closeEditor');
+		},
+	},
+};

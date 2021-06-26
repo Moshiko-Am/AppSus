@@ -1,5 +1,5 @@
 export default {
-    template: `
+	template: `
         <section class="list-editor editor">
             <input type="text" class="list-title" v-model="note.info.label" placeholder="List Name">
             <div class="add-item-container">
@@ -19,49 +19,48 @@ export default {
             </div>
         </section>
     `,
-    data() {
-        return {
-            note: {
-                type: "NoteTodos",
-                isPinned: false,
-                info: {
-                    label: "",
-                    todos: [],
-                },
-                style: {
-                    backgroundColor: "white"
-                },
-            },
-            noteToPost: null,
-            currTodo: { txt: '', isDone: false },
-        }
-    },
-    methods: {
-        addTodo() {
-            this.note.info.todos.push(this.currTodo);
-            this.currTodo = { txt: '', isDone: false };
-        },
-        addNote() {
-            this.noteToPost = this.note;
-            this.note = {
-                type: "NoteTodos",
-                isPinned: false,
-                info: {
-                    label: "",
-                    todos: [],
-                },
-                style: {
-                    backgroundColor: "white"
-                },
-            },
-                console.log(this.noteToPost);
-            this.$emit('addNote', { ...this.noteToPost });
-        },
-        closeEditor(){
-            this.$emit('closeEditor')
-        },
-        removeTodo(idx){
-            this.note.info.todos.splice(idx,1);
-        }
-    }
-}
+	data() {
+		return {
+			note: {
+				type: 'NoteTodos',
+				isPinned: false,
+				info: {
+					label: '',
+					todos: [],
+				},
+				style: {
+					backgroundColor: 'white',
+				},
+			},
+			noteToPost: null,
+			currTodo: { txt: '', isDone: false },
+		};
+	},
+	methods: {
+		addTodo() {
+			this.note.info.todos.push(this.currTodo);
+			this.currTodo = { txt: '', isDone: false };
+		},
+		addNote() {
+			this.noteToPost = this.note;
+			(this.note = {
+				type: 'NoteTodos',
+				isPinned: false,
+				info: {
+					label: '',
+					todos: [],
+				},
+				style: {
+					backgroundColor: 'white',
+				},
+			}),
+				this.$emit('addNote', { ...this.noteToPost });
+		},
+		closeEditor() {
+			this.$emit('closeEditor');
+		},
+		removeTodo(idx) {
+			this.note.info.todos.splice(idx, 1);
+		},
+	},
+};

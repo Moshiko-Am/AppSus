@@ -1,12 +1,12 @@
-import txtEditor from "./editors/txt-editor.js";
-import listEditor from "./editors/list-editor.js";
-import imgEditor from "./editors/img-editor.js";
-import videoEditor from "./editors/video-editor.js";
-import audioEditor from "./editors/audio-editor.js";
-import { keepService } from "../services/keep-service.js";
+import txtEditor from './editors/txt-editor.js';
+import listEditor from './editors/list-editor.js';
+import imgEditor from './editors/img-editor.js';
+import videoEditor from './editors/video-editor.js';
+import audioEditor from './editors/audio-editor.js';
+import { keepService } from '../services/keep-service.js';
 
 export default {
-    template: `
+	template: `
     <section class="note-create">
         <div class="note-types">
         <input type="text" @click="chooseNoteType('txt')" placeholder="Add A Note" disabled>
@@ -26,42 +26,39 @@ export default {
         </div>
     </section>
     `,
-    data(){
-        return {
-            type : null,
-        }
-    },
-    methods: {
-        chooseNoteType(type){
-            this.type = type
-            console.log(this.type);
-        },
-        addNote(note){
-            console.log('hi');
-            keepService.create(note).then(()=>{
-                this.$emit('updateKeeps')
-                this.type = null;
-            });
-        },
-        closeEditor(){
-            this.type = null
-        }
-    },
-    components: {
-        txtEditor,
-        listEditor,
-        imgEditor,
-        videoEditor,
-        audioEditor
-    },
-    computed: {
-        editorType(){
-           if(this.type === 'txt') return txtEditor
-           if(this.type === 'list') return listEditor
-           if(this.type === 'img') return imgEditor
-           if(this.type === 'video') return videoEditor
-           if(this.type === 'audio') return audioEditor
-        }
-    }
-
+	data() {
+		return {
+			type: null,
+		};
+	},
+	methods: {
+		chooseNoteType(type) {
+			this.type = type;
+		},
+		addNote(note) {
+			keepService.create(note).then(() => {
+				this.$emit('updateKeeps');
+				this.type = null;
+			});
+		},
+		closeEditor() {
+			this.type = null;
+		},
+	},
+	components: {
+		txtEditor,
+		listEditor,
+		imgEditor,
+		videoEditor,
+		audioEditor,
+	},
+	computed: {
+		editorType() {
+			if (this.type === 'txt') return txtEditor;
+			if (this.type === 'list') return listEditor;
+			if (this.type === 'img') return imgEditor;
+			if (this.type === 'video') return videoEditor;
+			if (this.type === 'audio') return audioEditor;
+		},
+	},
 };

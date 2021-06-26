@@ -34,7 +34,6 @@ export default {
 			if (this.filterBy.fromPrice === '') this.filterBy.fromPrice = 0;
 			if (this.filterBy.toPrice === '') this.filterBy.toPrice = Infinity;
 			const searchStr = this.filterBy.title.toLowerCase();
-			console.log(this.filterBy);
 			const booksToShow = this.books.filter((book) => {
 				return (
 					book.title.toLowerCase().includes(searchStr) &&

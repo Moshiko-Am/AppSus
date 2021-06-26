@@ -1,6 +1,6 @@
 export default {
-    props: ['title', 'txt'],
-    template: `
+	props: ['title', 'txt'],
+	template: `
     <section>
         <div  class="edit-keep-bar">
             <button  title="Change Color" @click="toggleColorMenu"><img src="img/keep-icons/color.png" alt=""></button>
@@ -19,22 +19,23 @@ export default {
         </div>
     </section>
     `,
-    data() {
-        return {
-            colorMenu: false,
-        }
-    },
-    methods: {
-        toggleColorMenu() {
-            this.colorMenu = !this.colorMenu;
-        },
-        changeColor(colorClass) {
-            this.$emit('changeColor', colorClass)
-        },
-        sendMail() {
-            console.log(this.title);
-            console.log(this.txt);
-            this.$router.push({ path: 'mail/inbox', query: { subject:this.title,body:this.txt}})
-        }
-    }
-}
+	data() {
+		return {
+			colorMenu: false,
+		};
+	},
+	methods: {
+		toggleColorMenu() {
+			this.colorMenu = !this.colorMenu;
+		},
+		changeColor(colorClass) {
+			this.$emit('changeColor', colorClass);
+		},
+		sendMail() {
+			this.$router.push({
+				path: 'mail/inbox',
+				query: { subject: this.title, body: this.txt },
+			});
+		},
+	},
+};

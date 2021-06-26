@@ -42,7 +42,9 @@ export default {
             </div>
         </main>
         <footer class="compose-footer-container">
-            <button class="btn compose-btn-send" @click="sendEmail">Send</button>
+            <router-link to="/mail/inbox">
+				<button class="btn compose-btn-send" @click="sendEmail">Send</button>
+			</router-link>
             <button class="btn compose-btn-erase" @click="eraseCompose">
                 <img src="img/trash.png" class="img compose-erase-img">
             </button>
@@ -75,14 +77,15 @@ export default {
 			this.$emit('closeCompose');
 			if (this.body || this.subject) {
 				this.clearUrl();
+				this.eraseCompose();
 			}
-			this.eraseCompose();
 		},
 		sendEmail() {
+			console.log(this.email);
 			emailService.create(this.email).then(() => {
 				this.$emit('send');
+				this.closeCompose();
 			});
-			this.closeCompose();
 		},
 		clearUrl() {
 			this.$router.push({ path: 'inbox', query: {} });
@@ -125,6 +128,8 @@ export default {
 		},
 	},
 	created() {
+		this.email.emailSubject = this.emailSubject;
+		this.email.emailTo = this.emailAddress;
 		if (this.body) this.email.emailBody = this.body;
 		if (this.subject) this.email.emailSubject = this.subject;
 	},

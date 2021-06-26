@@ -8,12 +8,14 @@ export default {
 	},
 	template: `
     <section class="email-header-container">
+	<img src="img/menu (1).png" class="img mobile-menu-icon" @click="openMenu">
         <header-controls />
         <email-filter @filtered="filtered"/>
 		<router-link to="/mail/inbox">
 			<div class="header-logo-container">
 						<h2>Mail</h2>
 						<img class="img header-logo" src="img/gmail.png">
+						
 					</div>
 		</router-link>
     </section>
@@ -21,6 +23,9 @@ export default {
 	methods: {
 		filtered(filter) {
 			this.$emit('filtered', filter);
+		},
+		openMenu() {
+			this.$emit('mobile');
 		},
 	},
 };

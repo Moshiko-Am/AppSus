@@ -18,9 +18,13 @@ export default {
                 <div class="preview-body-subject">
                     <long-text-body :email="email"></long-text-body>
                 </div>
-				<img src="img/trash.png" class="img img-preview-remove" @click.stop="removeFromPreview(email.id)" title="Remove Email">
-				<img :src="setImgUrl" class="img img-preview-read" @click.stop=toggleRead title="Read/Unread">
-                <span :class="isUnread" class="email-sent-at">{{showTime}}</span>
+				<div class="email-preview-stats-container">
+					<div class="email-preview-btns-container">
+						<img src="img/trash.png" class="img img-preview-remove" @click.stop="removeFromPreview(email.id)" title="Remove Email">
+						<img :src="setImgUrl" class="img img-preview-read" @click.stop=toggleRead title="Read/Unread">
+					</div>
+					<span :class="isUnread" class="email-sent-at">{{showTime}}</span>
+				</div>
             </div>
             <email-preview-open :email="email" v-if="openPreview" @remove="removeEmail" @showDetails = "showDetails"/>
         </section>
@@ -28,6 +32,7 @@ export default {
 	data() {
 		return {
 			openPreview: false,
+			emailCopy: this.email,
 		};
 	},
 	methods: {
@@ -46,15 +51,14 @@ export default {
 			});
 		},
 		readEmail() {
-			this.email.isRead = true;
-			emailService.update(this.email).then(() => {
+			this.emailCopy.isRead = true;
+			emailService.update(this.emailCopy).then(() => {
 				this.$emit('read');
 			});
 		},
 		toggleRead() {
-			this.email.isRead = !this.email.isRead;
-			emailService.update(this.email).then(() => {
-				console.log('hey');
+			this.emailCopy.isRead = !this.emailCopy.isRead;
+			emailService.update(this.emailCopy).then(() => {
 				this.$emit('read');
 			});
 		},
@@ -85,19 +89,19 @@ export default {
 		},
 		isUnread() {
 			return {
-				unread: !this.email.isRead,
-				read: this.email.isRead,
+				unread: !this.emailCopy.isRead,
+				read: this.emailCopy.isRead,
 			};
 		},
 		isStar() {
-			if (this.email.isStar) {
+			if (this.emailCopy.isStar) {
 				return 'img/starYellow.png';
 			} else {
 				return 'img/starEmpty.png';
 			}
 		},
 		setImgUrl() {
-			if (this.email.isRead) {
+			if (this.emailCopy.isRead) {
 				return 'img/read-mail.png';
 			}
 			return 'img/unread.png';

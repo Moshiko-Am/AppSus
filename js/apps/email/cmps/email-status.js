@@ -1,8 +1,8 @@
 import { emailService } from '../services/email-service.js';
 export default {
-	props: ['emails'],
+	props: ['emails', 'mobile'],
 	template: `
-    <div class="email-status-container">
+    <div class="email-status-container" :class="doMobile">
                     <router-link to="/mail/inbox" class-active="active-link">
 						<div class="email-status">
 							<img src="img/inbox.png" class="img img-inbox" />
@@ -68,6 +68,9 @@ export default {
 				if (!email.isRead) this.isUnread++;
 			});
 			return ` (${this.isUnread})`;
+		},
+		doMobile() {
+			return { 'menu-mobile': this.mobile };
 		},
 		sumOfStarred() {
 			this.isStar = 0;

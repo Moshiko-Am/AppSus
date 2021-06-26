@@ -45,12 +45,10 @@ export default {
 		removeEmail(ev, emailId) {
 			ev.stopPropagation();
 			emailService.remove(emailId).then(() => {
-				console.log(emailId);
 				this.$emit('remove', emailId);
 			});
 		},
 		showDetails() {
-			console.log('showing');
 			this.$emit('showDetails');
 		},
 	},

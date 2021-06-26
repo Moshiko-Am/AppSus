@@ -78,11 +78,18 @@ export default {
 			this.$emit('closeCompose');
 			if (this.body || this.subject) {
 				this.clearUrl();
-				this.eraseCompose();
 			}
+			this.eraseCompose();
 		},
 		sendEmail() {
-			console.log(this.email);
+			if (!this.email.emailTo) {
+				const msg = {
+					txt: 'Error, missing information',
+					type: 'error',
+				};
+				eventBus.$emit('show-msg', msg);
+				return;
+			}
 			emailService
 				.create(this.email)
 				.then(() => {
@@ -98,7 +105,7 @@ export default {
 				})
 				.catch((err) => {
 					const msg = {
-						txt: 'Error, please try again',
+						txt: 'Error, missing information',
 						type: 'error',
 					};
 					eventBus.$emit('show-msg', msg);

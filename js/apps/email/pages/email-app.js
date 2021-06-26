@@ -24,7 +24,7 @@ export default {
 						<img src="img/plus.png" class="img img-plus" title="New Message">	
 					</button>
 				</div>
-				<email-status :emails="emails" :mobile="isMobile"/>
+				<email-status :emails="emails" :mobile="isMobile" @closeStatus="setMobile"/>
 			</aside>
             <email-compose v-show="composeShow" @closeCompose="toggleCompose" @send="sendEmail" :subject="urlSubject" :body="urlBody"/>
             <router-view :emails="emailsToShow" @star="reloadEmails" @read="reloadEmails" @remove="removeEmail" v-show="!composeShow"></router-view>

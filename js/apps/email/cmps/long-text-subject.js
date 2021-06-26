@@ -23,6 +23,8 @@ export default {
 		},
 	},
 	created() {
-		if (this.email.emailSubject.length >= 70) this.longSubject = true;
+		if (this.email.emalSubject) {
+			if (this.email.emailSubject.length >= 70) this.longSubject = true;
+		}
 	},
 };

@@ -46,7 +46,6 @@ export default {
 	},
 	methods: {
 		remove(keepId) {
-			console.log(keepId);
 			keepService.remove(keepId).then(() => {
 				if (this.keeps.length === 1) {
 					this.keeps = null;
@@ -67,7 +66,6 @@ export default {
 		},
 		setFilter(filter) {
 			this.filter = filter;
-			console.log(this.filter);
 		},
 	},
 	computed: {
@@ -76,8 +74,6 @@ export default {
 			const searchStr = this.filter.txt.toLowerCase();
 			const type = this.filter.type;
 			const keepsToShow = this.keeps.filter((keep) => {
-				console.log(this.keeps);
-				console.log(keep);
 				if (type === 'ALL') {
 					if (keep.type === 'NoteTodos') {
 						if (!keep.info.label) return keep;

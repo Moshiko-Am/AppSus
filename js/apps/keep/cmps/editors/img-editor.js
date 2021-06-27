@@ -16,7 +16,7 @@ export default {
 	data() {
 		return {
 			note: {
-				type: 'NoteImg',
+				type: 'noteImg',
 				isPinned: false,
 				info: {
 					url: '',

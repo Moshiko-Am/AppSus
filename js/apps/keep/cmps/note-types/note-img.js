@@ -5,11 +5,11 @@ export default {
     template: `
         <section class="note-img" :style="bgColor">
             <div class="top-btns">
-                <button class="btn-keep-remove" title="Delete Note" @click="remove(keep.id)"><img src="img/trash.png" alt=""></button>
-                <button class="btn-keep-pin" title="Pin Note" @click="togglePin"><img :src="imgUrl" alt=""></button>
+                <button class="btn-keep-remove" title="Delete Note" @click="remove(keep.id)"><img src="img/trash.png"></button>
+                <button class="btn-keep-pin" title="Pin Note" @click="togglePin"><img :src="imgUrl"></button>
             </div>
             <h3 contenteditable="true" ref="imgTitle" @input="titleChanged">{{keep.info.title}}</h3>
-            <img :src="keep.info.url" alt="">
+            <img :src="keep.info.url" class="note-img-img">
             <edit-keep-bar @changeColor="changeBg" :title="keep.info.title" :txt="'Check out my new image: '+keep.info.url"></edit-keep-bar>
         </section>
     `,

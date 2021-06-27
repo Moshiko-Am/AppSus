@@ -1,6 +1,7 @@
 .home-page {
 min-height: 100vh;
 height: 100%;
+background-image: url(../../img/bg/bg-img1.webp);
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;

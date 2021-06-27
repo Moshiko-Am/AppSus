@@ -16,7 +16,7 @@ export default {
 	data() {
 		return {
 			note: {
-				type: 'NoteVid',
+				type: 'noteVid',
 				isPinned: false,
 				info: {
 					url: '',

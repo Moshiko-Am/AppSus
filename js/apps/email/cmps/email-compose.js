@@ -56,7 +56,7 @@ export default {
 		return {
 			email: {
 				emailTo: '',
-				emailFrom: false,
+				emailFrom: true,
 				isStar: false,
 				emailCc: '',
 				emailBcc: '',
@@ -121,7 +121,8 @@ export default {
 				emailBcc: '',
 				emailSubject: '',
 				emailBody: '',
-				isRead: false,
+				isRead: true,
+				emailFrom: true,
 				sentAt: '',
 			};
 		},

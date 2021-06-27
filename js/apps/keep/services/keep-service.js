@@ -2,7 +2,7 @@ import { storageService } from '../../../services/async-storage-service.js';
 
 export const keepService = {
 	create,
-	read,
+	get,
 	update,
 	remove,
 };
@@ -10,7 +10,7 @@ export const keepService = {
 const KEEP_KEY = 'keepDB';
 const starterKeeps = [
 	{
-		type: "NoteTxt",
+		type: "noteTxt",
 		isPinned: true,
 		info: {
 			title: "Hello World",
@@ -22,7 +22,7 @@ const starterKeeps = [
 		id: 'Awf1H'
 	},
 	{
-		type: "NoteImg",
+		type: "noteImg",
 		isPinned: false,
 		info: {
 			url: "img/gmail.png",
@@ -34,7 +34,7 @@ const starterKeeps = [
 		id: 'Aw23H'
 	},
 	{
-		type: "NoteTodos",
+		type: "noteTodos",
 		isPinned: false,
 		info: {
 			label: "How was it:",
@@ -53,14 +53,14 @@ const starterKeeps = [
 		info: { label: "list 2", todos: [{ txt: "item", isDone: false }] },
 		isPinned: false,
 		style: { backgroundColor: "#fff475" },
-		type: "NoteTodos",
+		type: "noteTodos",
 	},
 	{
 		id: "7FND8",
 		info: { label: "list", todos: [{ txt: "item", isDone: false },{ txt: "item", isDone: true },{ txt: "item", isDone: false },] },
 		isPinned: false,
 		style: { backgroundColor: "#aecbfa" },
-		type: "NoteTodos",
+		type: "noteTodos",
 	},
 	{
 	id: "3Hg1I",
@@ -70,7 +70,7 @@ const starterKeeps = [
 	},
 	isPinned: false,
 	style: {backgroundColor: "#fdcfe8"},
-	type: "NoteVid"
+	type: "noteVid"
 	}
 
 ]
@@ -80,7 +80,7 @@ function create(note) {
 	return storageService.post(KEEP_KEY, note)
 }
 
-function read() {
+function get() {
 	return storageService.query(KEEP_KEY).then((keeps) => {
 		if (keeps.length) return keeps
 		storageService.postMany(KEEP_KEY, starterKeeps);

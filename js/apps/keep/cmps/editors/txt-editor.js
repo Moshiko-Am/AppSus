@@ -12,7 +12,7 @@ export default {
 	data() {
 		return {
 			note: {
-				type: 'NoteTxt',
+				type: 'noteTxt',
 				isPinned: false,
 				info: {
 					title: null,

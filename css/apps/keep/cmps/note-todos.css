@@ -27,9 +27,9 @@
     text-decoration:line-through ;
 }
 
-.note-img img,iframe{
+.note-img .note-img-img,iframe{
     margin-top: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .txt-content {

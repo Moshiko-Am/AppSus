@@ -22,7 +22,7 @@ export default {
 	data() {
 		return {
 			note: {
-				type: 'NoteTodos',
+				type: 'noteTodos',
 				isPinned: false,
 				info: {
 					label: '',

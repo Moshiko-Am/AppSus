@@ -25,7 +25,7 @@ const options = {
 		};
 	},
 	mounted() {
-		this.isLoading = false;
+			this.isLoading = false;
 	},
 };
 
